@@ -2,7 +2,7 @@
     "name": "xyu/heroku-wp",
     "require": {
         "hhvm": "~3.1.0",
-        "WordPress/WordPress": "~3",
+        "WordPress/WordPress": "*",
         "wpackagist-plugin/jetpack": "~3.0.0"
     },
     "repositories": [
@@ -27,21 +27,17 @@
         }
     ],
     "extra": {
-        "webroot-dir": "public",
+        "webroot-dir": "public.built",
         "webroot-package": "WordPress/WordPress",
         "installer-paths": {
-            "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugins"],
-            "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-            "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+            "public.built/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugins"],
+            "public.built/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public.built/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
     },
     "scripts": {
-        "pre-install-cmd": [
-            "mv public public.prebuild"
-        ],
         "post-install-cmd": [
-            "cp -R public.prebuild/* public/.",
-            "rm -rf public.prebuild"
+            "cp -R public/* public.built/."
         ]
     }
 }
