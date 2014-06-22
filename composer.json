@@ -1,0 +1,6 @@
+{
+    "name": "xyu/heroku-wp",
+    "require": {
+        "hhvm": "~3.1.0"
+    }
+}
