@@ -1,13 +1,11 @@
 <?php
 	phpinfo();
 
-	// try out memcache
-	$m = new Memcached();
-
-	$m->addServer( 'cache-aws-us-east-1.iron.io', 11211 );
-	$m->set('oauth', "{$_ENV['IRON_CACHE_TOKEN']} {$_ENV['IRON_CACHE_PROJECT_ID']} WP", 0);
-
-	$m->set( 'test', 'blagh', 1 );
-	var_dump( $m->get( 'test' ) );
-	sleep(1);
-	var_dump( $m->get( 'test' ) );
+echo "REQUEST:\n";
+foreach (apache_request_headers() as $header => $value) {
+    echo "$header: $value\n";
+}
+echo "\nRESPONSE:\n";
+foreach (apache_response_headers() as $header => $value) {
+    echo "$header: $value \n";
+}
