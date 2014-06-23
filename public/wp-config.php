@@ -14,24 +14,23 @@
  * @package WordPress
  */
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+/**#@+
+ * MySQL settings.
+ *
+ * We are getting Heroku ClearDB settings from Heroku Environment Vars
+ */
+$_dbsettings = parse_url($_ENV["CLEARDB_DATABASE_URL"]);
 
-/** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_NAME',     trim($_dbsettings["path"],"/"));
+define('DB_USER',     $_dbsettings["user"]          );
+define('DB_PASSWORD', $_dbsettings["pass"]          );
+define('DB_HOST',     $_dbsettings["host"]          );
+define('DB_CHARSET', 'utf8'                         );
+define('DB_COLLATE', ''                             );
 
-/** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+unset($_dbsettings);
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+/**#@-*/
 
 /**#@+
  * Authentication Unique Keys and Salts.
