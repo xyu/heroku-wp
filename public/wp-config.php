@@ -14,6 +14,10 @@
  * @package WordPress
  */
 
+// Disable filesystem level changes from WP
+define('DISALLOW_FILE_EDIT',true);
+define('DISALLOW_FILE_MODS',true);
+
 /**#@+
  * MySQL settings.
  *
