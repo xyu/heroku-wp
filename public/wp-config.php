@@ -19,6 +19,27 @@ define('DISALLOW_FILE_EDIT',true);
 define('DISALLOW_FILE_MODS',true);
 
 /**#@+
+ * Memcache settings.
+ */
+$_mcsettings = parse_url($_ENV["MEMCACHIER_SERVERS"]);
+
+define('WP_CACHE', true);
+$sasl_memcached_config = array(
+	'default' => array(
+		array(
+			'host' => $_mcsettings["host"],
+			'port' => $_mcsettings["port"],
+			'user' => $_ENV["MEMCACHIER_USERNAME"],
+			'pass' => $_ENV["MEMCACHIER_PASSWORD"],
+		),
+	),
+);
+
+unset($_mcsettings);
+
+/**#@-*/
+
+/**#@+
  * MySQL settings.
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
