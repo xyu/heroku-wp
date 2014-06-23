@@ -2,19 +2,16 @@
 	phpinfo();
 
 	// try out memcache
-	Memcached::setSaslAuthData( $ENV['MEMCACHIER_USERNAME'], $ENV['MEMCACHIER_PASSWORD'] );
+	Memcached::addServer( 'cache-aws-us-east-1.iron.io', 11211 );
+	Memcached.set('oauth', "{$ENV['IRON_CACHE_TOKEN']} {$ENV['IRON_CACHE_PROJECT_ID']} WP", 0);
 
-	$m_server = parse_url( $ENV['MEMCACHIER_SERVERS'] );
 	$m = new Memcached();
-
-	var_dump(
-		$m->addServer( $m_server['host'], $m_server['port'] )
-	);
 
 	var_dump(
 		$m
 	);
 
-	var_dump( $_SERVER );
-
-	var_dump( $_ENV );
+	$m->set( 'test', 'blagh', 1 );
+	var_dump( $m->get( 'test' ) );
+	sleep(1);
+	var_dump( $m->get( 'test' ) );
