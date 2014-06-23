@@ -23,6 +23,10 @@ if ( !empty( $_ENV["SSL_DOMAIN"] ) ) {
 	define( 'SSL_DOMAIN_ALIAS', $_ENV["SSL_DOMAIN"] );
 	define( 'FORCE_SSL_LOGIN', true );
 	define( 'FORCE_SSL_ADMIN', true );
+
+	if ( 'https' == $_ENV["HTTP_X_FORWARDED_PROTO"] ) {
+		$_SERVER["HTTPS"] = 'on';
+	}
 }
 
 /**#@+
