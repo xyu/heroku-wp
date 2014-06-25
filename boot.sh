@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Write certs in env to files and replace with path
 if [ -n "$CLEARDB_SSL_KEY" -a -n "$CLEARDB_SSL_CERT" -a -n "$CLEARDB_SSL_CA" ]
@@ -16,6 +16,3 @@ else
   unset CLEARDB_SSL_CERT
   unset CLEARDB_SSL_CA
 fi
-
-# Boot up!
-vendor/bin/heroku-hhvm-nginx public.built/
