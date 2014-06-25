@@ -66,6 +66,16 @@ define('DB_COLLATE', ''                             );
 
 unset($_dbsettings);
 
+// Set SSL settings
+if ( isset( $_ENV["CLEARDB_SSL"] ) && 'ON' == $_ENV["CLEARDB_SSL"] ) {
+	define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS | MYSQLI_CLIENT_SSL);
+	define('MYSQL_SSL_KEY',      $_ENV["CLEARDB_SSL_KEY"]                  );
+	define('MYSQL_SSL_CERT',     $_ENV["CLEARDB_SSL_CERT"]                 );
+	define('MYSQL_SSL_CA',       $_ENV["CLEARDB_SSL_CA"]                   );
+} else {
+	define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS                    );
+}
+
 /**#@-*/
 
 /**#@+
