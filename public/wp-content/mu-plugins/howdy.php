@@ -5,6 +5,10 @@
  */
 
 function howdy_give_me_stuff() {
+
+	if ( !isset($_GET['howdy'] ) )
+		return;
+
 	global $wpdb;
 
 	phpinfo();
