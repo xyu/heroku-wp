@@ -26,6 +26,9 @@ function howdy_give_me_stuff() {
 	echo "\nENV:\n";
 	print_r( $_ENV );
 
+	echo "\SERVER:\n";
+	print_r( $_SERVER );
+
 	echo "\DB SSL:\n";
 	print_r( $wpdb->get_row( "SHOW STATUS LIKE 'Ssl_cipher'" ) );
 	die();
