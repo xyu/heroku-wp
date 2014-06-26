@@ -1,1 +1,1 @@
-web: sh boot.sh
+web: sh app_boot.sh
