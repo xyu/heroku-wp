@@ -28,21 +28,23 @@ if ( !empty( $_ENV["SSL_DOMAIN"] ) ) {
 /**#@+
  * Memcache settings.
  */
-$_mcsettings = parse_url($_ENV["MEMCACHIER_SERVERS"]);
+if ( !empty( $_ENV["MEMCACHIER_SERVERS"] ) ) {
+	$_mcsettings = parse_url($_ENV["MEMCACHIER_SERVERS"]);
 
-define('WP_CACHE', true);
-$sasl_memcached_config = array(
-	'default' => array(
-		array(
-			'host' => $_mcsettings["host"],
-			'port' => $_mcsettings["port"],
-			'user' => $_ENV["MEMCACHIER_USERNAME"],
-			'pass' => $_ENV["MEMCACHIER_PASSWORD"],
+	define('WP_CACHE', true);
+	$sasl_memcached_config = array(
+		'default' => array(
+			array(
+				'host' => $_mcsettings["host"],
+				'port' => $_mcsettings["port"],
+				'user' => $_ENV["MEMCACHIER_USERNAME"],
+				'pass' => $_ENV["MEMCACHIER_PASSWORD"],
+			),
 		),
-	),
-);
+	);
 
-unset($_mcsettings);
+	unset($_mcsettings);
+}
 
 /**#@-*/
 
