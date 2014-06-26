@@ -20,4 +20,4 @@ else
 fi
 
 # Boot up!
-vendor/bin/heroku-hhvm-nginx public.built/
+vendor/bin/heroku-hhvm-nginx -C app_nginx.conf public.built/
