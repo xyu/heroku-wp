@@ -33,4 +33,4 @@ function howdy_give_me_stuff() {
 	print_r( $wpdb->get_row( "SHOW STATUS LIKE 'Ssl_cipher'" ) );
 	die();
 }
-add_action( 'wp', 'howdy_give_me_stuff', 1 );
+add_action( 'init', 'howdy_give_me_stuff' );
