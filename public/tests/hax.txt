@@ -1,0 +1,9 @@
+<?php
+	echo 'omg hax!';
+
+	echo "\nENV:\n";
+	print_r( $_ENV );
+
+	echo "\SERVER:\n";
+	print_r( $_SERVER );
+
