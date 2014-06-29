@@ -137,6 +137,12 @@ Optional Installation
 
 Installing and configuring the items below are not essential to get a working WordPress install but will make your site more functional and secure.
 
+### Securing Your Admin Dashboard
+
+Heroku provides an SSL'ed endpoint to each app for free via the APP_NAME.herokuapp.com domain. To use this domain for all logged in sessions and to protect your login credentials simply set the SSL domain in the config vars. (Replace APP_NAME with the name of your Heroku app.)
+
+    $ heroku config:set SSL_DOMAIN="APP_NAME.herokuapp.com"
+
 ### Securing Your MySQL Connection
 
 By default WordPress will connect to the database unencrypted which is a potential problem for a cloud based installs where the database and application servers may transfer data over unsecured connections. ClearDB provides SSL keys and certs for the database that's setup and it's highly advisable to use them to secure your database connection.
@@ -145,11 +151,14 @@ By default WordPress will connect to the database unencrypted which is a potenti
 2. Click on the "ClearDB MySQL Database" addon.
 3. Scroll to the bottom of the page and download the "ClearDB CA Certificate", "Client Certificate", and "Client Private Key" in the "PEM Format".
 4. Generate Heroku compatiable RSA keys from the key file downloaded:
+
     $ openssl rsa -in cleardb_id-key.pem -out cleardb_id-key.rsa.pem
+
 5. Add the keys to the config vars of your app:
-    $ heroku config:set\
-        CLEARDB_SSL_CA="$(cat /path/to/cleardb-ca.pem)"\
-        CLEARDB_SSL_CERT="$(cat /path/to/cleardb_id-cert.pem)"\
+
+    $ heroku config:set \
+        CLEARDB_SSL_CA="$(cat /path/to/cleardb-ca.pem)" \
+        CLEARDB_SSL_CERT="$(cat /path/to/cleardb_id-cert.pem)" \
         CLEARDB_SSL_KEY="$(cat /path/to/cleardb_id-key.rsa.pem)"
     > Setting config vars and restarting strange-turtle-1234... done, v12
     > CLEARDB_SSL_CA:   ...
