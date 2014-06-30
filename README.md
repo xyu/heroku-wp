@@ -3,11 +3,11 @@ Heroku WP
 
 This is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/) with a focus on speed and security while using the official Heroku stack.
 
-The repository is built on top of the following technolgies.
+The repository is built on top of the following technologies.
 * [nginx](http://nginx.org) - For serving web content.
 * [HHVM](http://hhvm.com) - A virtual machine designed to serve Hack and PHP.
-* [MySQL](http://www.mysql.com) - Provided by the ClearDB addon.
-* [Memcached](http://memcached.org) - Provided by the MemCachier addon.
+* [MySQL](http://www.mysql.com) - Provided by the ClearDB add-on.
+* [Memcached](http://memcached.org) - Provided by the MemCachier add-on.
 * [Composer](https://getcomposer.org) - A dependency manager to make installing and managing plugins easier.
 
 In additon repository comes bundled with the following plugins.
@@ -148,9 +148,9 @@ Heroku provides an SSL'ed endpoint to each app for free via the APP_NAME.herokua
 By default WordPress will connect to the database unencrypted which is a potential problem for a cloud based installs where the database and application servers may transfer data over unsecured connections. ClearDB provides SSL keys and certs for the database that's setup and it's highly advisable to use them to secure your database connection.
 
 1. Go to your [Heroku Dashboard](https://dashboard.heroku.com/) and click on your heroku-wp app.
-2. Click on the "ClearDB MySQL Database" addon.
+2. Click on the "ClearDB MySQL Database" add-on.
 3. Scroll to the bottom of the page and download the "ClearDB CA Certificate", "Client Certificate", and "Client Private Key" in the "PEM Format".
-4. Generate Heroku compatiable RSA keys from the key file downloaded:
+4. Generate Heroku compatible RSA keys from the key file downloaded:
 
     ```
     $ openssl rsa -in cleardb_id-key.pem -out cleardb_id-key.rsa.pem
@@ -198,7 +198,7 @@ Activate the plugin with Heroku SendGrid credentials
 Usage
 -----
 
-Because a file cannot be written to Heroku's file system, updating and installing plugins or themes should be done locally and then pushed to Heroku. Even better would be to use Composer to install plugins so that version control and upgrading is simply a matter of editing the `composer.json` file and bummping the version number.
+Because a file cannot be written to Heroku's file system, updating and installing plugins or themes should be done locally and then pushed to Heroku. Even better would be to use Composer to install plugins so that version control and upgrading is simply a matter of editing the `composer.json` file and bumping the version number.
 
 Updating
 --------
