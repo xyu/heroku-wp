@@ -151,11 +151,11 @@ By default WordPress will connect to the database unencrypted which is a potenti
 2. Click on the "ClearDB MySQL Database" addon.
 3. Scroll to the bottom of the page and download the "ClearDB CA Certificate", "Client Certificate", and "Client Private Key" in the "PEM Format".
 4. Generate Heroku compatiable RSA keys from the key file downloaded:
-
+    ```
     $ openssl rsa -in cleardb_id-key.pem -out cleardb_id-key.rsa.pem
-
+    ```
 5. Add the keys to the config vars of your app:
-
+    ```
     $ heroku config:set \
         CLEARDB_SSL_CA="$(cat /path/to/cleardb-ca.pem)" \
         CLEARDB_SSL_CERT="$(cat /path/to/cleardb_id-cert.pem)" \
@@ -164,6 +164,7 @@ By default WordPress will connect to the database unencrypted which is a potenti
     > CLEARDB_SSL_CA:   ...
     > CLEARDB_SSL_CERT: ...
     > CLEARDB_SSL_KEY:  ...
+    ```
 
 ### Media Uploads
 
