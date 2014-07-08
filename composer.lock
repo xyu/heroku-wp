@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "6191b6cebfca50e96fe47e96a828688c",
+    "hash": "fc0aeb48da2ec2c062d40bb18f91f1f1",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -21,16 +22,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.14",
+            "version": "v1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "8281faa96186b18db9d53e8dbeb2d549c66d9cdc"
+                "reference": "8e6a72a78f6cfd537fde3350720dfdc9ae3c5621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/8281faa96186b18db9d53e8dbeb2d549c66d9cdc",
-                "reference": "8281faa96186b18db9d53e8dbeb2d549c66d9cdc",
+                "url": "https://api.github.com/repos/composer/installers/zipball/8e6a72a78f6cfd537fde3350720dfdc9ae3c5621",
+                "reference": "8e6a72a78f6cfd537fde3350720dfdc9ae3c5621",
                 "shasum": ""
             },
             "replace": {
@@ -106,7 +107,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-06-18 15:29:19"
+            "time": "2014-06-23 16:25:28"
         },
         {
             "name": "fancyguy/webroot-installer",
@@ -243,10 +244,20 @@
             "homepage": "http://wordpress.org/plugins/wpro/"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
-    "platform": [],
-    "platform-dev": []
+    "stability-flags": [
+
+    ],
+    "platform": {
+        "hhvm": "3.1.0"
+    },
+    "platform-dev": [
+
+    ]
 }
