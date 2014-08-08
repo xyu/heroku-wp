@@ -33,7 +33,7 @@
         "webroot-dir": "public.built",
         "webroot-package": "WordPress/WordPress",
         "installer-paths": {
-            "public.built/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugins"],
+            "public.built/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
             "public.built/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
             "public.built/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
