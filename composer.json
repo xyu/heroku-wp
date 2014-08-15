@@ -1,7 +1,7 @@
 {
     "name": "xyu/heroku-wp",
     "require": {
-        "hhvm": "~3.1",
+        "hhvm": "~3",
         "WordPress/WordPress": "*",
         "wpackagist-plugin/jetpack": "~3.1",
         "wpackagist-plugin/wpro": "~1.0",
