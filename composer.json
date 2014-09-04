@@ -14,10 +14,10 @@
             "package": {
                 "name": "WordPress/WordPress",
                 "type": "webroot",
-                "version": "3.9.2",
+                "version": "4.0",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/3.9.2.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.0.zip"
                 },
                 "require": {
                     "fancyguy/webroot-installer": "~1.1"
