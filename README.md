@@ -32,7 +32,7 @@ Clone the repository from Github
 
 With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
 
-    $ cd wordpress-heroku
+    $ cd heroku-wp
     $ heroku create
     > Creating strange-turtle-1234... done, stack is cedar
     > http://strange-turtle-1234.herokuapp.com/ | git@heroku.com:strange-turtle-1234.git
