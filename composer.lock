@@ -4,14 +4,14 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8033fef9a5576ac78b2ee1d7d47f087e",
+    "hash": "b0708f346802dc766ea83100b7b15f28",
     "packages": [
         {
             "name": "WordPress/WordPress",
-            "version": "4.0",
+            "version": "4.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/4.0.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/4.0.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -177,15 +177,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "3.1.1",
+            "version": "3.2.1",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/3.1.1"
+                "reference": "tags/3.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/jetpack.3.1.1.zip",
+                "url": "http://downloads.wordpress.org/plugin/jetpack.3.2.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -200,7 +200,7 @@
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.4.0",
+            "version": "1.4.4",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",

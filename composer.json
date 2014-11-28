@@ -3,10 +3,10 @@
     "require": {
         "hhvm": "~3.2",
         "WordPress/WordPress": "*",
-        "wpackagist-plugin/jetpack": "~3.1",
-        "wpackagist-plugin/wpro": "~1.0",
-        "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1.3",
-        "wpackagist-plugin/authy-two-factor-authentication": "~2.5"
+        "wpackagist-plugin/jetpack": "~3",
+        "wpackagist-plugin/wpro": "~1",
+        "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
+        "wpackagist-plugin/authy-two-factor-authentication": "~2"
     },
     "repositories": [
         {
@@ -14,10 +14,10 @@
             "package": {
                 "name": "WordPress/WordPress",
                 "type": "webroot",
-                "version": "4.0",
+                "version": "4.0.1",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.0.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.0.1.zip"
                 },
                 "require": {
                     "fancyguy/webroot-installer": "~1.1"
