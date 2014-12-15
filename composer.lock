@@ -172,38 +172,32 @@
             "require": {
                 "composer/installers": "~1.0"
             },
-            "replace": {
-                "wpackagist/authy-two-factor-authentication": "self.version"
-            },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/authy-two-factor-authentication/"
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "3.2.1",
+            "version": "3.3",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/3.2.1"
+                "reference": "tags/3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/jetpack.3.2.1.zip",
+                "url": "http://downloads.wordpress.org/plugin/jetpack.3.3.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
             },
-            "replace": {
-                "wpackagist/jetpack": "self.version"
-            },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/jetpack/"
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.4.4",
+            "version": "1.4.5",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
@@ -217,9 +211,6 @@
             },
             "require": {
                 "composer/installers": "~1.0"
-            },
-            "replace": {
-                "wpackagist/sendgrid-email-delivery-simplified": "self.version"
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
@@ -241,9 +232,6 @@
             "require": {
                 "composer/installers": "~1.0"
             },
-            "replace": {
-                "wpackagist/wpro": "self.version"
-            },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/wpro/"
         }
@@ -253,6 +241,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "hhvm": "~3.2"
     },
