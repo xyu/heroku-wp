@@ -190,14 +190,7 @@ Add SendGrid to your app
     > Adding sendgrid:starter on strange-turtle-1234... done, v11 (free)
     > Use `heroku addons:docs sendgrid:starter` to view documentation.
 
-Get the credentials from Heroku
-
-    $ heroku config:get SENDGRID_USERNAME
-    > app***@heroku.com
-    $ heroku config:get SENDGRID_PASSWORD
-    > ***
-
-Activate the plugin with Heroku SendGrid credentials
+Activate the plugin
 
 Usage
 -----
