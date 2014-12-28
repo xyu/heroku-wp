@@ -2,4 +2,3 @@ tmp/
 public.built/
 vendor/
 .vagrant/
-support/vagrant/ci/rebuild.lock
