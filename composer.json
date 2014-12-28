@@ -40,11 +40,11 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "mkdir public.building",
-            "cp -Rfs $(readlink -f public.composer)/* public.building",
-            "cp -Rfs $(readlink -f public)/* public.building",
-            "rm -Rf public.built",
-            "mv public.building public.built"
+            "mkdir /app/public.building",
+            "cp -Rfs /app/public.composer/* /app/public.building",
+            "cp -Rfs /app/public/* /app/public.building",
+            "rm -Rf /app/public.built",
+            "mv /app/public.building /app/public.built"
         ]
     }
 }
