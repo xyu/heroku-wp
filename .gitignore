@@ -1,6 +1,5 @@
+tmp/
 public.built/
-public.building/
-public.composer/
 vendor/
 .vagrant/
 support/vagrant/ci/rebuild.lock

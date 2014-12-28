@@ -30,22 +30,22 @@
         }
     ],
     "extra": {
-        "webroot-dir": "public.composer",
+        "webroot-dir": "tmp/public.composer",
         "webroot-package": "WordPress/WordPress",
         "installer-paths": {
-            "public.composer/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-            "public.composer/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-            "public.composer/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+            "tmp/public.composer/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "tmp/public.composer/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "tmp/public.composer/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
     },
     "scripts": {
         "post-install-cmd": [
-            "rm -rf public.building",
-            "mkdir public.building",
-            "cp -R public.composer/* public.building",
-            "cp -R public/* public.building",
+            "rm -rf tmp/public.building",
+            "mkdir tmp/public.building",
+            "cp -R tmp/public.composer/* tmp/public.building",
+            "cp -R public/* tmp/public.building",
             "rm -rf public.built",
-            "mv public.building public.built"
+            "mv tmp/public.building public.built"
         ]
     }
 }
