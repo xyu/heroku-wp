@@ -70,6 +70,12 @@ chmod 755 /usr/local/bin/composer
 /sbin/swapon /var/swap.1
 
 #
+# Install Some Utils
+#
+
+apt-get install -y fileschanged
+
+#
 # Copy Config Files
 #
 
@@ -90,3 +96,29 @@ cp -a /app/vagrant/root/* /
 #
 
 sudo -u vagrant composer --working-dir=/app install
+
+#
+# Start Daemon To Rebuild On Change
+#
+
+start-stop-daemon \
+  --start \
+  --oknodo \
+  --user vagrant \
+  --name rebuild \
+  --pidfile /var/run/rebuild.pid \
+  --startas /app/vagrant/ci/rebuild \
+  --chuid vagrant \
+  --make-pidfile /var/run/rebuild.pid \
+  --background
+
+#
+# Stop Daemon Example:
+#
+# start-stop-daemon \
+#   --stop \
+#   --oknodo \
+#   --user vagrant \
+#   --name rebuild \
+#   --pidfile /var/run/rebuild.pid \
+#   --retry 5

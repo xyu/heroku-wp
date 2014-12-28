@@ -1,0 +1,25 @@
+#!/bin/bash
+
+WATCHLIST="/app/vagrant/ci/rebuild.watchlist"
+LOCKFILE="/app/vagrant/ci/rebuild.lock"
+WORKINGDIR="/app"
+
+#
+# End Configs
+#
+
+fileschanged \
+  --recursive \
+  --show=created,changed,deleted \
+  --filelist=${WATCHLIST} | while read file; do
+
+    if [ -f ${LOCKFILE} ]; then
+      sleep 1
+    fi
+
+    touch ${LOCKFILE}
+    composer --working-dir=${WORKINGDIR} install
+    if [ -f ${LOCKFILE} ]; then
+      rm ${LOCKFILE}
+    fi
+done
