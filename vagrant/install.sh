@@ -3,8 +3,6 @@
 MYSQL_PASSWORD="password"
 MYSQL_USERNAME="herokuwp"
 
-HHVM_VER="3.3.1"
-
 #
 # End Config
 #
