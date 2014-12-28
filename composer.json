@@ -41,8 +41,8 @@
     "scripts": {
         "post-install-cmd": [
             "mkdir public.building",
-            "cp -Rfl public.composer/* public.building",
-            "cp -Rfl public/* public.building",
+            "cp -Rfs $(readlink -f public.composer)/* public.building",
+            "cp -Rfs $(readlink -f public)/* public.building",
             "rm -Rf public.built",
             "mv public.building public.built"
         ]
