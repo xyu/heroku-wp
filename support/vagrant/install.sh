@@ -79,7 +79,7 @@ apt-get install -y fileschanged
 # Copy Config Files
 #
 
-cp -a /app/vagrant/root/* /
+cp -a /app/support/vagrant/root/* /
 
 #
 # Restart Services
@@ -107,7 +107,7 @@ start-stop-daemon \
   --user vagrant \
   --name rebuild \
   --pidfile /var/run/rebuild.pid \
-  --startas /app/vagrant/ci/rebuild \
+  --startas /app/support/vagrant/ci/rebuild \
   --chuid vagrant \
   --make-pidfile /var/run/rebuild.pid \
   --background

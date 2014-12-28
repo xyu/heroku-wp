@@ -3,4 +3,4 @@ public.building/
 public.composer/
 vendor/
 .vagrant/
-vagrant/ci/rebuild.lock
+support/vagrant/ci/rebuild.lock

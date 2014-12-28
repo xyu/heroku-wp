@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Keep it simple; just 1 VM for db and web
   config.vm.define "herokuwp" do |herokuwp|
     herokuwp.vm.hostname = "herokuwp.local"
-    herokuwp.vm.provision :shell, :path => "vagrant/install.sh"
+    herokuwp.vm.provision :shell, :path => "support/vagrant/install.sh"
     herokuwp.vm.network :private_network, ip: VM_IP
   end
 
