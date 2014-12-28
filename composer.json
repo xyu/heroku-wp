@@ -1,5 +1,10 @@
 {
     "name": "xyu/heroku-wp",
+    "autoload": {
+        "psr-4": {
+            "HerokuWP\\": "support/"
+        }
+    },
     "require": {
         "hhvm": "~3.2",
         "WordPress/WordPress": "*",
@@ -40,11 +45,11 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "mkdir /app/public.building",
-            "cp -Rfs /app/public.composer/* /app/public.building",
-            "cp -Rfs /app/public/* /app/public.building",
-            "rm -Rf /app/public.built",
-            "mv /app/public.building /app/public.built"
+            "rm -rf public.building",
+            "mkdir public.building",
+            "HerokuWP\\Composer::makeSymLinkTree",
+            "rm -rf public.built",
+            "mv public.building public.built"
         ]
     }
 }
