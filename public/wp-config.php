@@ -91,14 +91,27 @@ if ( isset( $_ENV["CLEARDB_SSL"] ) && 'ON' == $_ENV["CLEARDB_SSL"] ) {
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         $_ENV['WP_AUTH_KEY']        );
-define('SECURE_AUTH_KEY',  $_ENV['WP_SECURE_AUTH_KEY'] );
-define('LOGGED_IN_KEY',    $_ENV['WP_LOGGED_IN_KEY']   );
-define('NONCE_KEY',        $_ENV['WP_NONCE_KEY']       );
-define('AUTH_SALT',        $_ENV['WP_AUTH_SALT']       );
-define('SECURE_AUTH_SALT', $_ENV['WP_SECURE_AUTH_SALT']);
-define('LOGGED_IN_SALT',   $_ENV['WP_LOGGED_IN_SALT']  );
-define('NONCE_SALT',       $_ENV['WP_NONCE_SALT']      );
+$_saltKeys = array(
+	'AUTH_KEY',
+	'SECURE_AUTH_KEY',
+	'LOGGED_IN_KEY',
+	'NONCE_KEY',
+	'AUTH_SALT',
+	'SECURE_AUTH_SALT',
+	'LOGGED_IN_SALT',
+	'NONCE_SALT',
+);
+
+foreach ( $_saltKeys as $_saltKey ) {
+	if ( !defined( $_saltKey ) ) {
+		define(
+			$_saltKey,
+			empty( $_ENV[ $_saltKey ] ) ? 'herokuwp' : $_ENV[ $_saltKey ]
+		);
+	}
+}
+
+unset( $_saltKeys, $_saltKey );
 
 /**#@-*/
 
