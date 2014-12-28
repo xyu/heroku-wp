@@ -1,1 +1,1 @@
-web: sh app_boot.sh
+web: sh support/app_boot.sh
