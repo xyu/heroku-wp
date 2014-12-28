@@ -1,10 +1,5 @@
 {
     "name": "xyu/heroku-wp",
-    "autoload": {
-        "psr-4": {
-            "HerokuWP\\": "support/"
-        }
-    },
     "require": {
         "hhvm": "~3.2",
         "WordPress/WordPress": "*",
@@ -47,7 +42,8 @@
         "post-install-cmd": [
             "rm -rf public.building",
             "mkdir public.building",
-            "HerokuWP\\Composer::makeSymLinkTree",
+            "cp -R public.composer/* public.building",
+            "cp -R public/* public.building",
             "rm -rf public.built",
             "mv public.building public.built"
         ]
