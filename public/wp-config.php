@@ -55,7 +55,11 @@ if ( !empty( $_ENV["MEMCACHIER_SERVERS"] ) ) {
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
  */
-$_dbsettings = parse_url($_ENV["CLEARDB_DATABASE_URL"]);
+if ( isset( $_ENV["CLEARDB_DATABASE_URL"] ) ) {
+	$_dbsettings = parse_url($_ENV["CLEARDB_DATABASE_URL"]);
+} else {
+	$_dbsettings = parse_url("mysql://herokuwp:password@127.0.0.1/herokuwp");
+}
 
 define('DB_NAME',     trim($_dbsettings["path"],"/"));
 define('DB_USER',     $_dbsettings["user"]          );
