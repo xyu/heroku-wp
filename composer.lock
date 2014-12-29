@@ -173,7 +173,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/authy-two-factor-authentication/"
+            "homepage": "https://wordpress.org/plugins/authy-two-factor-authentication/"
         },
         {
             "name": "wpackagist-plugin/jetpack",
@@ -193,7 +193,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/jetpack/"
+            "homepage": "https://wordpress.org/plugins/jetpack/"
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
@@ -213,7 +213,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
+            "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
         },
         {
             "name": "wpackagist-plugin/wpro",
@@ -233,7 +233,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/wpro/"
+            "homepage": "https://wordpress.org/plugins/wpro/"
         }
     ],
     "packages-dev": [],
