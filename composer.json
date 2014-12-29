@@ -1,5 +1,8 @@
 {
     "name": "xyu/heroku-wp",
+    "config": {
+        "vendor-dir": "tmp/vendor"
+    },
     "require": {
         "hhvm": "~3.2",
         "WordPress/WordPress": "*",
