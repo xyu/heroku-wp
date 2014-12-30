@@ -47,7 +47,7 @@ apt-get install -y nginx
 # Install HHVM
 #
 
-wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | apt-key add -
+curl -s -o - http://dl.hhvm.com/conf/hhvm.gpg.key | apt-key add -
 echo deb http://dl.hhvm.com/ubuntu trusty main | tee /etc/apt/sources.list.d/hhvm.list
 apt-get update
 apt-get install -y hhvm
@@ -56,7 +56,7 @@ apt-get install -y hhvm
 # Install Composer
 #
 
-curl -o /usr/local/bin/composer.phar https://getcomposer.org/composer.phar
+curl -s -o /usr/local/bin/composer.phar https://getcomposer.org/composer.phar
 echo '#!/bin/bash' > /usr/local/bin/composer
 echo 'hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer.phar $@' >> /usr/local/bin/composer
 chmod 755 /usr/local/bin/composer
