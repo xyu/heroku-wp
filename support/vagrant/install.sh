@@ -82,6 +82,12 @@ apt-get install -y fileschanged
 cp -a /app/support/vagrant/root/* /
 
 #
+# Build Heroku-WP
+#
+
+sudo -u vagrant composer --working-dir=/app install
+
+#
 # Restart Services
 #
 
@@ -91,11 +97,6 @@ cp -a /app/support/vagrant/root/* /
 /etc/init.d/nginx stop
 /etc/init.d/nginx start
 
-#
-# Build Heroku-WP
-#
-
-sudo -u vagrant composer --working-dir=/app install
 
 #
 # Start Daemon To Rebuild On Change
