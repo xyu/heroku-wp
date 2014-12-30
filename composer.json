@@ -43,12 +43,13 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "rm -rf tmp/public.building",
+            "rm -rf tmp/public.building tmp/public.old",
             "mkdir tmp/public.building",
             "cp -R tmp/public.composer/* tmp/public.building",
             "cp -R public/* tmp/public.building",
-            "rm -rf public.built",
-            "mv tmp/public.building public.built"
+            "touch public.built",
+            "mv public.built tmp/public.old && mv tmp/public.building public.built",
+            "rm -rf tmp/public.old"
         ]
     }
 }
