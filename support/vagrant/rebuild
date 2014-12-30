@@ -18,6 +18,6 @@ while true; do
             rm ${LOCKFILE}
         fi
     else
-        sleep 5
+        sleep 1
     fi
 done
