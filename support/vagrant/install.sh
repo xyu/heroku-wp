@@ -97,6 +97,15 @@ sudo -u vagrant composer --working-dir=/app install
 /etc/init.d/nginx stop
 /etc/init.d/nginx start
 
+/etc/init.d/memcached stop
+/etc/init.d/memcached start
+
+#
+# Stop Unused Services
+#
+
+/etc/init.d/puppet stop
+/etc/init.d/chef-client stop
 
 #
 # Start Daemon To Rebuild On Change
