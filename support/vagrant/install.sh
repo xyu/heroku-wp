@@ -111,7 +111,7 @@ start-stop-daemon \
   --user vagrant \
   --name rebuild \
   --pidfile /var/run/rebuild.pid \
-  --startas /app/support/vagrant/ci/rebuild \
+  --startas /app/support/vagrant/rebuild \
   --chuid vagrant \
   --make-pidfile /var/run/rebuild.pid \
   --background
