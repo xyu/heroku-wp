@@ -70,12 +70,6 @@ chmod 755 /usr/local/bin/composer
 /sbin/swapon /var/swap.1
 
 #
-# Install Some Utils
-#
-
-apt-get install -y fileschanged
-
-#
 # Copy Config Files
 #
 
