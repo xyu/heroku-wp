@@ -1,3 +1,4 @@
 tmp/
 public.built/
+vendor/
 .vagrant/
