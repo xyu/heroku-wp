@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "732f1382fb1efabb27807410dbc8416a",
+    "hash": "a9bb73eb8765335124b04971d4234839",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -15,10 +15,7 @@
                 "reference": null,
                 "shasum": null
             },
-            "require": {
-                "fancyguy/webroot-installer": "~1.1"
-            },
-            "type": "webroot"
+            "type": "library"
         },
         {
             "name": "composer/installers",
@@ -112,48 +109,6 @@
                 "zikula"
             ],
             "time": "2014-11-29 01:29:17"
-        },
-        {
-            "name": "fancyguy/webroot-installer",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fancyguy/webroot-installer.git",
-                "reference": "a2d5c2e149d837e5580a62a91d3c91577aa30d28"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fancyguy/webroot-installer/zipball/a2d5c2e149d837e5580a62a91d3c91577aa30d28",
-                "reference": "a2d5c2e149d837e5580a62a91d3c91577aa30d28",
-                "shasum": ""
-            },
-            "require-dev": {
-                "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "composer-installer",
-            "extra": {
-                "class": "FancyGuy\\Composer\\WebrootInstaller"
-            },
-            "autoload": {
-                "psr-0": {
-                    "FancyGuy\\Composer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Steve Buzonas",
-                    "email": "steve@fancyguy.com",
-                    "homepage": "http://www.stevebuzonas.com"
-                }
-            ],
-            "description": "A composer installer for libraries that live in an application webroot.",
-            "homepage": "http://fancyguy.github.com/webroot-installer/",
-            "time": "2013-03-15 17:51:14"
         },
         {
             "name": "wpackagist-plugin/authy-two-factor-authentication",

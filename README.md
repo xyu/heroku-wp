@@ -225,3 +225,12 @@ Heroku allows you to add custom domains to your site hosted with them.  To add y
 
     $ heroku domains:add www.example.com
     > Added www.example.com as a custom domain name to myapp.heroku.com
+
+Running Locally
+---------------
+
+A Vagrant instance to run Heroku WP is included to get up and running first [install Vagrant](https://docs.vagrantup.com/v2/installation/) then `vagrant up` and go grab some ☕.
+
+Once Vagrant provisions the VM you will have Heroku WP running locally at `http://herokuwp.local/`.
+
+As a convenience both the `/public` dir and `/composer.lock` file will be monitored by the VM. Any changes to either triggers a rebuild process which will result in `/public.built` (the web root) being updated.

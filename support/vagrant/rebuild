@@ -1,0 +1,23 @@
+#!/bin/bash
+
+WATCHLIST="/app/composer.lock /app/public/"
+WEBROOT="/app/public.built"
+LOCKFILE="/app/tmp/rebuild.lock"
+WORKINGDIR="/app"
+
+#
+# End Configs
+#
+
+while true; do
+    NEWFILES=`find $WATCHLIST -newer $WEBROOT`
+    if [ ! -z ${NEWFILES} ]; then
+        if [ ! -f ${LOCKFILE} ]; then
+            touch ${LOCKFILE}
+            composer --working-dir=${WORKINGDIR} install
+            rm ${LOCKFILE}
+        fi
+    else
+        sleep 1
+    fi
+done

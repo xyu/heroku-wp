@@ -55,7 +55,11 @@ if ( !empty( $_ENV["MEMCACHIER_SERVERS"] ) ) {
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
  */
-$_dbsettings = parse_url($_ENV["CLEARDB_DATABASE_URL"]);
+if ( isset( $_ENV["CLEARDB_DATABASE_URL"] ) ) {
+	$_dbsettings = parse_url($_ENV["CLEARDB_DATABASE_URL"]);
+} else {
+	$_dbsettings = parse_url("mysql://herokuwp:password@127.0.0.1/herokuwp");
+}
 
 define('DB_NAME',     trim($_dbsettings["path"],"/"));
 define('DB_USER',     $_dbsettings["user"]          );
@@ -87,14 +91,27 @@ if ( isset( $_ENV["CLEARDB_SSL"] ) && 'ON' == $_ENV["CLEARDB_SSL"] ) {
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         $_ENV['WP_AUTH_KEY']        );
-define('SECURE_AUTH_KEY',  $_ENV['WP_SECURE_AUTH_KEY'] );
-define('LOGGED_IN_KEY',    $_ENV['WP_LOGGED_IN_KEY']   );
-define('NONCE_KEY',        $_ENV['WP_NONCE_KEY']       );
-define('AUTH_SALT',        $_ENV['WP_AUTH_SALT']       );
-define('SECURE_AUTH_SALT', $_ENV['WP_SECURE_AUTH_SALT']);
-define('LOGGED_IN_SALT',   $_ENV['WP_LOGGED_IN_SALT']  );
-define('NONCE_SALT',       $_ENV['WP_NONCE_SALT']      );
+$_saltKeys = array(
+	'AUTH_KEY',
+	'SECURE_AUTH_KEY',
+	'LOGGED_IN_KEY',
+	'NONCE_KEY',
+	'AUTH_SALT',
+	'SECURE_AUTH_SALT',
+	'LOGGED_IN_SALT',
+	'NONCE_SALT',
+);
+
+foreach ( $_saltKeys as $_saltKey ) {
+	if ( !defined( $_saltKey ) ) {
+		define(
+			$_saltKey,
+			empty( $_ENV[ $_saltKey ] ) ? 'herokuwp' : $_ENV[ $_saltKey ]
+		);
+	}
+}
+
+unset( $_saltKeys, $_saltKey );
 
 /**#@-*/
 

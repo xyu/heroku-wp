@@ -1,5 +1,7 @@
 {
     "name": "xyu/heroku-wp",
+    "description": "A template for installing and running WordPress on Heroku",
+    "license": "MIT",
     "require": {
         "hhvm": "~3.2",
         "WordPress/WordPress": "*",
@@ -13,14 +15,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "type": "webroot",
                 "version": "4.1",
                 "dist": {
                     "type": "zip",
                     "url": "https://github.com/WordPress/WordPress/archive/4.1.zip"
-                },
-                "require": {
-                    "fancyguy/webroot-installer": "~1.1"
                 }
             }
         },
@@ -30,17 +28,21 @@
         }
     ],
     "extra": {
-        "webroot-dir": "public.built",
-        "webroot-package": "WordPress/WordPress",
         "installer-paths": {
-            "public.built/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-            "public.built/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-            "public.built/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+            "vendor/WordPress/WordPress/wp-content/mu-plugins/{$name}/": [ "type:wordpress-muplugin" ],
+            "vendor/WordPress/WordPress/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
+            "vendor/WordPress/WordPress/wp-content/themes/{$name}/": [ "type:wordpress-theme" ]
         }
     },
     "scripts": {
         "post-install-cmd": [
-            "cp -R public/* public.built/."
+            "rm -rf tmp/public.building tmp/public.old",
+            "mkdir -p tmp/public.building",
+            "cp -R vendor/WordPress/WordPress/* tmp/public.building",
+            "cp -R public/* tmp/public.building",
+            "touch public.built",
+            "mv public.built tmp/public.old && mv tmp/public.building public.built",
+            "rm -rf tmp/public.old"
         ]
     }
 }
