@@ -260,6 +260,5 @@ Then you can connect using SSH with the following paramaters:
 If your computer goes to sleep and vagrant is suspended abruptly
 ----------------
 
-Sometimes after `vagrant up` from a aborted state, the vm does not start correctly and the site is not accessible. SSH into the vagrant machine then:
-* Restart nginx `$ sudo /etc/init.d/nginx start`
-* Restart hhvm `$ sudo /etc/init.d/hhvm start`
+Sometimes after `vagrant up` from a aborted state, the vm does not start correctly and the site is not accessible. 
+* Provision the machine `vagrant provision` to force it to start back up again
