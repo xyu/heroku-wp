@@ -233,14 +233,14 @@ A Vagrant instance to run Heroku WP is included. To get up and running:
 * Install vagrant http://www.vagrantup.com/downloads
 * Install vitrual box https://www.virtualbox.org/wiki/Downloads 
 * Install virtual box extension pack https://www.virtualbox.org/wiki/Downloads 
-* `cd` into app root directory and run `$ vagrunt up` (should start setting up virtual env. go grab some ☕, takes about 10 minutes)
+* `cd` into app root directory and run `$ vagrant up` (should start setting up virtual env. go grab some ☕, takes about 10 minutes)
 
 Once Vagrant provisions the VM you will have Heroku WP running locally at `http://herokuwp.local/`. On first load, it should bring you to the wordpress install page. If the site is not accessible in the browser, you might need to add `192.168.50.100  herokuwp.local` to your hosts file.
 
 As a convenience both the `/public` dir and `/composer.lock` file will be monitored by the VM. Any changes to either triggers a rebuild process which will result in `/public.built` (the web root) being updated.
 
 Connecting to MySQL on Vagrant Machine
----------------
+--------------------------------------
 
 In order to connect you will need to change the MySQL config to work with 0.0.0.0 IP address instead of localhost.
 * SSH into the vm `$ vagrant ssh`
