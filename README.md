@@ -243,8 +243,7 @@ Connecting to MySQL on Vagrant Machine
 ---------------
 
 In order to connect you will need to change the MySQL config to work with 0.0.0.0 IP address instead of localhost.
-* SSH into the vm `$ ssh vagrant@127.0.0.1 -p 2222`  
-* The password is: vagrant
+* SSH into the vm `$ vagrant ssh`
 * Open the config file `$ vim /etc/mysql/my.cnf`
 * Change the IP address from 127.0.0.1 to 0.0.0.0
 
