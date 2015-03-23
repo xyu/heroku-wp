@@ -197,6 +197,12 @@ Usage
 
 Because a file cannot be written to Heroku's file system, updating and installing plugins or themes should be done locally and then pushed to Heroku. Even better would be to use Composer to install plugins so that version control and upgrading is simply a matter of editing the `composer.json` file and bumping the version number.
 
+Internationalization
+--------------------
+
+In most cases you may want to have your WordPress blog in a language different than its default (US English). In that case all you need to do is download the .mo and .po files for your language from [wpcentral.io/internationalization](http://wpcentral.io/internationalization/) and place them in the
+`languages` directory you'll create under `public/wp-content`. Then you should commit changes to your local branch and push them to your heroku remote. After that, you'll be able to select the new language from the WP admin panel.
+
 Updating
 --------
 
