@@ -17,7 +17,7 @@ In additon repository comes bundled with the following plugins.
 * [Authy Two Factor Auth](https://www.authy.com/products/wordpress)
 * [Jetpack](http://jetpack.me/)
 * [SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)
-* [WP Read-Only](http://wordpress.org/extend/plugins/wpro/)
+* [Amazon S3 and Cloudfront](https://wordpress.org/plugins/amazon-s3-and-cloudfront/)
 
 WordPress and most included plugins are installed by Composer on build. To add new plugins or upgrade versions of plugins simply update the `composer.json` file and then generate the `composer.lock` file with the following command locally:
 
@@ -175,10 +175,10 @@ By default WordPress will connect to the database unencrypted which is a potenti
 
 ### Media Uploads
 
-[WP Read-Only](http://wordpress.org/extend/plugins/wpro/) plugin is included in the repository allowing the use of [S3](http://aws.amazon.com/s3/) for media uploads.
+[Amazon S3 and Cloudfront](https://wordpress.org/plugins/amazon-s3-and-cloudfront/) plugin is included in the repository allowing the use of [S3](http://aws.amazon.com/s3/) for media uploads.
 
-1. Activate the plugin under 'Plugins', if not already activated.
-2. Input your Amazon S3 credentials in 'Settings'->'WPRO Settings'.
+1. Activate the Amazon Web Services plugin and Amazon S3 and Cloudfront plugin under 'Plugins', if not already activated.
+2. Input your Amazon S3 credentials in 'AWS'->'Settings'.
 
 ### Sending Email
 
