@@ -4,14 +4,14 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a9bb73eb8765335124b04971d4234839",
+    "hash": "bc3b542fb2823734f3c5619bcf77e809",
     "packages": [
         {
             "name": "WordPress/WordPress",
-            "version": "4.1",
+            "version": "4.1.2",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/4.1.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/4.1.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -19,16 +19,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.19",
+            "version": "v1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
                 "shasum": ""
             },
             "replace": {
@@ -70,9 +70,11 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
+                "aimeos",
                 "annotatecms",
                 "bitrix",
                 "cakephp",
@@ -108,19 +110,19 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-11-29 01:29:17"
+            "time": "2015-02-18 17:17:01"
         },
         {
             "name": "wpackagist-plugin/authy-two-factor-authentication",
-            "version": "2.5.4",
+            "version": "2.5.5",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/authy-two-factor-authentication/",
-                "reference": "tags/2.5.4"
+                "reference": "tags/2.5.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/authy-two-factor-authentication.2.5.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/authy-two-factor-authentication.2.5.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -132,15 +134,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "3.3",
+            "version": "3.4.3",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/3.3"
+                "reference": "tags/3.4.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/jetpack.3.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.3.4.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -152,7 +154,7 @@
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.4.6",
+            "version": "1.5.3",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
@@ -160,7 +162,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip",
+                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -180,7 +182,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/wpro.1.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/wpro.1.0.zip",
                 "reference": null,
                 "shasum": null
             },

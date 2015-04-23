@@ -197,6 +197,12 @@ Usage
 
 Because a file cannot be written to Heroku's file system, updating and installing plugins or themes should be done locally and then pushed to Heroku. Even better would be to use Composer to install plugins so that version control and upgrading is simply a matter of editing the `composer.json` file and bumping the version number.
 
+Internationalization
+--------------------
+
+In most cases you may want to have your WordPress blog in a language different than its default (US English). In that case all you need to do is download the .mo and .po files for your language from [wpcentral.io/internationalization](http://wpcentral.io/internationalization/) and place them in the
+`languages` directory you'll create under `public/wp-content`. Then you should commit changes to your local branch and push them to your heroku remote. After that, you'll be able to select the new language from the WP admin panel.
+
 Updating
 --------
 
@@ -229,8 +235,35 @@ Heroku allows you to add custom domains to your site hosted with them.  To add y
 Running Locally
 ---------------
 
-A Vagrant instance to run Heroku WP is included to get up and running first [install Vagrant](https://docs.vagrantup.com/v2/installation/) then `vagrant up` and go grab some ☕.
+A Vagrant instance to run Heroku WP is included. To get up and running:
+* Install vagrant http://www.vagrantup.com/downloads
+* Install vitrual box https://www.virtualbox.org/wiki/Downloads 
+* Install virtual box extension pack https://www.virtualbox.org/wiki/Downloads 
+* `cd` into app root directory and run `$ vagrant up` (should start setting up virtual env. go grab some ☕, takes about 10 minutes)
 
-Once Vagrant provisions the VM you will have Heroku WP running locally at `http://herokuwp.local/`.
+Once Vagrant provisions the VM you will have Heroku WP running locally at `http://herokuwp.local/`. On first load, it should bring you to the wordpress install page. If the site is not accessible in the browser, you might need to add `192.168.50.100  herokuwp.local` to your hosts file.
 
 As a convenience both the `/public` dir and `/composer.lock` file will be monitored by the VM. Any changes to either triggers a rebuild process which will result in `/public.built` (the web root) being updated.
+
+Connecting to MySQL on Vagrant Machine
+--------------------------------------
+
+In order to connect you will need to change the MySQL config to work with 0.0.0.0 IP address instead of localhost.
+* SSH into the vm `$ vagrant ssh`
+* Open the config file `$ vim /etc/mysql/my.cnf`
+* Change the IP address from 127.0.0.1 to 0.0.0.0
+
+Then you can connect using SSH with the following paramaters:
+* SSH hostname: 127.0.0.1:2222
+* SSH username: vagrant
+* SSH password: vagrant
+* MySQL hostname: 127.0.0.1
+* MySQL port: 3306
+* mysql user: root
+* mysql password: password
+
+If your computer goes to sleep and vagrant is suspended abruptly
+----------------
+
+Sometimes after `vagrant up` from a aborted state, the vm does not start correctly and the site is not accessible. 
+* Provision the machine `vagrant provision` to force it to start back up again

@@ -1,4 +1,4 @@
-tmp/
-public.built/
-vendor/
-.vagrant/
+/tmp/
+/public.built/
+/vendor/
+/.vagrant/
