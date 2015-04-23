@@ -12,6 +12,11 @@ echo "## Provisioning Heroku WP VM ##"
 echo "###############################"
 
 #
+# Remove existing hhvm, in order to roll back to version 3.5.1
+#
+sudo apt-get autoremove hhvm -y
+
+#
 # Update Package Manager
 #
 
@@ -47,10 +52,15 @@ apt-get install -y nginx
 # Install HHVM
 #
 
-curl -s -o - http://dl.hhvm.com/conf/hhvm.gpg.key | apt-key add -
-echo deb http://dl.hhvm.com/ubuntu trusty main | tee /etc/apt/sources.list.d/hhvm.list
-apt-get update
-apt-get install -y hhvm
+wget http://dl.hhvm.com/ubuntu/pool/main/h/hhvm/hhvm_3.5.1~trusty_amd64.deb
+dpkg -i hhvm_3.5.1~trusty_amd64.deb
+apt-get install -f -y
+
+# commented out this section because we need to use an old version of HHVM
+#curl -s -o - http://dl.hhvm.com/conf/hhvm.gpg.key | apt-key add -
+#echo deb http://dl.hhvm.com/ubuntu trusty main | tee /etc/apt/sources.list.d/hhvm.list
+#apt-get update
+#apt-get install -y hhvm
 
 #
 # Install Composer
