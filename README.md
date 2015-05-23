@@ -45,13 +45,13 @@ With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), crea
 
 Add a database to your app
 
-    $ heroku addons:add cleardb:ignite
+    $ heroku addons:create cleardb:ignite
     > Adding cleardb:ignite on strange-turtle-1234... done, v2 (free)
     > Use `heroku addons:docs cleardb:ignite` to view documentation.
 
 Add memcache to your app
 
-    $ heroku addons:add memcachier:dev
+    $ heroku addons:create memcachier:dev
     > Adding memcachier:dev on strange-turtle-1234... done, v3 (free)
     > MemCachier: added.  Your credentials may take up to 3 minutes to sync to our servers.
     > Use `heroku addons:docs memcachier:dev` to view documentation.
@@ -186,7 +186,7 @@ By default WordPress will connect to the database unencrypted which is a potenti
 
 Add SendGrid to your app
 
-    $ heroku addons:add sendgrid:starter
+    $ heroku addons:create sendgrid:starter
     > Adding sendgrid:starter on strange-turtle-1234... done, v11 (free)
     > Use `heroku addons:docs sendgrid:starter` to view documentation.
 
