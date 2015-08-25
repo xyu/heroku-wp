@@ -237,7 +237,7 @@ Running Locally
 
 A Vagrant instance to run Heroku WP is included. To get up and running:
 * Install vagrant http://www.vagrantup.com/downloads
-* Install vitrual box https://www.virtualbox.org/wiki/Downloads 
+* Install virtual box https://www.virtualbox.org/wiki/Downloads 
 * Install virtual box extension pack https://www.virtualbox.org/wiki/Downloads 
 * `cd` into app root directory and run `$ vagrant up` (should start setting up virtual env. go grab some ☕, takes about 10 minutes)
 
@@ -250,7 +250,7 @@ Connecting to MySQL on Vagrant Machine
 
 In order to connect you will need to change the MySQL config to work with 0.0.0.0 IP address instead of localhost.
 * SSH into the vm `$ vagrant ssh`
-* Open the config file `$ vim /etc/mysql/my.cnf`
+* Open the config file `$ sudo vim /etc/mysql/my.cnf`
 * Change the IP address from 127.0.0.1 to 0.0.0.0
 
 Then you can connect using SSH with the following paramaters:
