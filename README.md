@@ -59,14 +59,14 @@ Add memcache to your app
 Add unique keys and salts to your Heroku config
 
     $ heroku config:set\
-        WP_AUTH_KEY=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_SECURE_AUTH_KEY=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_LOGGED_IN_KEY=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_NONCE_KEY=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_AUTH_SALT=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_SECURE_AUTH_SALT=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_LOGGED_IN_SALT=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`\
-        WP_NONCE_SALT=`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`
+        WP_AUTH_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_SECURE_AUTH_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_LOGGED_IN_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_NONCE_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_AUTH_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_SECURE_AUTH_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_LOGGED_IN_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
+        WP_NONCE_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"
     > Setting config vars and restarting strange-turtle-1234... done, v4
     > WP_AUTH_KEY:         ...
     > WP_AUTH_SALT:        ...
