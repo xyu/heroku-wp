@@ -15,10 +15,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.3",
+                "version": "4.4.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.3.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.4.2.zip"
                 }
             }
         },
