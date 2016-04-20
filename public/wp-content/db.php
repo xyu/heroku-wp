@@ -77,9 +77,9 @@ class wpdb_ssl extends wpdb {
 
 				if ( $this->has_connected ) {
 					$attempt_fallback = false;
-				} else if ( defined( 'WP_USE_EXT_MYSQL' ) && ! WP_USE_EXT_MYSQL ) {
+				} elseif ( defined( 'WP_USE_EXT_MYSQL' ) && ! WP_USE_EXT_MYSQL ) {
 					$attempt_fallback = false;
-				} else if ( ! function_exists( 'mysql_connect' ) ) {
+				} elseif ( ! function_exists( 'mysql_connect' ) ) {
 					$attempt_fallback = false;
 				}
 
@@ -117,7 +117,7 @@ class wpdb_ssl extends wpdb {
 			" ), htmlspecialchars( $this->dbhost, ENT_QUOTES ) ), 'db_connect_fail' );
 
 			return false;
-		} else if ( $this->dbh ) {
+		} elseif ( $this->dbh ) {
 			$this->has_connected = true;
 			$this->set_charset( $this->dbh );
 			$this->set_sql_mode();
