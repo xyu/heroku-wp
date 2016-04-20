@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cacb47833cac1c3d7bc69284ee1a511e",
-    "content-hash": "01a40014dbe353191995f1777e03e9bc",
+    "hash": "e0c989358da2b723e5e6149857d69b4d",
+    "content-hash": "d64037d2f9c6b6994b4a625ef7f85077",
     "packages": [
         {
             "name": "WordPress/WordPress",
-            "version": "4.4.2",
+            "version": "4.5",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/4.4.2.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/4.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -20,16 +20,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.23",
+            "version": "v1.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e"
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6213d900e92647831f7a406d5c530ea1f3d4360e",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
                 "shasum": ""
             },
             "require": {
@@ -51,8 +51,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -67,12 +67,14 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
                 "SMF",
                 "Thelia",
@@ -114,14 +116,14 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-01-27 12:54:22"
+            "time": "2016-04-13 19:46:30"
         },
         {
             "name": "wpackagist-plugin/authy-two-factor-authentication",
             "version": "2.5.5",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/authy-two-factor-authentication/",
+                "url": "https://plugins.svn.wordpress.org/authy-two-factor-authentication/",
                 "reference": "tags/2.5.5"
             },
             "dist": {
@@ -138,15 +140,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "3.9.1",
+            "version": "3.9.6",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/3.9.1"
+                "url": "https://plugins.svn.wordpress.org/jetpack/",
+                "reference": "tags/3.9.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.3.9.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.3.9.6.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -158,10 +160,10 @@
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.7.2",
+            "version": "1.8.0",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
+                "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
                 "reference": "trunk"
             },
             "dist": {
@@ -181,7 +183,7 @@
             "version": "1.0",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wpro/",
+                "url": "https://plugins.svn.wordpress.org/wpro/",
                 "reference": "tags/1.0"
             },
             "dist": {

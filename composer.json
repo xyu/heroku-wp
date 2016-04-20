@@ -15,16 +15,16 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.4.2",
+                "version": "4.5",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.4.2.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.5.zip"
                 }
             }
         },
         {
             "type":"composer",
-            "url":"http://wpackagist.org"
+            "url":"https://wpackagist.org"
         }
     ],
     "extra": {
