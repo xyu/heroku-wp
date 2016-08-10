@@ -142,15 +142,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "4.1.1",
+            "version": "4.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/4.1.1"
+                "reference": "tags/4.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.4.1.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.4.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -162,7 +162,7 @@
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.8.2",
+            "version": "1.9.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
