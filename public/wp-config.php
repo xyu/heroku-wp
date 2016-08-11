@@ -15,11 +15,11 @@
  */
 
 // Disable filesystem level changes from WP
-define('DISALLOW_FILE_EDIT',true);
-define('DISALLOW_FILE_MODS',true);
+define( 'DISALLOW_FILE_EDIT', true );
+define( 'DISALLOW_FILE_MODS', true );
 
 // Set SSL'ed domain
-if ( !empty( $_ENV["SSL_DOMAIN"] ) ) {
+if ( !empty( $_ENV['SSL_DOMAIN'] ) ) {
 	define( 'FORCE_SSL_LOGIN', true );
 	define( 'FORCE_SSL_ADMIN', true );
 }
@@ -30,22 +30,22 @@ define( 'JETPACK_SIGNATURE__HTTPS_PORT', 80 );
 /**#@+
  * Memcache settings.
  */
-if ( !empty( $_ENV["MEMCACHIER_SERVERS"] ) ) {
-	$_mcsettings = parse_url($_ENV["MEMCACHIER_SERVERS"]);
+if ( !empty( $_ENV['MEMCACHIER_SERVERS'] ) ) {
+	$_mcsettings = parse_url( $_ENV['MEMCACHIER_SERVERS'] );
 
-	define('WP_CACHE', true);
+	define( 'WP_CACHE', true );
 	$sasl_memcached_config = array(
 		'default' => array(
 			array(
-				'host' => $_mcsettings["host"],
-				'port' => $_mcsettings["port"],
-				'user' => $_ENV["MEMCACHIER_USERNAME"],
-				'pass' => $_ENV["MEMCACHIER_PASSWORD"],
+				'host' => $_mcsettings['host'],
+				'port' => $_mcsettings['port'],
+				'user' => $_ENV['MEMCACHIER_USERNAME'],
+				'pass' => $_ENV['MEMCACHIER_PASSWORD'],
 			),
 		),
 	);
 
-	unset($_mcsettings);
+	unset( $_mcsettings );
 }
 
 /**#@-*/
@@ -55,29 +55,29 @@ if ( !empty( $_ENV["MEMCACHIER_SERVERS"] ) ) {
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
  */
-if ( isset( $_ENV["CLEARDB_DATABASE_URL"] ) ) {
-	$_dbsettings = parse_url($_ENV["CLEARDB_DATABASE_URL"]);
+if ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
+	$_dbsettings = parse_url( $_ENV['CLEARDB_DATABASE_URL'] );
 } else {
-	$_dbsettings = parse_url("mysql://herokuwp:password@127.0.0.1/herokuwp");
+	$_dbsettings = parse_url( 'mysql://herokuwp:password@127.0.0.1/herokuwp' );
 }
 
-define('DB_NAME',     trim($_dbsettings["path"],"/"));
-define('DB_USER',     $_dbsettings["user"]          );
-define('DB_PASSWORD', $_dbsettings["pass"]          );
-define('DB_HOST',     $_dbsettings["host"]          );
-define('DB_CHARSET', 'utf8'                         );
-define('DB_COLLATE', ''                             );
+define( 'DB_NAME',     trim( $_dbsettings['path'], '/' ) );
+define( 'DB_USER',     $_dbsettings['user']              );
+define( 'DB_PASSWORD', $_dbsettings['pass']              );
+define( 'DB_HOST',     $_dbsettings['host']              );
+define( 'DB_CHARSET', 'utf8'                             );
+define( 'DB_COLLATE', ''                                 );
 
-unset($_dbsettings);
+unset( $_dbsettings );
 
 // Set SSL settings
-if ( isset( $_ENV["CLEARDB_SSL"] ) && 'ON' == $_ENV["CLEARDB_SSL"] ) {
-	define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS | MYSQLI_CLIENT_SSL);
-	define('MYSQL_SSL_KEY',      $_ENV["CLEARDB_SSL_KEY"]                  );
-	define('MYSQL_SSL_CERT',     $_ENV["CLEARDB_SSL_CERT"]                 );
-	define('MYSQL_SSL_CA',       $_ENV["CLEARDB_SSL_CA"]                   );
+if ( isset( $_ENV['CLEARDB_SSL'] ) && 'ON' == $_ENV['CLEARDB_SSL'] ) {
+	define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS | MYSQLI_CLIENT_SSL );
+	define( 'MYSQL_SSL_KEY',      $_ENV['CLEARDB_SSL_KEY']                   );
+	define( 'MYSQL_SSL_CERT',     $_ENV['CLEARDB_SSL_CERT']                  );
+	define( 'MYSQL_SSL_CA',       $_ENV['CLEARDB_SSL_CA']                    );
 } else {
-	define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS                    );
+	define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS                     );
 }
 
 // Disable ext/mysql and use mysqli
@@ -134,7 +134,7 @@ $table_prefix  = 'wp_';
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
-define('WPLANG', '');
+define( 'WPLANG', '' );
 
 /**
  * For developers: WordPress debugging mode.
@@ -143,13 +143,14 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', false);
+define( 'WP_DEBUG', false );
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if ( !defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+}
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once( ABSPATH . 'wp-settings.php' );
