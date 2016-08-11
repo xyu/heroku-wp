@@ -22,5 +22,6 @@ fi
 # Boot up!
 vendor/bin/heroku-php-nginx \
   -C support/app_nginx.conf \
+  -F support/php-fpm.conf \
   -i support/php.ini \
   public.built/
