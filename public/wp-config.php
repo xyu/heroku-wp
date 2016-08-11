@@ -80,6 +80,9 @@ if ( isset( $_ENV["CLEARDB_SSL"] ) && 'ON' == $_ENV["CLEARDB_SSL"] ) {
 	define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS                    );
 }
 
+// Disable ext/mysql and use mysqli
+define( 'WP_USE_EXT_MYSQL', false );
+
 /**#@-*/
 
 /**#@+
