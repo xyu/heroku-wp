@@ -58,16 +58,20 @@ class wpdb_ssl extends wpdb {
 				mysqli_ssl_set( $this->dbh, $ssl_key, $ssl_cert, $ssl_ca, $ssl_capath, $ssl_cipher );
 			}
 
-			mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
+			if ( WP_DEBUG ) {
+				mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
+			} else {
+				@mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
+			}
 
 			if ( $this->dbh->connect_errno ) {
 				$this->dbh = null;
 
 				/* It's possible ext/mysqli is misconfigured. Fall back to ext/mysql if:
-				 *  - We haven't previously connected, and
-				 *  - WP_USE_EXT_MYSQL isn't set to false, and
-				 *  - ext/mysql is loaded.
-				 */
+		 		 *  - We haven't previously connected, and
+		 		 *  - WP_USE_EXT_MYSQL isn't set to false, and
+		 		 *  - ext/mysql is loaded.
+		 		 */
 				$attempt_fallback = true;
 
 				if ( $this->has_connected ) {
@@ -84,7 +88,11 @@ class wpdb_ssl extends wpdb {
 				}
 			}
 		} else {
-			$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
+			if ( WP_DEBUG ) {
+				$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
+			} else {
+				$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
+			}
 		}
 
 		if ( ! $this->dbh && $allow_bail ) {
