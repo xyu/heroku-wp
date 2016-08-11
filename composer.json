@@ -1,7 +1,16 @@
 {
     "name": "xyu/heroku-wp",
     "description": "A template for installing and running WordPress on Heroku",
+    "homepage": "https://github.com/xyu/heroku-wp",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Xiao Yu",
+            "email": "me@xyu.io",
+            "homepage": "http://xyu.io",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "~7.0",
         "WordPress/WordPress": "*",
@@ -9,6 +18,9 @@
         "wpackagist-plugin/wpro": "~1",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
         "wpackagist-plugin/authy-two-factor-authentication": "~2"
+    },
+    "suggest": {
+        "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF."
     },
     "repositories": [
         {
