@@ -13,7 +13,9 @@
     ],
     "require": {
         "php": "~7.0",
+        "predis/predis": "~1.0",
         "WordPress/WordPress": "*",
+        "wpackagist-plugin/redis-cache": "~1",
         "wpackagist-plugin/jetpack": "~4",
         "wpackagist-plugin/wpro": "~1",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
