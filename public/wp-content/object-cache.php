@@ -1,1 +1,1 @@
-plugins/redis-cache/includes/object-cache.php
+mu-plugins/redis-cache/includes/object-cache.php
