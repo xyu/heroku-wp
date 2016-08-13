@@ -30,7 +30,7 @@ if ( !empty( $_ENV['SSL_DOMAIN'] ) ) {
 // HTTPS port is always 80 because SSL is terminated at Heroku router / CloudFlare
 define( 'JETPACK_SIGNATURE__HTTPS_PORT', 80 );
 
-/**#@+
+/**
  * Memcache settings.
  */
 if ( !empty( $_ENV['MEMCACHIER_SERVERS'] ) ) {
@@ -51,9 +51,23 @@ if ( !empty( $_ENV['MEMCACHIER_SERVERS'] ) ) {
 	unset( $_mcsettings );
 }
 
-/**#@-*/
+/**
+ * Redis settings.
+ */
+if ( !empty( $_ENV['REDIS_URL'] ) ) {
+	$_redissettings = parse_url( $_ENV['REDIS_URL'] );
 
-/**#@+
+	define( 'WP_REDIS_CLIENT',   'predis'                  );
+	define( 'WP_REDIS_SCHEME',   $_redissettings['scheme'] );
+	define( 'WP_REDIS_HOST',     $_redissettings['host']   );
+	define( 'WP_REDIS_PORT',     $_redissettings['port']   );
+	define( 'WP_REDIS_PASSWORD', $_redissettings['pass']   );
+	define( 'WP_REDIS_MAXTTL',   2419200 /* 28 days */     );
+
+	unset( $_redissettings );
+}
+
+/**
  * MySQL settings.
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
@@ -86,8 +100,6 @@ if ( isset( $_ENV['CLEARDB_SSL'] ) && 'ON' == $_ENV['CLEARDB_SSL'] ) {
 // Disable ext/mysql and use mysqli
 define( 'WP_USE_EXT_MYSQL', false );
 
-/**#@-*/
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -118,7 +130,6 @@ foreach ( $_saltKeys as $_saltKey ) {
 }
 
 unset( $_saltKeys, $_saltKey );
-
 /**#@-*/
 
 /**
