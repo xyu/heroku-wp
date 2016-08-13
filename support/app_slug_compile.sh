@@ -14,4 +14,4 @@ mv public.built tmp/public.old && mv tmp/public.building public.built
 
 # Remove files to slim down slug
 rm -rf tmp/public.old
-rm -rf vendor/WordPress/WordPress
+rm -rf vendor/WordPress
