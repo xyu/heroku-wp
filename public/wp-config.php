@@ -80,6 +80,15 @@ if ( isset( $_ENV['CLEARDB_SSL'] ) && 'ON' == $_ENV['CLEARDB_SSL'] ) {
 // Disable ext/mysql and use mysqli
 define( 'WP_USE_EXT_MYSQL', false );
 
+/**
+ * SendGrid settings.
+ */
+if ( !empty( $_ENV['SENDGRID_USERNAME'] ) && !empty( $_ENV['SENDGRID_PASSWORD'] ) ) {
+	define( 'SENDGRID_AUTH_METHOD', 'credentials'              );
+	define( 'SENDGRID_USERNAME',    $_ENV['SENDGRID_USERNAME'] );
+	define( 'SENDGRID_PASSWORD',    $_ENV['SENDGRID_PASSWORD'] );
+}
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
