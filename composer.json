@@ -43,9 +43,6 @@
     ],
     "extra": {
         "installer-paths": {
-            "vendor/WordPress/WordPress/wp-content/mu-plugins/{$name}/": [
-                "wpackagist-plugin/redis-cache"
-            ],
             "vendor/WordPress/WordPress/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
             "vendor/WordPress/WordPress/wp-content/themes/{$name}/": [ "type:wordpress-theme" ]
         }
