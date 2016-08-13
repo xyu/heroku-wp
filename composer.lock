@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "11d28d1ee071a2e1e34b58a51dac821d",
-    "content-hash": "0ea3028f52ec216713419f4109f1a2ff",
+    "hash": "4b1fb36b4d15517484337eed9bf53fd6",
+    "content-hash": "1a8f0f0fabb0a0935aa63c00f157ad37",
     "packages": [
         {
             "name": "WordPress/WordPress",
