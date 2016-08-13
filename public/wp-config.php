@@ -31,32 +31,12 @@ if ( !empty( $_ENV['SSL_DOMAIN'] ) ) {
 define( 'JETPACK_SIGNATURE__HTTPS_PORT', 80 );
 
 /**
- * Memcache settings.
- */
-if ( !empty( $_ENV['MEMCACHIER_SERVERS'] ) ) {
-	$_mcsettings = parse_url( $_ENV['MEMCACHIER_SERVERS'] );
-
-	define( 'WP_CACHE', true );
-	$sasl_memcached_config = array(
-		'default' => array(
-			array(
-				'host' => $_mcsettings['host'],
-				'port' => $_mcsettings['port'],
-				'user' => $_ENV['MEMCACHIER_USERNAME'],
-				'pass' => $_ENV['MEMCACHIER_PASSWORD'],
-			),
-		),
-	);
-
-	unset( $_mcsettings );
-}
-
-/**
  * Redis settings.
  */
 if ( !empty( $_ENV['REDIS_URL'] ) ) {
 	$_redissettings = parse_url( $_ENV['REDIS_URL'] );
 
+	define( 'WP_CACHE', true );
 	define( 'WP_REDIS_CLIENT',   'predis'                  );
 	define( 'WP_REDIS_SCHEME',   $_redissettings['scheme'] );
 	define( 'WP_REDIS_HOST',     $_redissettings['host']   );
