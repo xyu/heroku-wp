@@ -1,4 +1,12 @@
 <?php
+/*
+Plugin name: Secure DB Connection
+Plugin URI: https://github.com/xyu/heroku-wp
+Description: Sets SSL keys and certs for encrypted wpdb connections
+Author: Xiao Yu
+Author URI: http://xyu.io/
+Version: 0.1
+*/
 
 class wpdb_ssl extends wpdb {
 
