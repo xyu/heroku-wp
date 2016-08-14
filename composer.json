@@ -13,6 +13,8 @@
     ],
     "require": {
         "php": "~7.0",
+        "ext-gd": "*",
+        "wp-cli/wp-cli": "~0.23",
         "predis/predis": "~1.0",
         "WordPress/WordPress": "*",
         "wpackagist-plugin/redis-cache": "~1",
