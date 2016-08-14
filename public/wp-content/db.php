@@ -56,14 +56,29 @@ class wpdb_ssl extends wpdb {
 			}
 
 			// Set SSL certs if we want to use secure DB connections
-			if ( $client_flags & MYSQLI_CLIENT_SSL ) {
-				$ssl_key = ( defined( 'MYSQL_SSL_KEY' ) && is_file( MYSQL_SSL_KEY ) ) ? MYSQL_SSL_KEY : null;
-				$ssl_cert = ( defined( 'MYSQL_SSL_CERT' ) && is_file( MYSQL_SSL_CERT ) ) ? MYSQL_SSL_CERT : null;
-				$ssl_ca = ( defined( 'MYSQL_SSL_CA' ) && is_file( MYSQL_SSL_CA ) ) ? MYSQL_SSL_CA : null;
-				$ssl_capath = ( defined( 'MYSQL_SSL_CA_PATH' ) && is_dir( MYSQL_SSL_CA_PATH ) ) ? MYSQL_SSL_CA_PATH : null;
-				$ssl_cipher = defined( 'MYSQL_SSL_CIPHER' ) ? MYSQL_SSL_CIPHER : null;
-
-				mysqli_ssl_set( $this->dbh, $ssl_key, $ssl_cert, $ssl_ca, $ssl_capath, $ssl_cipher );
+			$ssl_opts = array(
+				'KEY'     => ( defined( 'MYSQL_SSL_KEY'     ) && is_file( MYSQL_SSL_KEY     ) ) ? MYSQL_SSL_KEY     : null,
+				'CERT'    => ( defined( 'MYSQL_SSL_CERT'    ) && is_file( MYSQL_SSL_CERT    ) ) ? MYSQL_SSL_CERT    : null,
+				'CA'      => ( defined( 'MYSQL_SSL_CA'      ) && is_file( MYSQL_SSL_CA      ) ) ? MYSQL_SSL_CA      : null,
+				'CA_PATH' => ( defined( 'MYSQL_SSL_CA_PATH' ) && is_dir ( MYSQL_SSL_CA_PATH ) ) ? MYSQL_SSL_CA_PATH : null,
+				'CIPHER'  => ( defined( 'MYSQL_SSL_CIPHER'  ) && !empty ( MYSQL_SSL_CIPHER  ) ) ? MYSQL_SSL_CIPHER  : null,
+			);
+			$ssl_opts_set = false;
+			foreach ( $ssl_opts as $ssl_opt_val ) {
+				if ( !is_null( $ssl_opt_val ) ) {
+					$ssl_opts_set = true;
+					break;
+				}
+			}
+			if ( $ssl_opts_set ) {
+				mysqli_ssl_set(
+					$this->dbh,
+					$ssl_opts[ 'KEY'     ],
+					$ssl_opts[ 'CERT'    ],
+					$ssl_opts[ 'CA'      ],
+					$ssl_opts[ 'CA_PATH' ],
+					$ssl_opts[ 'CIPHER'  ]
+				);
 			}
 
 			if ( WP_DEBUG ) {

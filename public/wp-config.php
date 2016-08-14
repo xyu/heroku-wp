@@ -52,7 +52,9 @@ if ( !empty( $_ENV['REDIS_URL'] ) ) {
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
  */
-if ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
+if ( isset( $_ENV['WP_DB'] ) ) {
+	$_dbsettings = parse_url( $_ENV['WP_DB'] );
+} elseif ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
 	$_dbsettings = parse_url( $_ENV['CLEARDB_DATABASE_URL'] );
 } else {
 	$_dbsettings = parse_url( 'mysql://herokuwp:password@127.0.0.1/herokuwp' );
@@ -67,15 +69,24 @@ define( 'DB_COLLATE', ''                                 );
 
 unset( $_dbsettings );
 
-// Set SSL settings
-if ( isset( $_ENV['CLEARDB_SSL'] ) && 'ON' == $_ENV['CLEARDB_SSL'] ) {
-	define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS | MYSQLI_CLIENT_SSL | MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT );
-	define( 'MYSQL_SSL_KEY',      $_ENV['CLEARDB_SSL_KEY']                   );
-	define( 'MYSQL_SSL_CERT',     $_ENV['CLEARDB_SSL_CERT']                  );
-	define( 'MYSQL_SSL_CA',       $_ENV['CLEARDB_SSL_CA']                    );
-} else {
-	define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_COMPRESS                     );
+// MySQL settings: always compress
+$_dbflags = MYSQLI_CLIENT_COMPRESS;
+
+// MySQL settings: turn on SSL?
+if ( isset( $_ENV['WP_DB_SSL'] ) && 'ON' == $_ENV['WP_DB_SSL'] ) {
+	$_dbflags |= MYSQLI_CLIENT_SSL;
 }
+
+// MySQL settings: ClearDB has custom certs, keys, and an invalid CN
+if ( isset( $_ENV['CLEARDB_SSL_KEY'], $_ENV['CLEARDB_SSL_CERT'], $_ENV['CLEARDB_SSL_CA'] ) ) {
+	$_dbflags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+	define( 'MYSQL_SSL_KEY',      $_ENV['CLEARDB_SSL_KEY']  );
+	define( 'MYSQL_SSL_CERT',     $_ENV['CLEARDB_SSL_CERT'] );
+	define( 'MYSQL_SSL_CA',       $_ENV['CLEARDB_SSL_CA']   );
+}
+
+define( 'MYSQL_CLIENT_FLAGS', $_dbflags );
+unset( $_dbflags );
 
 // Disable ext/mysql and use mysqli
 define( 'WP_USE_EXT_MYSQL', false );
