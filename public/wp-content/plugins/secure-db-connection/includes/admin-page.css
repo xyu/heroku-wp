@@ -1,0 +1,9 @@
+
+#dashboard_right_now .securedbconnection-ssl a:before {
+	content: "\f160";
+}
+
+#dashboard_right_now .securedbconnection-nossl a:before {
+	content: "\f528";
+	color: #d54e21;
+}

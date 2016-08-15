@@ -12,20 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class WP_SecureDBConnection {
 
-	private $_ver = '1.0';
-
 	public function __construct() {
 		$this->init();
 	}
 
 	public function init() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+		add_filter( 'dashboard_glance_items', array( $this, 'add_to_dashboard' ) );
+
 		register_deactivation_hook( __FILE__, array( $this, 'on_deactivation' ) );
 	}
 
 	public function enqueue_admin_styles( $hook_suffix ) {
-		echo $hook_suffix;
-		if ( "" === $hook_suffix ) {
+		if ( "index.php" === $hook_suffix ) {
 			$plugin = get_plugin_data( __FILE__ );
 			wp_enqueue_style(
 				'secure-db-connection',
@@ -34,6 +33,17 @@ class WP_SecureDBConnection {
 				$plugin[ 'Version' ]
 			);
 		}
+	}
+
+	/**
+	 * Add to Dashboard At a Glance
+	 */
+	function add_to_dashboard( $elements ) {
+		if ( current_user_can( 'administrator' ) ) {
+			echo '<li class="securedbconnection-nossl"><span>No SSL</span></li>';
+		}
+
+		return $elements;
 	}
 
 	public function on_deactivation() {
