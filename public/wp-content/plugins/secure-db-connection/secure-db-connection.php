@@ -45,12 +45,14 @@ class WP_SecureDBConnection {
 			if ( empty( $status['ssl_cipher'] ) ) {
 				printf(
 					'<li class="securedbconnection-nossl"><span>%s</span></li>',
-					'MySQL connection is unencrypted'
+					"Connection to MySQL is in plain text",
+					'MySQL Unencrypted'
 				);
 			} else {
 				printf(
-					'<li class="securedbconnection-ssl"><span>%s</span></li>',
-					"MySQL connection is secured with {$status['ssl_version']} ({$status['ssl_cipher']})"
+					'<li class="securedbconnection-ssl"><span title="%s">%s</span></li>',
+					"Connection to MySQL is SSL ({$status['ssl_version']}) encrypted via {$status['ssl_cipher']}",
+					"MySQL Secured"
 				);
 			}
 		}
