@@ -32,10 +32,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.5.3",
+                "version": "4.6",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.5.3.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.6.zip"
                 }
             }
         },
