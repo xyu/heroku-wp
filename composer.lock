@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0554607334344bf3c628a4d44c87804d",
-    "content-hash": "69b462c1c692d6a2d3589014d4708b53",
+    "hash": "6774df341cefc713b3e2e6d5af79652f",
+    "content-hash": "2bc91e2c6b120e2e4f9dd72d040647ff",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -1627,6 +1627,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/redis-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/secure-db-connection",
+            "version": "1.1.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/secure-db-connection/",
+                "reference": "tags/1.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/secure-db-connection.1.1.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/secure-db-connection/"
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",

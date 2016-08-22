@@ -17,6 +17,7 @@
         "wp-cli/wp-cli": "~0.23",
         "predis/predis": "~1.0",
         "WordPress/WordPress": "*",
+        "wpackagist-plugin/secure-db-connection": "~1",
         "wpackagist-plugin/redis-cache": "~1",
         "wpackagist-plugin/wp-serverinfo": "~1",
         "wpackagist-plugin/jetpack": "~4",
@@ -47,6 +48,7 @@
     "extra": {
         "installer-paths": {
             "vendor/WordPress/WordPress/wp-content/mu-plugins/{$name}/": [
+                "wpackagist-plugin/secure-db-connection",
                 "wpackagist-plugin/redis-cache"
             ],
             "vendor/WordPress/WordPress/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
