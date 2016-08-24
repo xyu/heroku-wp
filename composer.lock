@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "80c5d40faa62f9958a1da88fb30a0bd5",
-    "content-hash": "e5877f42782d2b9d6d84f5f574e37c99",
+    "hash": "5e4e8b3a79920aae7186b6657ffbdf3e",
+    "content-hash": "61fbce221505140538d2960b276cfb1e",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -376,6 +376,42 @@
                 "validator"
             ],
             "time": "2016-05-04 12:27:30"
+        },
+        {
+            "name": "humanmade/s3-uploads",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/humanmade/S3-Uploads.git",
+                "reference": "9cb765284e7407d7ad2309a64dd8e5e13db258b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/humanmade/S3-Uploads/zipball/9cb765284e7407d7ad2309a64dd8e5e13db258b2",
+                "reference": "9cb765284e7407d7ad2309a64dd8e5e13db258b2",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Human Made Limited",
+                    "email": "support@humanmade.co.uk",
+                    "homepage": "http://hmn.md/"
+                }
+            ],
+            "description": "WordPress plugin to store uploads on S3",
+            "homepage": "https://github.com/humanmade/S3-Uploads",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2016-04-29 10:00:39"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -1667,46 +1703,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-serverinfo",
-            "version": "1.63",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-serverinfo/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-serverinfo.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-serverinfo/"
-        },
-        {
-            "name": "wpackagist-plugin/wpro",
-            "version": "1.0",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wpro/",
-                "reference": "tags/1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wpro.1.0.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wpro/"
         }
     ],
     "packages-dev": [],
