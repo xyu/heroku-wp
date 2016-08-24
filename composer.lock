@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6774df341cefc713b3e2e6d5af79652f",
-    "content-hash": "2bc91e2c6b120e2e4f9dd72d040647ff",
+    "hash": "80c5d40faa62f9958a1da88fb30a0bd5",
+    "content-hash": "e5877f42782d2b9d6d84f5f574e37c99",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -1610,15 +1610,15 @@
         },
         {
             "name": "wpackagist-plugin/redis-cache",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/redis-cache/",
-                "reference": "tags/1.3.2"
+                "reference": "tags/1.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redis-cache.1.3.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/redis-cache.1.3.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1716,8 +1716,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.0",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "php": "~7.0"
     },
     "platform-dev": []
 }

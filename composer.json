@@ -12,18 +12,22 @@
         }
     ],
     "require": {
-        "php": "~7.0",
         "ext-gd": "*",
-        "wp-cli/wp-cli": "~0.23",
-        "predis/predis": "~1.0",
+        "php": "~7.0",
+
         "WordPress/WordPress": "*",
-        "wpackagist-plugin/secure-db-connection": "~1",
+
         "wpackagist-plugin/redis-cache": "~1",
-        "wpackagist-plugin/wp-serverinfo": "~1",
+        "wpackagist-plugin/secure-db-connection": "~1",
+
+        "wpackagist-plugin/authy-two-factor-authentication": "~2",
         "wpackagist-plugin/jetpack": "~4",
-        "wpackagist-plugin/wpro": "~1",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
-        "wpackagist-plugin/authy-two-factor-authentication": "~2"
+        "wpackagist-plugin/wp-serverinfo": "~1",
+        "wpackagist-plugin/wpro": "~1",
+
+        "predis/predis": "~1.0",
+        "wp-cli/wp-cli": "~0.23"
     },
     "suggest": {
         "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF."
@@ -48,8 +52,8 @@
     "extra": {
         "installer-paths": {
             "vendor/WordPress/WordPress/wp-content/mu-plugins/{$name}/": [
-                "wpackagist-plugin/secure-db-connection",
-                "wpackagist-plugin/redis-cache"
+                "wpackagist-plugin/redis-cache",
+                "wpackagist-plugin/secure-db-connection"
             ],
             "vendor/WordPress/WordPress/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
             "vendor/WordPress/WordPress/wp-content/themes/{$name}/": [ "type:wordpress-theme" ]
