@@ -3,21 +3,28 @@ Heroku WP
 
 This is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/) with a focus on speed and security while using the official Heroku stack.
 
-The repository is built on top of the following technologies.
-* [nginx](http://nginx.org) - For serving web content.
-* [HHVM](http://hhvm.com) - A virtual machine designed to serve Hack and PHP.
-* [MySQL](http://www.mysql.com) - Provided by the ClearDB add-on.
-* [Memcached](http://memcached.org) - Provided by the MemCachier add-on.
+The repository is built on top of the standard Heroku PHP buildpack so you don't need to trust some sketchy 3rd party s3 bucket.
+* [NGINX](http://nginx.org) - Fast scalable webserver.
+* [PHP 7](http://php.net) - Latest and greatest with performance on par with HHVM.
 * [Composer](https://getcomposer.org) - A dependency manager to make installing and managing plugins easier.
 
-In additon repository comes bundled with the following plugins.
-* [SASL object cache](https://github.com/xyu/SASL-object-cache) - For running with MemCachier add-on
-* [Batcache](http://wordpress.org/plugins/batcache/) - For full page output caching
-* [SSL Domain Alias](http://wordpress.stackexchange.com/questions/38902) - For sending SSLed traffic to a different domain (needed to send WP admin traffic to Heroku over SSL directly.)
+And uses the following addons:
+* [MariaDB](https://mariadb.org) / [jawsdb-maria](https://elements.heroku.com/addons/jawsdb-maria) - A binary compatible MySQL replacement with even better performance.
+* [Redis](http://redis.io) / [heroku-redis](https://elements.heroku.com/addons/heroku-redis) - An in-memory datastore for fast persistant object cache.
+* [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
+* [New Relic](https://newrelic.com) / [newrelic](https://elements.heroku.com/addons/newrelic) - SaaS application performance monitoring.
+
+In additon repository comes bundled with the following tools and must use plugins.
+* [WP-CLI](http://wp-cli.org) - For simple management of your WP install.
+* [Batcache](http://wordpress.org/plugins/batcache) - For full page output caching.
+* [Redis Object Cache](http://wordpress.org/plugins/redis-cache) - For using Redis as a persistant, shared, object cache.
+* [Secure DB Connection](http://wordpress.org/plugins/secure-db-connection) - For ensuring connections to the database are secure and encrypted.
+
+Finally these plugins are pre-installed as they are highly recommended but not activated.
 * [Authy Two Factor Auth](https://www.authy.com/products/wordpress)
 * [Jetpack](http://jetpack.me/)
+* [S3 Uploads](https://github.com/humanmade/S3-Uploads)
 * [SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)
-* [WP Read-Only](http://wordpress.org/extend/plugins/wpro/)
 
 WordPress and most included plugins are installed by Composer on build. To add new plugins or upgrade versions of plugins simply update the `composer.json` file and then generate the `composer.lock` file with the following command locally:
 
@@ -30,126 +37,54 @@ To customize the site simply place files into `/public` which upon deploy to Her
 Installation
 ------------
 
+Make sure you have the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed and configured for your account. This provides the `heroku` CLI tool for creating and managing your Heroku apps.
+
 Clone the repository from Github
 
     $ git clone git://github.com/xyu/heroku-wp.git
 
-With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
+Run the included init script
 
-    $ cd heroku-wp
-    $ heroku create
-    > Creating strange-turtle-1234... done, stack is cedar
-    > http://strange-turtle-1234.herokuapp.com/ | git@heroku.com:strange-turtle-1234.git
-    > Git remote heroku added
-
-
-Add a database to your app
-
-    $ heroku addons:create cleardb:ignite
-    > Adding cleardb:ignite on strange-turtle-1234... done, v2 (free)
-    > Use `heroku addons:docs cleardb:ignite` to view documentation.
-
-Add memcache to your app
-
-    $ heroku addons:create memcachier:dev
-    > Adding memcachier:dev on strange-turtle-1234... done, v3 (free)
-    > MemCachier: added.  Your credentials may take up to 3 minutes to sync to our servers.
-    > Use `heroku addons:docs memcachier:dev` to view documentation.
-
-Add unique keys and salts to your Heroku config
-
-    $ heroku config:set\
-        WP_AUTH_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_SECURE_AUTH_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_LOGGED_IN_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_NONCE_KEY="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_AUTH_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_SECURE_AUTH_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_LOGGED_IN_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"\
-        WP_NONCE_SALT="`dd if=/dev/random bs=1 count=96 2>/dev/null | base64`"
-    > Setting config vars and restarting strange-turtle-1234... done, v4
-    > WP_AUTH_KEY:         ...
-    > WP_AUTH_SALT:        ...
-    > WP_LOGGED_IN_KEY:    ...
-    > WP_LOGGED_IN_SALT:   ...
-    > WP_NONCE_KEY:        ...
-    > WP_NONCE_SALT:       ...
-    > WP_SECURE_AUTH_KEY:  ...
-    > WP_SECURE_AUTH_SALT: ...
-
-Create a new production branch for your app
-
-    $ git checkout -b production
-
-Deploy to Heroku
-
-    $ git push heroku production:master
-    > Fetching repository, done.
-    > Counting objects: 5, done.
-    > Delta compression using up to 8 threads.
-    > Compressing objects: 100% (3/3), done.
-    > Writing objects: 100% (3/3), 650 bytes | 0 bytes/s, done.
-    > Total 3 (delta 2), reused 0 (delta 0)
-    >
-    > -----> PHP app detected
-    > -----> Detected request for HHVM 3.1.0 in composer.json.
-    > -----> Setting up runtime environment...
-    >        - HHVM 3.1.0
-    >        - Apache 2.4.9
-    >        - Nginx 1.4.6
-    > -----> Installing dependencies...
-    >        Composer version 1d8b627b57a5a0fe8ceaef25534d9da8bd7cb301 2014-06-28 18:45:20
-    >        Loading composer repositories with package information
-    >        Installing dependencies from lock file
-    >          - Installing fancyguy/webroot-installer (1.1.0)
-    >            Loading from cache
-    >
-    >          - Installing composer/installers (v1.0.14)
-    >            Loading from cache
-    >
-    >          - Installing wordpress/wordpress (3.9.1)
-    >            Loading from cache
-    >
-    >          - Installing wpackagist-plugin/authy-two-factor-authentication (2.5.4)
-    >            Loading from cache
-    >
-    >          - Installing wpackagist-plugin/jetpack (3.0.2)
-    >            Loading from cache
-    >
-    >          - Installing wpackagist-plugin/sendgrid-email-delivery-simplified (1.3.2)
-    >            Loading from cache
-    >
-    >          - Installing wpackagist-plugin/wpro (1.0)
-    >            Loading from cache
-    >
-    >        Generating optimized autoload files
-    > -----> Building runtime environment...
-    > -----> Discovering process types
-    >        Procfile declares types -> web
-    >
-    > -----> Compressing... done, 61.1MB
-    > -----> Launching... done, v70
-    >        http://strange-turtle-1234.herokuapp.com/ deployed to Heroku
-    >
-    > To git@heroku:strange-turtle-1234.git
-    > * [new branch]    production -> master
-
-After deployment WordPress has a few more steps to setup and thats it!
+    $ cd heroku-wp && ./init.sh my-app-name
 
 Optional Installation
 ---------------------
 
 Installing and configuring the items below are not essential to get a working WordPress install but will make your site more functional and secure.
 
-### Securing Your Admin Dashboard
+### Sending Email
 
-Heroku provides an SSL'ed endpoint to each app for free via the APP_NAME.herokuapp.com domain. To use this domain for all logged in sessions and to protect your login credentials simply set the SSL domain in the config vars. (Replace APP_NAME with the name of your Heroku app.)
+[SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified) plugin is included in the repository and preconfigured to work with the [SendGrid addon](https://elements.heroku.com/addons/sendgrid) simply activate the plugin for better email delivery.
 
-    $ heroku config:set SSL_DOMAIN="APP_NAME.herokuapp.com"
+### Media Uploads
 
-### Securing Your MySQL Connection
+[S3 Uploads](https://github.com/humanmade/S3-Uploads) is a lightweight "drop-in" for storing WordPress uploads on [Amazon S3](http://aws.amazon.com/s3) instead of the local filesystem. If you want media uploads you must activate this plugin and configure a S3 bucket because the local filesystem for Heroku Dynos are ephemeral.
 
-By default WordPress will connect to the database unencrypted which is a potential problem for a cloud based installs where the database and application servers may transfer data over unsecured connections. ClearDB provides SSL keys and certs for the database that's setup and it's highly advisable to use them to secure your database connection.
+To activate this plugin first set your S3 credentials via Heroku configs. (AWS S3 path-style URLs.)
+
+    ```
+    $ heroku config:set \
+        AWS_S3_URL="s3://{AWS_KEY}:{AWS_SECRET}@s3.amazonaws.com/{AWS_BUCKET}"
+    ```
+
+If you would like to set the optional region for your S3 bucket use the region-specific endpoint.
+
+    ```
+    $ heroku config:set \
+        AWS_S3_URL="s3://{AWS_KEY}:{AWS_SECRET}@s3-{AWS_REGION}.amazonaws.com/{AWS_BUCKET}"
+    ```
+
+For example, if your bucket is in the South America (São Paulo) region use:
+
+    ```
+    $ heroku config:set \
+        AWS_S3_URL="s3://my-key:my-secret@s3-sa-east-1.amazonaws.com/my-bucket"
+    ```
+Then activate the plugin in WP Admin.
+
+### Securing Your MySQL Connection (ClearDB Only)
+
+The JawsDB connection should already be encrypted properly however if you wish to use the ClearDB addon instead you will need to set some custom certs and keys. ClearDB provides SSL keys and certs for the database that's setup and it's highly advisable to use them to secure your database connection.
 
 1. Go to your [Heroku Dashboard](https://dashboard.heroku.com/) and click on your heroku-wp app.
 2. Click on the "ClearDB MySQL Database" add-on.
@@ -172,25 +107,6 @@ By default WordPress will connect to the database unencrypted which is a potenti
     > CLEARDB_SSL_CERT: ...
     > CLEARDB_SSL_KEY:  ...
     ```
-
-### Media Uploads
-
-[WP Read-Only](http://wordpress.org/extend/plugins/wpro/) plugin is included in the repository allowing the use of [S3](http://aws.amazon.com/s3/) for media uploads.
-
-1. Activate the plugin under 'Plugins', if not already activated.
-2. Input your Amazon S3 credentials in 'Settings'->'WPRO Settings'.
-
-### Sending Email
-
-[SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/) plugin is included in the repository allowing the use of [SendGrid](https://addons.heroku.com/sendgrid/) for emails.
-
-Add SendGrid to your app
-
-    $ heroku addons:create sendgrid:starter
-    > Adding sendgrid:starter on strange-turtle-1234... done, v11 (free)
-    > Use `heroku addons:docs sendgrid:starter` to view documentation.
-
-Activate the plugin
 
 Usage
 -----
@@ -219,7 +135,7 @@ Using the same branch name from our installation:
 
 WordPress needs to update the database. After push, navigate to:
 
-    http://your-app-url.herokuapp.com/wp-admin
+    https://your-app-name.herokuapp.com/wp-admin
 
 WordPress will prompt for updating the database. After that you'll be good
 to go.
