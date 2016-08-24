@@ -60,27 +60,30 @@ Installing and configuring the items below are not essential to get a working Wo
 
 [S3 Uploads](https://github.com/humanmade/S3-Uploads) is a lightweight "drop-in" for storing WordPress uploads on [Amazon S3](http://aws.amazon.com/s3) instead of the local filesystem. If you want media uploads you must activate this plugin and configure a S3 bucket because the local filesystem for Heroku Dynos are ephemeral.
 
-To activate this plugin first set your S3 credentials via Heroku configs. (AWS S3 path-style URLs.)
+To activate this plugin:
+
+1.  First set your S3 credentials via Heroku configs. (AWS S3 path-style URLs.)
 
     ```
     $ heroku config:set \
         AWS_S3_URL="s3://{AWS_KEY}:{AWS_SECRET}@s3.amazonaws.com/{AWS_BUCKET}"
     ```
 
-If you would like to set the optional region for your S3 bucket use the region-specific endpoint.
+    If you would like to set the optional region for your S3 bucket use the region-specific endpoint.
 
     ```
     $ heroku config:set \
         AWS_S3_URL="s3://{AWS_KEY}:{AWS_SECRET}@s3-{AWS_REGION}.amazonaws.com/{AWS_BUCKET}"
     ```
 
-For example, if your bucket is in the South America (São Paulo) region use:
+    For example, if your bucket is in the South America (São Paulo) region use:
 
     ```
     $ heroku config:set \
         AWS_S3_URL="s3://my-key:my-secret@s3-sa-east-1.amazonaws.com/my-bucket"
     ```
-Then activate the plugin in WP Admin.
+
+2.  Then activate the plugin in WP Admin.
 
 ### Securing Your MySQL Connection (ClearDB Only)
 
