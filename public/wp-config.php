@@ -98,6 +98,28 @@ if ( !empty( $_ENV['SENDGRID_USERNAME'] ) && !empty( $_ENV['SENDGRID_PASSWORD'] 
 	define( 'SENDGRID_PASSWORD',    $_ENV['SENDGRID_PASSWORD'] );
 }
 
+/**
+ * S3-Uploads settings
+ *
+ * AWS_S3_URL should be in the form of one of the following:
+ *   s3://KEY:SECRET@s3.amazonaws.com/BUCKET
+ *   s3://KEY:SECRET@s3-REGION.amazonaws.com/BUCKET (with optional region)
+ */
+if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
+	$_awssettings = parse_url( $_ENV['AWS_S3_URL'] );
+	$_awshostmatch = array();
+
+	define( 'S3_UPLOADS_KEY',    $_awssettings['user']              );
+	define( 'S3_UPLOADS_SECRET', $_awssettings['pass']              );
+	define( 'S3_UPLOADS_BUCKET', trim( $_awssettings['path'], '/' ) );
+
+	if ( preg_match( '/^s3(-|\.dualstack\.)([0-9a-z-]+)\.amazonaws\.com$/', $_awssettings['host'], $_awshostmatch ) ) {
+		define( 'S3_UPLOADS_REGION', $_awshostmatch[2] );
+	}
+
+	unset( $_awssettings, $_awshostmatch );
+}
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
