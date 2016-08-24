@@ -21,11 +21,9 @@ require __DIR__ . '/../vendor/autoload.php';
 define( 'DISALLOW_FILE_EDIT', true );
 define( 'DISALLOW_FILE_MODS', true );
 
-// Set SSL'ed domain
-if ( !empty( $_ENV['SSL_DOMAIN'] ) ) {
-	define( 'FORCE_SSL_LOGIN', true );
-	define( 'FORCE_SSL_ADMIN', true );
-}
+// Make sure we admin over SSL
+define( 'FORCE_SSL_LOGIN', true );
+define( 'FORCE_SSL_ADMIN', true );
 
 // HTTPS port is always 80 because SSL is terminated at Heroku router / CloudFlare
 define( 'JETPACK_SIGNATURE__HTTPS_PORT', 80 );
