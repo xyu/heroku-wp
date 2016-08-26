@@ -85,31 +85,23 @@ To activate this plugin:
 
 2.  Then activate the plugin in WP Admin.
 
-### Securing Your MySQL Connection (ClearDB Only)
+### Securing Your MySQL Connection (X509 auth or custom CAs only)
 
-The JawsDB connection should already be encrypted properly however if you wish to use the ClearDB addon instead you will need to set some custom certs and keys. ClearDB provides SSL keys and certs for the database that's setup and it's highly advisable to use them to secure your database connection.
+This repo already comes with both the ClearDB and Amazon RDS root CAs installed for secure DB connections. To turn on SSL simply set the `WP_DB_SSL` config. (We default to secured so this is already set to `ON` by `init.sh`.)
 
-1. Go to your [Heroku Dashboard](https://dashboard.heroku.com/) and click on your heroku-wp app.
-2. Click on the "ClearDB MySQL Database" add-on.
-3. Scroll to the bottom of the page and download the "ClearDB CA Certificate", "Client Certificate", and "Client Private Key" in the "PEM Format".
-4. Generate Heroku compatible RSA keys from the key file downloaded:
-
-    ```
-    $ openssl rsa -in cleardb_id-key.pem -out cleardb_id-key.rsa.pem
-    ```
-
-5. Add the keys to the config vars of your app:
-
-    ```
     $ heroku config:set \
-        CLEARDB_SSL_CA="$(cat /path/to/cleardb-ca.pem)" \
-        CLEARDB_SSL_CERT="$(cat /path/to/cleardb_id-cert.pem)" \
-        CLEARDB_SSL_KEY="$(cat /path/to/cleardb_id-key.rsa.pem)"
-    > Setting config vars and restarting strange-turtle-1234... done, v12
-    > CLEARDB_SSL_CA:   ...
-    > CLEARDB_SSL_CERT: ...
-    > CLEARDB_SSL_KEY:  ...
-    ```
+        WP_DB_SSL="ON"
+
+If you use another MySQL database and have a self signed cert you can add the self signed CA to the trusted store by committing it to `/support/mysql-ca` or explicitly setting it in the ENV config:
+
+    $ heroku config:set \
+        MYSQL_SSL_CA="$(cat /path/to/server-ca.pem)"
+
+In addition if your MySQL server requires X509 auth in addition to the username/password you can set the client cert and private key through the use of ENV vars like so (be sure to use RSA keys):
+
+    $ heroku config:set \
+        MYSQL_SSL_CERT="$(cat /path/to/client-cert.pem)" \
+        MYSQL_SSL_KEY="$(cat /path/to/client-key.pem)"
 
 Usage
 -----

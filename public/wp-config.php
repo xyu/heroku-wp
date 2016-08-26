@@ -50,22 +50,6 @@ if ( !empty( $_ENV['REDIS_URL'] ) ) {
  *
  * We are getting Heroku ClearDB settings from Heroku Environment Vars
  */
-if ( isset( $_ENV['WP_DB'] ) ) {
-	$_dbsettings = parse_url( $_ENV['WP_DB'] );
-} elseif ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
-	$_dbsettings = parse_url( $_ENV['CLEARDB_DATABASE_URL'] );
-} else {
-	$_dbsettings = parse_url( 'mysql://herokuwp:password@127.0.0.1/herokuwp' );
-}
-
-define( 'DB_NAME',     trim( $_dbsettings['path'], '/' ) );
-define( 'DB_USER',     $_dbsettings['user']              );
-define( 'DB_PASSWORD', $_dbsettings['pass']              );
-define( 'DB_HOST',     $_dbsettings['host']              );
-define( 'DB_CHARSET', 'utf8'                             );
-define( 'DB_COLLATE', ''                                 );
-
-unset( $_dbsettings );
 
 // MySQL settings: always compress
 $_dbflags = MYSQLI_CLIENT_COMPRESS;
@@ -75,19 +59,40 @@ if ( isset( $_ENV['WP_DB_SSL'] ) && 'ON' == $_ENV['WP_DB_SSL'] ) {
 	$_dbflags |= MYSQLI_CLIENT_SSL;
 }
 
-// MySQL settings: ClearDB has custom certs, keys, and an invalid CN
-if ( isset( $_ENV['CLEARDB_SSL_KEY'], $_ENV['CLEARDB_SSL_CERT'], $_ENV['CLEARDB_SSL_CA'] ) ) {
+if ( isset( $_ENV['WP_DB'] ) ) {
+	$_dbsettings = parse_url( $_ENV['WP_DB'] );
+} elseif ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
+	$_dbsettings = parse_url( $_ENV['CLEARDB_DATABASE_URL'] );
+
+	// ClearDB has their own root cert and signs with an invalid CN
 	$_dbflags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
-	define( 'MYSQL_SSL_KEY',      $_ENV['CLEARDB_SSL_KEY']  );
-	define( 'MYSQL_SSL_CERT',     $_ENV['CLEARDB_SSL_CERT'] );
-	define( 'MYSQL_SSL_CA',       $_ENV['CLEARDB_SSL_CA']   );
+} else {
+	$_dbsettings = parse_url( 'mysql://herokuwp:password@127.0.0.1/herokuwp' );
 }
 
-define( 'MYSQL_CLIENT_FLAGS', $_dbflags );
-unset( $_dbflags );
+define( 'DB_NAME',              trim( $_dbsettings['path'], '/' ) );
+define( 'DB_USER',              $_dbsettings['user']              );
+define( 'DB_PASSWORD',          $_dbsettings['pass']              );
+define( 'DB_HOST',              $_dbsettings['host']              );
+define( 'DB_CHARSET',           'utf8'                            );
+define( 'DB_COLLATE',           ''                                );
+define( 'WP_USE_EXT_MYSQL',     false /* Always use MySQLi */     );
+define( 'MYSQL_CLIENT_FLAGS',   $_dbflags                         );
+define( 'MYSQL_SSL_CA_PATH',    '/app/support/mysql-ca/'          );
 
-// Disable ext/mysql and use mysqli
-define( 'WP_USE_EXT_MYSQL', false );
+// Set client keys and certs for X509 auth or explicit server CA if they exist in ENV vars
+$_dbsslpaths = array(
+	'MYSQL_SSL_KEY',
+	'MYSQL_SSL_CERT',
+	'MYSQL_SSL_CA'
+);
+foreach ( $_dbsslpaths as $_dbsslpath ) {
+	if ( !empty( $_ENV[ $_dbsslpath ] ) ) {
+		define( $_dbsslpath, $_ENV[ $_dbsslpath ] );
+	}
+}
+
+unset( $_dbsettings, $_dbflags, $_dbsslpaths, $_dbsslpath );
 
 /**
  * SendGrid settings.

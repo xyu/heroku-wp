@@ -1,17 +1,22 @@
 #!/bin/bash
 
 # Write certs in env to files and replace with path
-if [ -n "$CLEARDB_SSL_KEY" -a -n "$CLEARDB_SSL_CERT" -a -n "$CLEARDB_SSL_CA" ]
+if [ -n "$MYSQL_SSL_KEY" -a -n "$MYSQL_SSL_CERT" ]
 then
-  echo "ClearDB MySQL SSL keys gotten from env vars"
-  mkdir "/app/certs"
-  echo "$CLEARDB_SSL_KEY" > /app/certs/key.pem
-  echo "$CLEARDB_SSL_CERT" > /app/certs/cert.pem
-  echo "$CLEARDB_SSL_CA" > /app/certs/ca.pem
-  export CLEARDB_SSL_KEY="/app/certs/key.pem"
-  export CLEARDB_SSL_CERT="/app/certs/cert.pem"
-  export CLEARDB_SSL_CA="/app/certs/ca.pem"
-  export WP_DB_SSL="ON"
+  echo "MySQL client key and cert for X509 auth gotten from env vars"
+  mkdir -p "/app/support/certs"
+  echo "$MYSQL_SSL_KEY" > /app/support/certs/client-key.pem
+  echo "$MYSQL_SSL_CERT" > /app/support/certs/client-cert.pem
+  export MYSQL_SSL_KEY="/app/support/certs/client-key.pem"
+  export MYSQL_SSL_CERT="/app/support/certs/client-cert.pem"
+fi
+
+if [ -n "$MYSQL_SSL_CA" ]
+then
+  echo "MySQL server root CA gotten from env vars"
+  mkdir -p "/app/support/certs"
+  echo "$MYSQL_SSL_CA" > /app/support/certs/server-ca.pem
+  export MYSQL_SSL_CA="/app/support/certs/server-ca.pem"
 fi
 
 # Boot up!
