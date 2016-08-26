@@ -15,7 +15,7 @@
  */
 
 // Setup autoload
-require __DIR__ . '/../vendor/autoload.php';
+require '/app/vendor/autoload.php';
 
 // Disable filesystem level changes from WP
 define( 'DISALLOW_FILE_EDIT', true );
@@ -125,14 +125,11 @@ if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
 	unset( $_awssettings, $_awshostmatch );
 }
 
-/**#@+
+/**
  * Authentication Unique Keys and Salts.
  *
- * Change these to different unique phrases!
- * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
- * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
- *
- * @since 2.6.0
+ * You can change these at any point in time to invalidate all existing cookies.
+ * This will force all users to have to log in again.
  */
 $_saltKeys = array(
 	'AUTH_KEY',
@@ -155,7 +152,6 @@ foreach ( $_saltKeys as $_saltKey ) {
 }
 
 unset( $_saltKeys, $_saltKey );
-/**#@-*/
 
 /**
  * WordPress Database Table prefix.
