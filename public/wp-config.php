@@ -109,10 +109,12 @@ if ( !empty( $_ENV['SENDGRID_USERNAME'] ) && !empty( $_ENV['SENDGRID_PASSWORD'] 
  * AWS_S3_URL should be in the form of one of the following:
  *   s3://KEY:SECRET@s3.amazonaws.com/BUCKET
  *   s3://KEY:SECRET@s3-REGION.amazonaws.com/BUCKET (with optional region)
+ *   s3://KEY:SECRET@s3.amazonaws.com/BUCKET?url=https://example.com (to set a prettier bucket URL / alias)
  */
 if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
 	$_awssettings = parse_url( $_ENV['AWS_S3_URL'] );
 	$_awshostmatch = array();
+	$_awsquery = array();
 
 	define( 'S3_UPLOADS_KEY',    urldecode( $_awssettings['user'] ) );
 	define( 'S3_UPLOADS_SECRET', urldecode( $_awssettings['pass'] ) );
@@ -122,7 +124,14 @@ if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
 		define( 'S3_UPLOADS_REGION', $_awshostmatch[2] );
 	}
 
-	unset( $_awssettings, $_awshostmatch );
+	if ( !empty( $_awssettings['query'] ) ) {
+		parse_str( $_awssettings['query'], $_awsquery );
+		if ( !empty( $_awsquery['url'] ) ) {
+			define( 'S3_UPLOADS_BUCKET_URL', $_awsquery['url'] );
+		}
+	}
+
+	unset( $_awssettings, $_awshostmatch, $_awsquery );
 }
 
 /**

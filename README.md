@@ -83,6 +83,20 @@ To activate this plugin:
         AWS_S3_URL="s3://my-key:my-secret@s3-sa-east-1.amazonaws.com/my-bucket"
     ```
 
+    If you would like to use a custom bucket URL either because you are proxying the requests or if you are using a domain for the bucket name you can do so by setting a custom url param:
+
+    ```
+    $ heroku config:set \
+        AWS_S3_URL="s3://{AWS_KEY}:{AWS_SECRET}@s3-{AWS_REGION}.amazonaws.com/{AWS_BUCKET}?url={BUCKET_URL}"
+    ```
+
+    The `BUCKET_URL` should have a scheme attached, e.g.:
+
+    ```
+    $ heroku config:set \
+        AWS_S3_URL="s3://my-key:my-secret@s3-sa-east-1.amazonaws.com/my-bucket?url=https://static.example.com"
+    ```
+
 2.  Then activate the plugin in WP Admin.
 
 ### Securing Your MySQL Connection (X509 auth or custom CAs only)
