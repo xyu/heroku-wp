@@ -26,6 +26,7 @@
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
         "wpackagist-plugin/wp-serverinfo": "~1",
+        "wpackagist-plugin/wordpress-importer": "~0.6",
 
         "predis/predis": "~1.0",
         "wp-cli/wp-cli": "~0.23"
