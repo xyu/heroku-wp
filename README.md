@@ -143,6 +143,15 @@ Heroku allows you to add custom domains to your site hosted with them.  To add y
     $ heroku domains:add www.example.com
     > Added www.example.com as a custom domain name to myapp.heroku.com
 
+FAQ
+---
+
+Q. Help, nothing is showing up / I've polluted my cache!
+
+One of the most common problems is if you make a DB change but still have stale cache refering to the old configs the easiest way to fix this is to use the included WP-CLI tool to flush your Redis cache:
+
+    $ heroku run wp cache flush
+
 Running Locally
 ---------------
 
