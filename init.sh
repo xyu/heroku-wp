@@ -48,6 +48,19 @@ heroku addons:create \
 	--app "$1" \
 	heroku-redis:hobby-dev
 
+printf "Waiting for Heroku Redis to provision [ ]"
+local spinstr='|/-\'
+while
+	heroku redis --app "$1" > /dev/null
+	((? != 0))
+do
+	printf "\rWaiting for Heroku Redis to provision [%c] " "$spinstr"
+	local temp=${spinstr#?}
+	local spinstr=$temp${spinstr%"$temp"}
+	sleep 0.25
+done
+print "\nHeroku Redis to provisioned"
+
 heroku redis:maxmemory \
 	--app "$1" \
 	--policy volatile-lru
