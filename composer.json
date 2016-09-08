@@ -29,7 +29,8 @@
         "wp-cli/wp-cli": "~0.23"
     },
     "suggest": {
-        "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF."
+        "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
+        "trepmal/wp-revisions-cli": "WP CLI tool for cleaning up revisions (dev-master)"
     },
     "repositories": [
         {
@@ -46,6 +47,10 @@
         {
             "type": "composer",
             "url": "https://wpackagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://wp-cli.org/package-index"
         }
     ],
     "extra": {
