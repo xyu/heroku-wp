@@ -33,17 +33,18 @@
         "wp-cli/wp-cli": "~0.23"
     },
     "suggest": {
-        "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF."
+        "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
+        "trepmal/wp-revisions-cli": "WP CLI tool for cleaning up revisions (dev-master)"
     },
     "repositories": [
         {
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.6",
+                "version": "4.6.1",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.6.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.6.1.zip"
                 }
             }
         },
@@ -53,7 +54,7 @@
         },
         {
             "type": "composer",
-            "url": "https://wp-cli.org/package-index/"
+            "url": "https://wp-cli.org/package-index"
         }
     ],
     "extra": {
