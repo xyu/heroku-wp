@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8690f04cb19f0ba6f7fb2479192fe5c9",
-    "content-hash": "dd04784fdf0c9b1e6197cf6c7701804a",
+    "hash": "519e5ca736b2f6331c7fcaf11b70c7e5",
+    "content-hash": "ffb1fee2239b39e857cc187b15727c70",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -941,7 +941,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -994,16 +994,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "bac1eb5869c1848a173852aee61df960e3a49197"
+                "reference": "3d3e4fa5f0614c8e45220e5de80332322e33bd90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/bac1eb5869c1848a173852aee61df960e3a49197",
-                "reference": "bac1eb5869c1848a173852aee61df960e3a49197",
+                "url": "https://api.github.com/repos/symfony/console/zipball/3d3e4fa5f0614c8e45220e5de80332322e33bd90",
+                "reference": "3d3e4fa5f0614c8e45220e5de80332322e33bd90",
                 "shasum": ""
             },
             "require": {
@@ -1050,20 +1050,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-19 06:48:01"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "e0eeba7d1141d9ed64e3d412ab8fd166d612190b"
+                "reference": "0a732a9cafc30e54077967da4d019e1d618a8cb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e0eeba7d1141d9ed64e3d412ab8fd166d612190b",
-                "reference": "e0eeba7d1141d9ed64e3d412ab8fd166d612190b",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/0a732a9cafc30e54077967da4d019e1d618a8cb9",
+                "reference": "0a732a9cafc30e54077967da4d019e1d618a8cb9",
                 "shasum": ""
             },
             "require": {
@@ -1113,11 +1113,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-23 13:37:31"
+            "time": "2016-09-06 23:19:39"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -1177,16 +1177,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "ab4c3f085c8f5a56536845bf985c4cef30bf75fd"
+                "reference": "44b499521defddf2eae17a18c811bbdae4f98bdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ab4c3f085c8f5a56536845bf985c4cef30bf75fd",
-                "reference": "ab4c3f085c8f5a56536845bf985c4cef30bf75fd",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/44b499521defddf2eae17a18c811bbdae4f98bdf",
+                "reference": "44b499521defddf2eae17a18c811bbdae4f98bdf",
                 "shasum": ""
             },
             "require": {
@@ -1222,11 +1222,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-20 05:41:28"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1334,16 +1334,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "162d37eb3396225f31574b69a453118e5bc313d2"
+                "reference": "05a03ed27073638658cab9405d99a67dd1014987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/162d37eb3396225f31574b69a453118e5bc313d2",
-                "reference": "162d37eb3396225f31574b69a453118e5bc313d2",
+                "url": "https://api.github.com/repos/symfony/process/zipball/05a03ed27073638658cab9405d99a67dd1014987",
+                "reference": "05a03ed27073638658cab9405d99a67dd1014987",
                 "shasum": ""
             },
             "require": {
@@ -1379,20 +1379,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-16 14:56:08"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "32b0c824da6df065f43b0c458dc505940e98a7f1"
+                "reference": "bf0ff95faa9b6c0708efc1986255e3608d0ed3c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/32b0c824da6df065f43b0c458dc505940e98a7f1",
-                "reference": "32b0c824da6df065f43b0c458dc505940e98a7f1",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/bf0ff95faa9b6c0708efc1986255e3608d0ed3c7",
+                "reference": "bf0ff95faa9b6c0708efc1986255e3608d0ed3c7",
                 "shasum": ""
             },
             "require": {
@@ -1443,11 +1443,11 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30 07:20:35"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -1493,6 +1493,43 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2016-09-02 01:57:56"
+        },
+        {
+            "name": "trepmal/wp-revisions-cli",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trepmal/wp-revisions-cli.git",
+                "reference": "c6997c8fa48a5ccf9eb5ac76e6a4472de34f1905"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trepmal/wp-revisions-cli/zipball/c6997c8fa48a5ccf9eb5ac76e6a4472de34f1905",
+                "reference": "c6997c8fa48a5ccf9eb5ac76e6a4472de34f1905",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "behat/behat": "~2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "revisions-cli.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Manage revisions",
+            "homepage": "https://github.com/trepmal/wp-revisions-cli",
+            "support": {
+                "source": "https://github.com/trepmal/wp-revisions-cli/tree/master",
+                "issues": "https://github.com/trepmal/wp-revisions-cli/issues"
+            },
+            "time": "2016-09-05 20:29:45"
         },
         {
             "name": "wp-cli/php-cli-tools",
@@ -1754,7 +1791,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "trepmal/wp-revisions-cli": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

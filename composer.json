@@ -27,6 +27,7 @@
 
         "wpackagist-plugin/wp-serverinfo": "~1",
         "wpackagist-plugin/wordpress-importer": "~0.6",
+        "trepmal/wp-revisions-cli": "dev-master",
 
         "predis/predis": "~1.0",
         "wp-cli/wp-cli": "~0.23"
@@ -49,6 +50,10 @@
         {
             "type": "composer",
             "url": "https://wpackagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://wp-cli.org/package-index/"
         }
     ],
     "extra": {
