@@ -163,6 +163,18 @@ foreach ( $_saltKeys as $_saltKey ) {
 unset( $_saltKeys, $_saltKey );
 
 /**
+ * Configure Batcache
+ */
+$batcache = array(
+	'debug' => false,
+	'debug_header' => true,
+	'cache_control' => true,
+	'use_stale' => true,
+	'cache_redirects' => true,
+	'group' => 'batcache',
+);
+
+/**
  * WordPress Database Table prefix.
  *
  * You can have multiple installations in one database if you give each a unique
