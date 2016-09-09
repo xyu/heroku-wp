@@ -139,12 +139,12 @@ the branch created from the installation.
 Using the same branch name from our installation:
 
     $ git checkout production
-    $ git merge master # Merge latest
+    $ git merge nginx-php7 # Merge latest
     $ git push heroku production:master
 
-WordPress needs to update the database. After push, navigate to:
+After pushing changes update the WordPress database via WP-CLI:
 
-    https://your-app-name.herokuapp.com/wp-admin
+    $ heroku run wp core update-db
 
 WordPress will prompt for updating the database. After that you'll be good
 to go.
