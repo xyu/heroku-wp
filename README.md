@@ -160,14 +160,13 @@ Heroku allows you to add custom domains to your site hosted with them.  To add y
 FAQ
 ---
 
-Q. Help, nothing is showing up / I've polluted my cache!
+#### Q. Help, nothing is showing up / I've polluted my cache!
 
 One of the most common problems is if you make a DB change but still have stale cache refering to the old configs the easiest way to fix this is to use the included WP-CLI tool to flush your Redis cache:
 
     $ heroku run wp cache flush
 
-
-Q. Why are you hacking Batcache?
+#### Q. Why are you hacking Batcache?
 
 PHP 7 support for Batcache has been merged into master however a new version has not been tagged yet. Also some bug fixes that help make sure caching headers are valid have not been merged in yet. Finally, displaying caching information in HTTP headers is a lot easier then HTML comments however it's a rather large change so I'm forking the plugin for now.
 
