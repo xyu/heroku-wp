@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5b787350e87782a12abb69919e50aea",
-    "content-hash": "a5c1fb872d966b428f8de3027f95bf1f",
+    "hash": "6c8dc23d6e1c61191c4ae850f8369913",
+    "content-hash": "dfd7767828f39c9111459a436a36c93f",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -17,6 +17,36 @@
                 "shasum": null
             },
             "type": "library"
+        },
+        {
+            "name": "automattic/batcache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xyu/batcache.git",
+                "reference": "81d6fbfd2d5e4676fca0425ac378514443d69ec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xyu/batcache/zipball/81d6fbfd2d5e4676fca0425ac378514443d69ec8",
+                "reference": "81d6fbfd2d5e4676fca0425ac378514443d69ec8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-muplugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "A memcached HTML page cache for WordPress.",
+            "homepage": "https://github.com/Automattic/batcache",
+            "support": {
+                "issues": "https://github.com/Automattic/batcache/issues",
+                "forum": "https://wordpress.org/support/plugin/batcache",
+                "source": "https://github.com/Automattic/batcache"
+            },
+            "time": "2016-09-09 18:37:55"
         },
         {
             "name": "composer/ca-bundle",
@@ -1632,15 +1662,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "4.3",
+            "version": "4.3.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/4.3"
+                "reference": "tags/4.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.4.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.4.3.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1714,7 +1744,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "automattic/batcache": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

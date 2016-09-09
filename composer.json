@@ -17,6 +17,7 @@
 
         "WordPress/WordPress": "*",
 
+        "automattic/batcache": "dev-master",
         "wpackagist-plugin/redis-cache": "~1",
         "wpackagist-plugin/secure-db-connection": "~1",
 
@@ -45,6 +46,10 @@
             }
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/xyu/batcache"
+        },
+        {
             "type": "composer",
             "url": "https://wpackagist.org"
         },
@@ -56,6 +61,7 @@
     "extra": {
         "installer-paths": {
             "vendor/WordPress/WordPress/wp-content/mu-plugins/{$name}/": [
+                "automattic/batcache",
                 "wpackagist-plugin/redis-cache",
                 "wpackagist-plugin/secure-db-connection"
             ],
