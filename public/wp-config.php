@@ -61,10 +61,19 @@ if ( isset( $_ENV['WP_DB_SSL'] ) && 'ON' == $_ENV['WP_DB_SSL'] ) {
 
 if ( isset( $_ENV['WP_DB_URL'] ) ) {
 	$_dbsettings = parse_url( $_ENV['WP_DB_URL'] );
+
+	// Use RDS CA for Jaws DB / most default installs
+	if ( empty( $_ENV[ 'MYSQL_SSL_CA' ] ) ) {
+		$_ENV[ 'MYSQL_SSL_CA' ] = 'rds-combined-ca-bundle.pem';
+	}
 } elseif ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
 	$_dbsettings = parse_url( $_ENV['CLEARDB_DATABASE_URL'] );
 
-	// ClearDB has their own root cert and signs with an invalid CN
+	// Use ClearDB CA for Clear DB
+	if ( empty( $_ENV[ 'MYSQL_SSL_CA' ] ) ) {
+		$_ENV[ 'MYSQL_SSL_CA' ] = 'cleardb-ca.pem';
+	}
+	// ClearDB signs with an invalid CN
 	$_dbflags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
 } else {
 	$_dbsettings = parse_url( 'mysql://herokuwp:password@127.0.0.1/herokuwp' );
@@ -78,7 +87,6 @@ define( 'DB_CHARSET',           'utf8'                            );
 define( 'DB_COLLATE',           ''                                );
 define( 'WP_USE_EXT_MYSQL',     false /* Always use MySQLi */     );
 define( 'MYSQL_CLIENT_FLAGS',   $_dbflags                         );
-define( 'MYSQL_SSL_CA_PATH',    '/app/support/mysql-ca/'          );
 
 // Set client keys and certs for X509 auth or explicit server CA if they exist in ENV vars
 $_dbsslpaths = array(
@@ -88,7 +96,7 @@ $_dbsslpaths = array(
 );
 foreach ( $_dbsslpaths as $_dbsslpath ) {
 	if ( !empty( $_ENV[ $_dbsslpath ] ) ) {
-		define( $_dbsslpath, $_ENV[ $_dbsslpath ] );
+		define( $_dbsslpath, '/app/support/mysql-certs/' . $_ENV[ $_dbsslpath ] );
 	}
 }
 

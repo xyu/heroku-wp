@@ -106,7 +106,7 @@ This repo already comes with both the ClearDB and Amazon RDS root CAs installed 
     $ heroku config:set \
         WP_DB_SSL="ON"
 
-If you use another MySQL database and have a self signed cert you can add the self signed CA to the trusted store by committing it to `/support/mysql-ca` or explicitly setting it in the ENV config:
+If you use another MySQL database and have a self signed cert you can add the self signed CA to the trusted store by committing it to `/support/mysql-certs` and setting the filenames or explicitly setting it in the ENV config itself:
 
     $ heroku config:set \
         MYSQL_SSL_CA="$(cat /path/to/server-ca.pem)"
