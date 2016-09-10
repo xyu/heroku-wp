@@ -47,18 +47,6 @@ heroku addons:create \
 	--app "$1" \
 	heroku-redis:hobby-dev
 
-printf "Waiting for Heroku Redis to provision... "
-heroku redis:wait \
-	--app "$1"
-echo "done"
-
-heroku redis:maxmemory \
-	--app "$1" \
-	--policy volatile-lru
-heroku redis:timeout \
-	--app "$1" \
-	--seconds 60
-
 # Add SendGrid for email
 heroku addons:create \
 	--app "$1" \
@@ -99,10 +87,23 @@ else
 		WP_NONCE_SALT=$(       dd "if=/dev/random" "bs=1" "count=96" 2>/dev/null | base64 )
 fi
 
-# Create a branch to deploy
-git checkout -b production
-git push heroku production:master
+# Configure Redis Cache
+printf "Waiting for Heroku Redis to provision... "
+heroku redis:wait \
+	--app "$1"
+echo "done"
 
-print "New Heroku WP app '$1' created and deployed.\n"
+heroku redis:maxmemory \
+	--app "$1" \
+	--policy volatile-lru
+heroku redis:timeout \
+	--app "$1" \
+	--seconds 60
+
+# Create a branch to deploy
+git checkout -b "$1"
+git push heroku "$1:master"
+
+printf "\n\nNew Heroku WP app '$1' created and deployed.\n"
 heroku addons --app "$1"
 heroku redis --app "$1"
