@@ -104,6 +104,6 @@ heroku redis:timeout \
 git checkout -b "$1"
 git push heroku "$1:master"
 
-printf "\n\nNew Heroku WP app '$1' created and deployed.\n"
+printf "\n\nNew Heroku WP app '$1' created and deployed via:\n git push heroku $1:master\n\n"
 heroku addons --app "$1"
 heroku redis --app "$1"

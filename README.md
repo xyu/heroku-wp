@@ -140,7 +140,7 @@ Using the same branch name from our installation:
 
     $ git checkout production
     $ git merge nginx-php7 # Merge latest
-    $ git push heroku production:master
+    $ git push heroku {SLUG}:master
 
 After pushing changes update the WordPress database via WP-CLI:
 
