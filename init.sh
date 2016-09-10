@@ -42,24 +42,15 @@ heroku config:set \
 	--app "$1" \
 	WP_DB_SSL="ON"
 
-
 # Add Redis Cache
 heroku addons:create \
 	--app "$1" \
 	heroku-redis:hobby-dev
 
-printf "Waiting for Heroku Redis to provision [ ]"
-local spinstr='|/-\'
-while
-	heroku redis --app "$1" > /dev/null
-	((? != 0))
-do
-	printf "\rWaiting for Heroku Redis to provision [%c] " "$spinstr"
-	local temp=${spinstr#?}
-	local spinstr=$temp${spinstr%"$temp"}
-	sleep 0.25
-done
-print "\nHeroku Redis to provisioned"
+printf "Waiting for Heroku Redis to provision... "
+heroku redis:wait \
+	--app "$1"
+echo "done"
 
 heroku redis:maxmemory \
 	--app "$1" \
