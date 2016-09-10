@@ -59,8 +59,8 @@ if ( isset( $_ENV['WP_DB_SSL'] ) && 'ON' == $_ENV['WP_DB_SSL'] ) {
 	$_dbflags |= MYSQLI_CLIENT_SSL;
 }
 
-if ( isset( $_ENV['WP_DB'] ) ) {
-	$_dbsettings = parse_url( $_ENV['WP_DB'] );
+if ( isset( $_ENV['WP_DB_URL'] ) ) {
+	$_dbsettings = parse_url( $_ENV['WP_DB_URL'] );
 } elseif ( isset( $_ENV['CLEARDB_DATABASE_URL'] ) ) {
 	$_dbsettings = parse_url( $_ENV['CLEARDB_DATABASE_URL'] );
 
