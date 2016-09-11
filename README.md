@@ -47,6 +47,15 @@ Run the included init script
 
     $ cd heroku-wp && ./init.sh my-app-name
 
+Use WP-CLI to install the DB and set intial settings
+
+    $ heroku run wp core install \
+        --url=my-app-name.herokuapp.com \
+        --title="WordPress on Heroku" \
+        --admin_user="admin" \
+        --admin_password="correct-horse-battery-staple" \
+        --admin_email="info@example.com"
+
 Optional Installation
 ---------------------
 
