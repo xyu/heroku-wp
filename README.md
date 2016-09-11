@@ -41,7 +41,7 @@ Make sure you have the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed
 
 Clone the repository from Github
 
-    $ git clone git://github.com/xyu/heroku-wp.git
+    $ git clone https://github.com/xyu/heroku-wp.git
 
 Run the included init script
 
