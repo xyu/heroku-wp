@@ -2,7 +2,7 @@
 
 #
 # Sets up Composer if there's not already a system provided one.
-# We simlink to the system provided one so that we have a standard way to
+# We symlink to the system provided one so that we have a standard way to
 # call composer in this project.
 #
 # Usage:
