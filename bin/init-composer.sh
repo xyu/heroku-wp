@@ -19,8 +19,8 @@ rm -f composer-setup.php
 # Check to see if composer is system installed
 type composer >/dev/null 2>&1 && which composer >/dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-    echo "Using system-wide composer"
-    ln -s `which composer` composer
+	echo "Using system-wide composer"
+	ln -s `which composer` composer
 	exit
 fi
 
@@ -34,11 +34,11 @@ ACTUAL_SIGNATURE=$( php -r "echo hash_file('SHA384', 'composer-setup.php');" )
 
 if [ "$EXPECTED_SIGNATURE" = "$ACTUAL_SIGNATURE" ]
 then
-    php composer-setup.php --filename composer
-    RESULT=$?
-    rm composer-setup.php
+	php composer-setup.php --filename composer
+	RESULT=$?
+	rm composer-setup.php
 else
-    >&2 echo 'ERROR: Invalid installer signature'
-    rm composer-setup.php
-    exit 1
+	>&2 echo 'ERROR: Invalid installer signature'
+	rm composer-setup.php
+	exit 1
 fi
