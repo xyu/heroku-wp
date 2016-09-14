@@ -1,7 +1,4 @@
 bin/
-init.sh
-init-ironworker.sh
 README.md
-Vagrantfile
 support/vagrant/
-support/iron-worker/
+Vagrantfile

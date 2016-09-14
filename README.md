@@ -48,7 +48,7 @@ Clone the repository from Github
 
 Run the included init script
 
-    $ cd heroku-wp && ./init.sh my-app-name
+    $ cd heroku-wp && bin/init.sh my-app-name
 
 Use WP-CLI to install the DB and set intial settings
 
@@ -135,7 +135,7 @@ WP Cron relies on visitors to the site to trigger scheduled jobs to run which ca
 
 Just run the included init script to install an IronWorker task with an execution schedule of every 15 minutes.
 
-    $ ./init-ironworker.sh my-app-name
+    $ bin/init-ironworker.sh my-app-name
 
 Usage
 -----

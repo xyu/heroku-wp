@@ -6,7 +6,7 @@
 # call composer in this project.
 #
 # Usage:
-# $ bin/install-composer.sh
+# $ ./install-composer.sh
 #
 
 # Go to bin dir

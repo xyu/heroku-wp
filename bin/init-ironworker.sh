@@ -8,6 +8,9 @@
 # $ ./init-ironworker.sh <APP-NAME> [upgrade]
 #
 
+# Go to bin dir
+cd `dirname $0`
+
 # Check we got a valid new name
 if [ -z "$1" ]
 then
@@ -65,10 +68,10 @@ fi
 
 # Package worker
 true && \
-	cd support/iron-worker && \
+	cd iron-worker && \
 	npm install && \
 	zip -r wp-cron-runner.zip . >/dev/null && \
-	cd ../..
+	cd ..
 
 if [ "$?" -ne "0" ]; then
 	echo >&2 "Could not package worker."
@@ -79,7 +82,7 @@ fi
 IRON_PROJECT_ID="$IRON_PROJECT_ID" IRON_TOKEN="$IRON_TOKEN" \
 	iron worker upload \
 		--name "wp-cron-runner" \
-		--zip "support/iron-worker/wp-cron-runner.zip" \
+		--zip "iron-worker/wp-cron-runner.zip" \
 		iron/node "node wp-cron-runner.js"
 
 if [ "$?" -ne "0" ]; then
