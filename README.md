@@ -32,7 +32,7 @@ Finally these plugins are pre-installed as they are highly recommended but not a
 WordPress and most included plugins are installed by Composer on build. To add new plugins or upgrade versions of plugins simply update the `composer.json` file and then generate the `composer.lock` file with the following command locally:
 
 ```bash
-$ composer update --ignore-platform-reqs
+$ bin/composer update --ignore-platform-reqs
 ```
 
 To customize the site simply place files into `/public` which upon deploy to Heroku will be copied on top of the standard WordPress install and plugins specified by Composer.
