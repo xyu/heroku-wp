@@ -1,4 +1,8 @@
-/tmp/
+/bin/composer
+/bin/composer-setup.php
+/bin/iron-worker/node_modules/
+/bin/iron-worker/wp-cron-runner.zip
 /public.built/
+/tmp/
 /vendor/
 /.vagrant/

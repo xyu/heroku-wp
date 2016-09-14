@@ -1,4 +1,4 @@
-init.sh
+bin/
 README.md
-Vagrantfile
 support/vagrant/
+Vagrantfile

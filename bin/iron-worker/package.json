@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "iron_worker": ">= 0.1.4"
+  }
+}

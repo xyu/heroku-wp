@@ -183,6 +183,13 @@ $batcache = array(
 );
 
 /**
+ * Disable WP Cron if we are using an external service for this
+ */
+if ( isset( $_ENV['DISABLE_WP_CRON'] ) && 'TRUE' == $_ENV['DISABLE_WP_CRON'] ) {
+	define( 'DISABLE_WP_CRON', true );
+}
+
+/**
  * WordPress Database Table prefix.
  *
  * You can have multiple installations in one database if you give each a unique
