@@ -63,7 +63,7 @@ heroku config:set \
 
 # Set WP salts
 type dd >/dev/null
-if [ "$?" -ne 0 ]; then
+if [ "$?" -ne "0" ]; then
 	echo "Setting WP salts with WordPress.org"
 
 	heroku config:set \
