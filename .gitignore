@@ -2,3 +2,5 @@
 /public.built/
 /vendor/
 /.vagrant/
+/support/iron-worker/wp-cron-runner.zip
+/support/iron-worker/node_modules/

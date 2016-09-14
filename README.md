@@ -8,11 +8,14 @@ The repository is built on top of the standard Heroku PHP buildpack so you don't
 * [PHP 7](http://php.net) - Latest and greatest with performance on par with HHVM.
 * [Composer](https://getcomposer.org) - A dependency manager to make installing and managing plugins easier.
 
-And uses the following addons:
+Heroku WP uses the following addons:
 * [MariaDB](https://mariadb.org) / [jawsdb-maria](https://elements.heroku.com/addons/jawsdb-maria) - A binary compatible MySQL replacement with even better performance.
 * [Redis](http://redis.io) / [heroku-redis](https://elements.heroku.com/addons/heroku-redis) - An in-memory datastore for fast persistant object cache.
 * [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
 * [New Relic](https://newrelic.com) / [newrelic](https://elements.heroku.com/addons/newrelic) - SaaS application performance monitoring.
+
+And optionally the following addons:
+* [IronWorker](https://www.iron.io) / [iron_worker](https://elements.heroku.com/addons/iron_worker) - SaaS external jobs queue
 
 In additon repository comes bundled with the following tools and must use plugins.
 * [WP-CLI](http://wp-cli.org) - For simple management of your WP install.
@@ -125,6 +128,14 @@ In addition if your MySQL server requires X509 auth in addition to the username/
     $ heroku config:set \
         MYSQL_SSL_CERT="$(cat /path/to/client-cert.pem)" \
         MYSQL_SSL_KEY="$(cat /path/to/client-key.pem)"
+
+### Offloaded WP Cron
+
+WP Cron relies on visitors to the site to trigger scheduled jobs to run which can be a problem for lightly trafficked sites. Instead we can have an external jobs system (IronWorker) run WP Cron on schedule to provide consistency.
+
+Just run the included init script to install an IronWorker task with an execution schedule of every 15 minutes.
+
+    $ ./init-ironworker.sh my-app-name
 
 Usage
 -----
