@@ -2,9 +2,10 @@
 
 #
 # Sets up IronWorker to run wp-cron.
+# Pass optional 'upgrade' param to upgrade IronWorker code only
 #
 # Usage:
-# $ ./init-ironworker.sh <APP-NAME>
+# $ ./init-ironworker.sh <APP-NAME> [upgrade]
 #
 
 # Check we got a valid new name
@@ -84,6 +85,11 @@ IRON_PROJECT_ID="$IRON_PROJECT_ID" IRON_TOKEN="$IRON_TOKEN" \
 if [ "$?" -ne "0" ]; then
 	echo >&2 "Could not upload worker."
 	exit 1
+fi
+
+if [ "$2" = "upgrade" ]; then
+	echo "IronWorker code upgraded skipping scheduling of task."
+	exit 0
 fi
 
 # Schedule worker
