@@ -7,6 +7,9 @@
 # $ ./init.sh <APP-NAME>
 #
 
+# Go to bin dir
+cd `dirname $0`
+
 # Check we got a valid new name
 if [ -z "$1" ]
 then
@@ -19,6 +22,12 @@ then
 	echo >&2 "App name '$1' is invalid."
 	exit 1
 fi
+
+# Check to see if Composer is installed if not install it
+type ./composer >/dev/null 2>&1 || ./init-composer.sh || {
+	echo >&2 "Composer does not exist and could not be installed."
+	exit 1
+}
 
 # Check to see if Heroku Toolbelt is installed
 type heroku >/dev/null 2>&1 || {
@@ -100,10 +109,26 @@ heroku redis:timeout \
 	--app "$1" \
 	--seconds 60
 
-# Create a branch to deploy
-git checkout -b "$1"
-git push heroku "$1:master"
+#
+# Do the intial commit for this site
+#
 
-printf "\n\nNew Heroku WP app '$1' created and deployed via:\n git push heroku $1:master\n\n"
+true && \
+	cd .. && \
+	git checkout -b "$1" && \
+	bin/composer update --ignore-platform-reqs && \
+	git add composer.lock && \
+	git commit -m "Initial commit for '$1'" && \
+	git push heroku "$1:master"
+
+EXIT_CODE="$?"
+if [ "$EXIT_CODE" -ne "0" ]; then
+	printf >&2 "\n\nDeploy failed for '$1'.\n\n"
+else
+	printf "\n\nNew Heroku WP app '$1' created and deployed via:\n\$ git push heroku $1:master\n\n"
+fi
+
 heroku addons --app "$1"
 heroku redis --app "$1"
+
+exit "$EXIT_CODE"
