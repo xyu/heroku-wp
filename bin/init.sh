@@ -115,11 +115,12 @@ heroku redis:timeout \
 
 true && \
 	cd .. && \
+	git remote add heroku git@heroku.com:"$1".git
 	git checkout -b "$1" && \
 	bin/composer update --ignore-platform-reqs && \
 	git add composer.lock && \
 	git commit -m "Initial commit for '$1'" && \
-	git push "$1:master"
+	git push heroku "$1:master"
 
 EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
