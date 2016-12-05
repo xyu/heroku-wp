@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6c8dc23d6e1c61191c4ae850f8369913",
-    "content-hash": "dfd7767828f39c9111459a436a36c93f",
+    "hash": "f26134af9efb0655fa904beaea569a64",
+    "content-hash": "0e86cb12848f2c4524ece85ab2a75749",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -108,16 +108,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "5465af955800fa884a36f66ff65280584988efd0"
+                "reference": "e7f19286a7e7f940950c9069a0f549d483c30ba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/5465af955800fa884a36f66ff65280584988efd0",
-                "reference": "5465af955800fa884a36f66ff65280584988efd0",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e7f19286a7e7f940950c9069a0f549d483c30ba7",
+                "reference": "e7f19286a7e7f940950c9069a0f549d483c30ba7",
                 "shasum": ""
             },
             "require": {
@@ -181,7 +181,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-11-03 16:43:15"
+            "time": "2016-12-01 13:33:53"
         },
         {
             "name": "composer/installers",
@@ -1713,15 +1713,15 @@
         },
         {
             "name": "wpackagist-plugin/authy-two-factor-authentication",
-            "version": "2.5.5",
+            "version": "3.0.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/authy-two-factor-authentication/",
-                "reference": "tags/2.5.5"
+                "reference": "tags/3.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/authy-two-factor-authentication.2.5.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/authy-two-factor-authentication.3.0.1.zip",
                 "reference": null,
                 "shasum": null
             },

@@ -22,7 +22,7 @@
         "wpackagist-plugin/secure-db-connection": "~1",
 
         "humanmade/s3-uploads": "~1",
-        "wpackagist-plugin/authy-two-factor-authentication": "~2",
+        "wpackagist-plugin/authy-two-factor-authentication": "~3",
         "wpackagist-plugin/jetpack": "~4",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
