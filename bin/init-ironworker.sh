@@ -43,6 +43,7 @@ type npm >/dev/null 2>&1 || {
 }
 
 # Check we have access to app
+echo "Checking Heroku app permissions"
 heroku info --app "$1" >/dev/null || {
 	echo >&2 "Can not update app name '$1'."
 	exit 1

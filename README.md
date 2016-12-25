@@ -154,13 +154,11 @@ Updating
 Updating your WordPress version is just a matter of merging the updates into
 the branch created from the installation.
 
-    $ git pull # Get the latest
-
-Using the same branch name from our installation:
-
-    $ git checkout production
-    $ git merge nginx-php7 # Merge latest
-    $ git push heroku {SLUG}:master
+    $ git pull                                    # Get the latest updates
+    $ git checkout {SLUG}                         # Checkout the site branch
+    $ git merge origin/nginx-php7                 # Merge in latest
+    $ bin/composer update --ignore-platform-reqs  # Update composer.lock file
+    $ git push heroku {SLUG}:master               # Deploy to Heroku
 
 After pushing changes update the WordPress database via WP-CLI:
 

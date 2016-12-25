@@ -1,3 +1,24 @@
+var log = function(state, message) {
+	var prefix = '[' + (new Date()).toISOString() + '] ';
+
+	switch(state) {
+		case 'done':
+			prefix += 'DONE : ';
+			break;
+		case 'error':
+			prefix += 'ERROR: ';
+			break;
+		case 'info':
+		default:
+			prefix += 'INFO : ';
+			break;
+	}
+
+	console.log(prefix + message);
+}
+
+log(`info`, `Starting WP Cron Runner`);
+
 const https = require('https');
 const iron_worker = require('iron_worker');
 
@@ -11,33 +32,33 @@ var options = {
 
 var req = https.request(options, (res) => {
 	if (200 === res.statusCode) {
-		console.log(`OK   : wp-cron.php executed`);
+		log(`done`, `wp-cron.php executed`);
 		process.exit(0);
 	} else {
-		console.log(`ERROR: wp-cron.php returned status code ${res.statusCode}`);
+		log(`error`, `wp-cron.php returned status code ${res.statusCode}`);
 		process.exit(1);
 	}
 });
 
 req.on('socket', (soc) => {
-	console.log(`INFO : Connecting to '${options.hostname}'`);
+	log(`info`, `Connecting to '${options.hostname}'`);
 	soc.on('connect', () => {
-		console.log(`INFO : Connected`);
+		log(`info`, `Connected`);
 	});
 });
 
 req.on('error', (err) => {
 	if ('ECONNRESET' === err.code) {
-		console.log(`OK   : Connection closed`);
+		log(`done`,`Connection closed`);
 		process.exit(0);
 	} else {
-		console.log(`ERROR: ${err.code} - ${err.message}`);
+		log(`error`, `${err.code} - ${err.message}`);
 		process.exit(1);
 	}
 });
 
 req.setTimeout(timeout, () => {
-	console.log(`INFO : Aborting request after ${timeout}ms`);
+	log(`info`, `Aborting request after ${timeout}ms`);
 	req.abort();
 });
 
