@@ -31,8 +31,7 @@
     },
     "suggest": {
         "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
-        "trepmal/wp-revisions-cli": "WP CLI tool for cleaning up revisions (dev-master)",
-        "wpackagist-plugin/wordfence": "web application firewall"
+        "trepmal/wp-revisions-cli": "WP CLI tool for cleaning up revisions (dev-master)"
     },
     "repositories": [
         {
