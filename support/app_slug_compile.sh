@@ -23,5 +23,4 @@ Powered by HerokuWP -- https://github.com/xyu/heroku-wp
 ============================================================
 
 Slug Compiled : $NOW
-Slug Booted   : 
 EOT
