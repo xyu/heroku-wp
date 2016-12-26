@@ -74,7 +74,7 @@ Installing and configuring the items below are not essential to get a working Wo
 
 To activate this plugin:
 
-1.  First set your S3 credentials via Heroku configs with AWS S3 path-style URLs. Be sure to URL encode your AWS key and secret. (E.g. use `%2B` for `+` and `%2F` for `/`.)
+1.  First set your S3 credentials via Heroku configs with AWS S3 path-style URLs. It's best practices to URL encode your AWS key and secret, (e.g. use `%2B` for `+` and `%2F` for `/`,) however non URL encoded values should still work even if they are invalid URLs.
 
     ```
     $ heroku config:set \
