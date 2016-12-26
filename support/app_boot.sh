@@ -29,6 +29,9 @@ then
   fi
 fi
 
+# Write out boot timestamp
+date >> public.built/.heroku-wp
+
 # Boot up!
 vendor/bin/heroku-php-nginx \
   -C support/nginx.inc.conf \
