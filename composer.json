@@ -13,7 +13,7 @@
     ],
     "require": {
         "ext-gd": "*",
-        "php": "~7.0",
+        "php": "~7.0.14",
 
         "WordPress/WordPress": "*",
 
@@ -22,12 +22,12 @@
         "wpackagist-plugin/secure-db-connection": "~1",
 
         "humanmade/s3-uploads": "~1",
-        "wpackagist-plugin/authy-two-factor-authentication": "~2",
+        "wpackagist-plugin/authy-two-factor-authentication": "~3",
         "wpackagist-plugin/jetpack": "~4",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
         "predis/predis": "~1.0",
-        "wp-cli/wp-cli": "~0.23"
+        "wp-cli/wp-cli": "^1.0"
     },
     "suggest": {
         "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
@@ -38,10 +38,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.6.1",
+                "version": "4.7",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.6.1.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.7.zip"
                 }
             }
         },
