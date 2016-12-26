@@ -15,3 +15,12 @@ mv public.built tmp/public.old && mv tmp/public.building public.built
 # Remove files to slim down slug
 rm -rf tmp/public.old
 rm -rf vendor/WordPress
+
+# Write some info about our slug
+NOW=$( date )
+cat <<EOT > public.built/.heroku-wp
+Powered by HerokuWP -- https://github.com/xyu/heroku-wp
+============================================================
+
+Slug Compiled : $NOW
+EOT

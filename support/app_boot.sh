@@ -29,6 +29,10 @@ then
   fi
 fi
 
+# Write out boot timestamp
+NOW=$( date )
+echo "Slug Booted   : $NOW" >> public.built/.heroku-wp
+
 # Boot up!
 vendor/bin/heroku-php-nginx \
   -C support/nginx.inc.conf \
