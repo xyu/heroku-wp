@@ -120,16 +120,33 @@ if ( !empty( $_ENV['SENDGRID_USERNAME'] ) && !empty( $_ENV['SENDGRID_PASSWORD'] 
  *   s3://KEY:SECRET@s3.amazonaws.com/BUCKET?url=https://example.com (to set a prettier bucket URL / alias)
  */
 if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
-	$_awssettings = parse_url( $_ENV['AWS_S3_URL'] );
-	$_awshostmatch = array();
+	$_awssettings = array();
 	$_awsquery = array();
+
+	$_awsmatch = array();
+	if ( preg_match( '/^s3:\/\/([^:]+):([a-zA-Z0-9+\/]+)@(s3[0-9a-z-]*\.amazonaws\.com.*)$/', $_ENV['AWS_S3_URL'], $_awsmatch ) ) {
+		// Non-conforming URL fix it then parse
+		$_awssettings = parse_url( sprintf(
+			"s3://%s:%s@%s",
+			urlencode( $_awsmatch[1] ),
+			urlencode( $_awsmatch[2] ),
+			$_awsmatch[3]
+		) );
+		$_awsmatch = array();
+	} else {
+		// Properly URL encoded base64 encoded string just parse
+		$_awssettings = parse_url(
+			$_ENV['AWS_S3_URL']
+		);
+	}
 
 	define( 'S3_UPLOADS_KEY',    urldecode( $_awssettings['user'] ) );
 	define( 'S3_UPLOADS_SECRET', urldecode( $_awssettings['pass'] ) );
 	define( 'S3_UPLOADS_BUCKET', trim( $_awssettings['path'], '/' ) );
 
-	if ( preg_match( '/^s3(-|\.dualstack\.)([0-9a-z-]+)\.amazonaws\.com$/', $_awssettings['host'], $_awshostmatch ) ) {
-		define( 'S3_UPLOADS_REGION', $_awshostmatch[2] );
+	$_awsmatch = array();
+	if ( preg_match( '/^s3(-|\.dualstack\.)([0-9a-z-]+)\.amazonaws\.com$/', $_awssettings['host'], $_awsmatch ) ) {
+		define( 'S3_UPLOADS_REGION', $_awsmatch[2] );
 	}
 
 	if ( !empty( $_awssettings['query'] ) ) {
@@ -139,7 +156,7 @@ if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
 		}
 	}
 
-	unset( $_awssettings, $_awshostmatch, $_awsquery );
+	unset( $_awssettings, $_awsquery, $_awsmatch );
 }
 
 /**
