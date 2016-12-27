@@ -70,6 +70,8 @@ fi
 # Package worker
 true && \
 	cd iron-worker && \
+	rm -r node_modules && \
+	rm wp-cron-runner.zip && \
 	npm install && \
 	zip -r wp-cron-runner.zip . >/dev/null && \
 	cd ..
