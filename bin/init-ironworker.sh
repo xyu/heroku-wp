@@ -101,8 +101,8 @@ fi
 # Schedule worker
 IRON_PROJECT_ID="$IRON_PROJECT_ID" IRON_TOKEN="$IRON_TOKEN" \
 	iron worker schedule \
-		--run-every 900 \
-		--timeout 10 \
+		--run-every 1800 \
+		--timeout 30 \
 		--priority 0 \
 		--payload $( printf '{"heroku_slug":"%s"}' "$1" ) \
 		wp-cron-runner
