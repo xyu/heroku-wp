@@ -2,3 +2,4 @@ bin/
 README.md
 support/vagrant/
 Vagrantfile
+.sluglocal

@@ -11,10 +11,14 @@ cp -R public/* tmp/public.building
 # Move built web dir into place
 mkdir -p public.built
 mv public.built tmp/public.old && mv tmp/public.building public.built
-
-# Remove files to slim down slug
 rm -rf tmp/public.old
-rm -rf vendor/WordPress
+
+# Remove files to slim down slug if we're on Heroku
+if [ ! -e .sluglocal ]
+then
+	rm -rf vendor/WordPress
+	rm -rf public
+fi
 
 # Write some info about our slug
 NOW=$( date )
