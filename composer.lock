@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c7593d3b018e4353172827e364e50b63",
-    "content-hash": "090f744224fe5488c59b97f4f62c9a05",
+    "hash": "e92c41924ac52e39cfc12fb68a99459c",
+    "content-hash": "c4c52df8d3710ceba85675af89557898",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -1850,6 +1850,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
+        },
+        {
+            "name": "wpackagist-plugin/syntaxhighlighter",
+            "version": "3.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/syntaxhighlighter/",
+                "reference": "tags/3.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/syntaxhighlighter.3.2.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/syntaxhighlighter/"
         },
         {
             "name": "wpackagist-plugin/wordpress-importer",
