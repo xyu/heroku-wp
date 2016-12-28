@@ -22,14 +22,9 @@ log(`info`, `Starting WP Cron Runner`);
 const https = require('https');
 const config = require('./config');
 
-var options = {
-	hostname: config.heroku_slug + '.herokuapp.com',
-	port: 443,
-	path: '/wp-cron.php?doing_wp_cron',
-	method: 'GET'
-};
+log(`info`, `Configs loaded`);
 
-var req = https.request(options, (res) => {
+var req = https.request(config.request, (res) => {
 	if (200 === res.statusCode) {
 		log(`done`, `wp-cron.php executed`);
 		process.exit(0);
@@ -40,7 +35,7 @@ var req = https.request(options, (res) => {
 });
 
 req.on('socket', (soc) => {
-	log(`info`, `Connecting to '${options.hostname}'`);
+	log(`info`, `Connecting to '${config.request.hostname}'`);
 	soc.on('connect', () => {
 		log(`info`, `Connected`);
 	});
