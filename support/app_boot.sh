@@ -29,6 +29,18 @@ then
   fi
 fi
 
+#
+# Try and fix file modified times to always be set to slug compile time
+#
+SLUG_MTIME=$( sed -n -e 's/^Slug Compiled : \(.*\)$/\1/p' public.built/.heroku-wp | head -n 1 )
+if [ -n "$SLUG_MTIME" ]
+then
+  for ITEM in $( find public.built )
+  do
+    [ -f "$ITEM" ] && touch -m --date="$SLUG_MTIME" "$ITEM"
+  done
+fi
+
 # Write out boot timestamp
 NOW=$( date )
 echo "Dyno Booted   : $NOW" >> public.built/.heroku-wp
