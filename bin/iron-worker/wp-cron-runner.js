@@ -20,11 +20,10 @@ var log = function(state, message) {
 log(`info`, `Starting WP Cron Runner`);
 
 const https = require('https');
-const iron_worker = require('iron_worker');
+const config = require('./config');
 
-var timeout = 750;
 var options = {
-	hostname: iron_worker.params()['heroku_slug'] + '.herokuapp.com',
+	hostname: config.heroku_slug + '.herokuapp.com',
 	port: 443,
 	path: '/wp-cron.php?doing_wp_cron',
 	method: 'GET'
@@ -57,8 +56,8 @@ req.on('error', (err) => {
 	}
 });
 
-req.setTimeout(timeout, () => {
-	log(`info`, `Aborting request after ${timeout}ms`);
+req.setTimeout(config.timeout, () => {
+	log(`info`, `Aborting request after ${config.timeout}ms`);
 	req.abort();
 });
 

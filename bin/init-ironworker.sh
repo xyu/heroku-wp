@@ -69,9 +69,11 @@ fi
 
 # Package worker
 true && \
-	cd iron-worker && \
-	rm -r node_modules && \
-	rm wp-cron-runner.zip && \
+	rm -rf iron-worker.tmp && \
+	mkdir iron-worker.tmp && \
+	cp -R iron-worker/* iron-worker.tmp && \
+	sed "s/{HEROKU_SLUG}/$1/" iron-worker/config.js > iron-worker.tmp/config.js && \
+	cd iron-worker.tmp && \
 	npm install && \
 	zip -r wp-cron-runner.zip . >/dev/null && \
 	cd ..
@@ -85,8 +87,11 @@ fi
 IRON_PROJECT_ID="$IRON_PROJECT_ID" IRON_TOKEN="$IRON_TOKEN" \
 	iron worker upload \
 		--name "wp-cron-runner" \
-		--zip "iron-worker/wp-cron-runner.zip" \
+		--zip "iron-worker.tmp/wp-cron-runner.zip" \
 		iron/node "node wp-cron-runner.js"
+
+# Cleanup
+rm -rf iron-worker.tmp
 
 if [ "$?" -ne "0" ]; then
 	echo >&2 "Could not upload worker."
@@ -104,7 +109,6 @@ IRON_PROJECT_ID="$IRON_PROJECT_ID" IRON_TOKEN="$IRON_TOKEN" \
 		--run-every 1800 \
 		--timeout 30 \
 		--priority 0 \
-		--payload $( printf '{"heroku_slug":"%s"}' "$1" ) \
 		wp-cron-runner
 
 if [ "$?" -ne "0" ]; then

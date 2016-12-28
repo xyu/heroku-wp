@@ -1,5 +1,18 @@
 {
+  "name": "wp-cron-runner",
+  "description": "An IronWorker code package for triggering WordPress cron on schedule",
+  "homepage": "https://github.com/xyu/heroku-wp",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Xiao Yu",
+      "email": "me@xyu.io",
+      "homepage": "http://xyu.io",
+      "role": "Developer"
+    }
+  ],
+  "version": "0.0.1",
+  "private": true,
   "dependencies": {
-    "iron_worker": ">= 0.1.4"
   }
 }
