@@ -231,7 +231,14 @@ define( 'WPLANG', '' );
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define( 'WP_DEBUG', false );
+if ( isset( $_ENV['WP_DEBUG'] ) && 'TRUE' == $_ENV['WP_DEBUG'] ) {
+	// Turn on debug, log to default destination and don't display
+	define( 'WP_DEBUG', true );
+	define( 'WP_DEBUG_LOG', false );
+	define( 'WP_DEBUG_DISPLAY', false );
+} else {
+	define( 'WP_DEBUG', false );
+}
 
 /* That's all, stop editing! Happy blogging. */
 
