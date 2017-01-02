@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e92c41924ac52e39cfc12fb68a99459c",
-    "content-hash": "c4c52df8d3710ceba85675af89557898",
+    "hash": "129a828671611e2d16faf9dfd2e4b0f6",
+    "content-hash": "454ffe24595cc26e6f8f26e44a817415",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -1750,6 +1750,26 @@
                 "wordpress"
             ],
             "time": "2016-11-29 19:33:53"
+        },
+        {
+            "name": "wpackagist-plugin/akismet",
+            "version": "3.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/akismet/",
+                "reference": "tags/3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/akismet.3.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/akismet/"
         },
         {
             "name": "wpackagist-plugin/authy-two-factor-authentication",
