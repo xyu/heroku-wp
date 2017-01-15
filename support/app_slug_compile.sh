@@ -23,8 +23,9 @@ fi
 # Write some info about our slug
 NOW=$( date )
 cat <<EOT > public.built/.heroku-wp
-Powered by HerokuWP -- https://github.com/xyu/heroku-wp
-============================================================
+Powered by HerokuWP
+https://github.com/xyu/heroku-wp
+=============================================
 
 Slug Compiled : $NOW
 EOT
