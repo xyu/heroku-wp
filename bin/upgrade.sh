@@ -20,6 +20,7 @@ git remote show upstream >/dev/null 2>&1 || {
 git stash
 
 # Merge in latest change from upstream
+git fetch upstream
 git merge --no-ff upstream/nginx-php7
 
 # Maybe rebuild composer lock file
