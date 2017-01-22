@@ -43,7 +43,7 @@ class WP_SiteCustomizations_XYUIO_Funcs {
 		wp_dequeue_style( 'twentyfifteen-fonts' );
 	}
 
-	public function lock_photon_domain( $domain, $image_url ) {
+	public function lock_photon_domain( $domain ) {
 		$expected_domains = array(
 			'https://i0.wp.com',
 			'https://i1.wp.com',
