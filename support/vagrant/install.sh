@@ -103,11 +103,11 @@ sudo -H -u ubuntu composer --working-dir=/app install
 start-stop-daemon \
   --start \
   --oknodo \
-  --user vagrant \
+  --user root \
   --name rebuild \
   --pidfile /var/run/rebuild.pid \
   --startas /app/support/vagrant/rebuild \
-  --chuid vagrant \
+  --chuid root \
   --make-pidfile /var/run/rebuild.pid \
   --background
 
@@ -117,7 +117,7 @@ start-stop-daemon \
 # start-stop-daemon \
 #   --stop \
 #   --oknodo \
-#   --user vagrant \
+#   --user root \
 #   --name rebuild \
 #   --pidfile /var/run/rebuild.pid \
 #   --retry 5
