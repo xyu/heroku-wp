@@ -1,23 +1,48 @@
 #!/bin/bash
 
-WATCHLIST="/app/composer.lock /app/public/"
-WEBROOT="/app/public.built"
-LOCKFILE="/app/tmp/rebuild.lock"
 WORKINGDIR="/app"
+APPTMP="/app/tmp"
 
 #
 # End Configs
 #
 
 while true; do
-    NEWFILES=`find $WATCHLIST -newer $WEBROOT`
-    if [ ! -z ${NEWFILES} ]; then
-        if [ ! -f ${LOCKFILE} ]; then
-            touch ${LOCKFILE}
-            composer --working-dir=${WORKINGDIR} install
-            rm ${LOCKFILE}
+    # Create tmp files and dirs
+    [ -d "$APPTMP" ] && \
+        mkdir -p "$APPTMP" && \
+        chmod 777 "$APPTMP"
+    [ -f "${APPTMP}/rebuild.out" ] && \
+        touch -m --date="2000-01-01 00:00:00" "${APPTMP}/rebuild.out"
+    [ -f "${APPTMP}/reload.out" ] && \
+        touch -m --date="2000-01-01 00:00:00" "${APPTMP}/reload.out"
+
+    # Rebuild webroot if needed
+    LOCKFILE="${APPTMP}/rebuild.lock"
+    OUTFILE="${APPTMP}/rebuild.out"
+    NEWFILES=`find "/app/public/" -newer "${OUTFILE}"`
+    NEWFILES+=`find "/app/composer.lock" -newer "${OUTFILE}"`
+    if [ ! -z "${NEWFILES}" ]; then
+        if [ ! -f "${LOCKFILE}" ]; then
+            touch "${LOCKFILE}"
+            sudo -H -u ubuntu \
+                composer --working-dir="${WORKINGDIR}" install > "${OUTFILE}"
+            rm "${LOCKFILE}"
         fi
-    else
-        sleep 1
     fi
+
+    # Reload nginx if needed
+    LOCKFILE="${APPTMP}/reload.lock"
+    OUTFILE="${APPTMP}/reload.out"
+    NEWFILES=`find "/app/support/" -newer "${OUTFILE}"`
+    if [ ! -z "${NEWFILES}" ]; then
+        if [ ! -f "${LOCKFILE}" ]; then
+            touch "${LOCKFILE}"
+            cp -a /app/support/vagrant/root/* /
+            /etc/init.d/nginx reload > "${OUTFILE}"
+            rm "${LOCKFILE}"
+        fi
+    fi
+
+    sleep 1
 done
