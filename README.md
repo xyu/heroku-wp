@@ -207,6 +207,8 @@ Once installed `cd` into app root directory and run `$ vagrant up` (should start
 
 Once Vagrant provisions the VM you will have Heroku WP running locally at `http://herokuwp.local/`. On first load, it should bring you to the WordPress install page. If the site is not accessible in the browser, you might need to add `192.168.50.100 herokuwp.local` to your hosts file manually.
 
+As a convenience both the `/public` dir and `/composer.lock` file will be monitored by the VM. Any changes to either triggers a rebuild process which will result in `/public.built` (the web root) being updated. `/app/support` is also monitored by the VM, changes here will cause Nginx to reload with the new configs.
+
 Connecting to MySQL on Vagrant Machine
 --------------------------------------
 
