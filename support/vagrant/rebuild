@@ -9,12 +9,12 @@ APPTMP="/app/tmp"
 
 while true; do
     # Create tmp files and dirs
-    [ -d "$APPTMP" ] && \
+    [ ! -d "$APPTMP" ] && \
         mkdir -p "$APPTMP" && \
         chmod 777 "$APPTMP"
-    [ -f "${APPTMP}/rebuild.out" ] && \
+    [ ! -f "${APPTMP}/rebuild.out" ] && \
         touch -m --date="2000-01-01 00:00:00" "${APPTMP}/rebuild.out"
-    [ -f "${APPTMP}/reload.out" ] && \
+    [ ! -f "${APPTMP}/reload.out" ] && \
         touch -m --date="2000-01-01 00:00:00" "${APPTMP}/reload.out"
 
     # Rebuild webroot if needed
