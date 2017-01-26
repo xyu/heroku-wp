@@ -12,6 +12,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder ".", "/app"
 
+  # Manage our hostfile for us
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
 
   # Keep it simple; just 1 VM for db and web
   config.vm.define "herokuwp" do |herokuwp|
