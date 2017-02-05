@@ -223,7 +223,7 @@ Then you can connect using SSH with the following parameters:
 * SSH password: vagrant
 * MySQL hostname: 127.0.0.1
 * MySQL port: 3306
-* mysql user: root
+* mysql user: herokuwp
 * mysql password: password
 
 If your computer goes to sleep and vagrant is suspended abruptly

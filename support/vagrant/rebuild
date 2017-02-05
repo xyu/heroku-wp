@@ -25,7 +25,7 @@ while true; do
     if [ ! -z "${NEWFILES}" ]; then
         if [ ! -f "${LOCKFILE}" ]; then
             touch "${LOCKFILE}"
-            sudo -H -u ubuntu \
+            sudo -H -u vagrant \
                 composer --working-dir="${WORKINGDIR}" install > "${OUTFILE}"
             rm "${LOCKFILE}"
         fi

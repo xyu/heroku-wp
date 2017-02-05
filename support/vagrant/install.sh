@@ -87,7 +87,7 @@ cp -a /app/support/vagrant/root/* /
 # Build Heroku-WP
 #
 
-sudo -H -u ubuntu composer --working-dir=/app install
+sudo -H -u vagrant composer --working-dir=/app install
 
 #
 # Restart Services
