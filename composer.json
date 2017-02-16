@@ -27,6 +27,7 @@
         "wpackagist-plugin/jetpack": "~4",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
+        "wpackagist-plugin/debug-bar": "~0.8",
         "wpackagist-plugin/syntaxhighlighter": "~3",
         "wpackagist-plugin/wp-serverinfo": "~1",
         "wpackagist-plugin/wordpress-importer": "~0.6",
