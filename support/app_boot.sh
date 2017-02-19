@@ -30,6 +30,11 @@ then
 fi
 
 #
+# Don't overload free DB or Dyno, set currency at 3
+#
+export WEB_CONCURRENCY="3"
+
+#
 # Try and fix file modified times to always be set to slug compile time
 #
 SLUG_MTIME=$( sed -n -e 's/^Slug Compiled : \(.*\)$/\1/p' public.built/.heroku-wp | head -n 1 )
