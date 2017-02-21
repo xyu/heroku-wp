@@ -12,6 +12,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder ".", "/app"
 
+  # Use password auth
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
+
   # Manage our hostfile for us
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
