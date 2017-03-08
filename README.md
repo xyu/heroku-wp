@@ -35,7 +35,7 @@ WordPress and most included plugins are installed by Composer on build. To add n
 $ bin/composer update --ignore-platform-reqs
 ```
 
-To customize the site simply place files into `/public` which upon deploy to Heroku will be copied on top of the standard WordPress install and plugins specified by Composer.
+To add local plugins and themes, place them inside the correct folder in `/public/wp-content`. Upon deploy to Heroku, they will be copied on top of the standard WordPress install, themes, and plugins specified by Composer.
 
 Installation
 ------------
