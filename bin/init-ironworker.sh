@@ -53,7 +53,7 @@ heroku info --app "$1" >/dev/null || {
 heroku addons:info --app "$1" iron_worker >/dev/null 2>&1 || {
 	heroku addons:create \
 		--app "$1" \
-		iron_worker:lite
+		iron_worker:sandbox
 }
 
 # Get keys for IronWorker
