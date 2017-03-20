@@ -25,6 +25,7 @@
         "wpackagist-plugin/authy-two-factor-authentication": "~3",
         "wpackagist-plugin/jetpack": "~4",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
+        "advanced-custom-fields/advanced-custom-fields-pro": "~5",
 
         "predis/predis": "~1.0",
         "wp-cli/wp-cli": "^1.0"
@@ -56,7 +57,20 @@
         {
             "type": "composer",
             "url": "https://wp-cli.org/package-index"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "advanced-custom-fields/advanced-custom-fields-pro",
+                "version": "5.5.10",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://connect.advancedcustomfields.com/index.php?t=5.5.10&p=pro&a=download&k={key}"
+                }
+            }
         }
+
     ],
     "extra": {
         "installer-paths": {
