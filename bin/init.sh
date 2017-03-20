@@ -35,6 +35,13 @@ type heroku >/dev/null 2>&1 || {
 	exit 1
 }
 
+# Check to see if heroku.com is in known_hosts
+ssh-keygen -F heroku.com > /dev/null 2>&1
+if [ "$?" = 1 ] ; then
+  echo "Make an initial SSH connection to heroku.com to add it to known_hosts"
+  exit 1
+fi
+
 # Create new app and check for success
 heroku apps:create "$1" || {
 	echo >&2 "Could not create Heroku WP app."
