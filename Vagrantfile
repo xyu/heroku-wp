@@ -17,9 +17,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.password = "vagrant"
 
   # Manage our hostfile for us
-  config.hostmanager.enabled = true
-  config.hostmanager.manage_host = true
-  config.hostmanager.manage_guest = true
+  if Vagrant.has_plugin?("vagrant-hostmanager")
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+    config.hostmanager.manage_guest = true
+  else
+    config.vm.post_up_message = "Vagrant-hostmanager is not installed. Manual update of your hostfile is required."
+  end
 
   # Keep it simple; just 1 VM for db and web
   config.vm.define "herokuwp" do |herokuwp|
