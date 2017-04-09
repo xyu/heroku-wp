@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "bento/ubuntu-16.04"
 
-  config.vm.synced_folder ".", "/app"
+  config.vm.synced_folder ".", "/app", :mount_options => ["dmode=777", "fmode=777"]
 
   # Use password auth
   config.ssh.username = "vagrant"
