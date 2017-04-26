@@ -105,10 +105,8 @@ unset( $_dbsettings, $_dbflags, $_dbsslpaths, $_dbsslpath );
 /**
  * SendGrid settings.
  */
-if ( !empty( $_ENV['SENDGRID_USERNAME'] ) && !empty( $_ENV['SENDGRID_PASSWORD'] ) ) {
-	define( 'SENDGRID_AUTH_METHOD', 'credentials'              );
-	define( 'SENDGRID_USERNAME',    $_ENV['SENDGRID_USERNAME'] );
-	define( 'SENDGRID_PASSWORD',    $_ENV['SENDGRID_PASSWORD'] );
+if ( !empty( $_ENV['SENDGRID_API_KEY'] ) ) {
+	define( 'SENDGRID_API_KEY', $_ENV['SENDGRID_API_KEY'] );
 }
 
 /**
