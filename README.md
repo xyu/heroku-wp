@@ -35,7 +35,7 @@ WordPress and most included plugins are installed by Composer on build. To add n
 $ bin/composer update --ignore-platform-reqs
 ```
 
-To customize the site simply place files into `/public` which upon deploy to Heroku will be copied on top of the standard WordPress install and plugins specified by Composer.
+To add local plugins and themes, you can create ```plugins/``` and ```themes/``` folders inside `/public/wp-content` which upon deploy to Heroku will be copied on top of the standard WordPress install, themes, and plugins specified by Composer.
 
 Installation
 ------------
@@ -199,9 +199,12 @@ A Vagrant instance to run Heroku WP is included. To get up and running:
 * Install Vagrant http://www.vagrantup.com/downloads
 * Install VirtualBox https://www.virtualbox.org/wiki/Downloads
 
-To make your life easier a Vagrant plugin can be used to manage the hosts file
+To make your life easier a Vagrant plugin can be used to manage the hosts file.
 
     $ vagrant plugin install vagrant-hostmanager
+
+If you don't have vagrant-hostmanager installed you'll have to manually update
+your hostfile.
 
 Once installed `cd` into app root directory and run `$ vagrant up` (should start setting up virtual env. go grab some ☕, takes about 10 minutes)
 

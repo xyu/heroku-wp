@@ -14,6 +14,12 @@ echo "###############################"
 cd /app
 
 #
+# Add Nginx:PPA To Apt
+#
+
+add-apt-repository ppa:nginx/stable -y
+
+#
 # Update Package Manager
 #
 
