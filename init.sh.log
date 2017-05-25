@@ -1,0 +1,196 @@
+
+$ cd heroku-wp && bin/init.sh APP******NAME
+Creating ⬢ APP******NAME... done
+https://APP******NAME.herokuapp.com/ | https://git.heroku.com/APP******NAME.git
+Creating heroku-redis:hobby-dev on ⬢ APP******NAME... free
+Created redis-angular-50264 as REDIS_URL
+Data stored in hobby plans on Heroku Redis are not persisted.
+Instance has been created and will be available shortly
+Use heroku addons:docs heroku-redis to view documentation
+Creating jawsdb-maria:kitefin on ⬢ APP******NAME... free
+Created jawsdb-maria-rigid-72336 as WP_DB_URL
+Your database has been provisioned and is ready for use.
+Use heroku addons:docs jawsdb-maria to view documentation
+Setting WP_DB_SSL and restarting ⬢ APP******NAME... done, v5
+WP_DB_SSL: ON
+Creating sendgrid:starter on ⬢ APP******NAME... free
+Created sendgrid-concentric-89371 as SENDGRID_PASSWORD, SENDGRID_USERNAME
+Use heroku addons:docs sendgrid to view documentation
+Creating newrelic:wayne on ⬢ APP******NAME... free
+Created newrelic-aerodynamic-40964 as NEW_RELIC_LICENSE_KEY, NEW_RELIC_LOG
+Use heroku addons:docs newrelic to view documentation
+Setting NEW_RELIC_APP_NAME and restarting ⬢ APP******NAME... done, v8
+NEW_RELIC_APP_NAME: Heroku WP
+Setting WP salts with /dev/random
+Setting WP_AUTH_KEY, WP_SECURE_AUTH_KEY, WP_LOGGED_IN_KEY, WP_NONCE_KEY, WP_AUTH_SALT, WP_SECURE_AUTH_SALT, WP_LOGGED_IN_SALT, WP_NONCE_SALT and restarting ⬢ APP******NAME... done, v9
+WP_AUTH_KEY:         -
+WP_AUTH_SALT:        -
+WP_LOGGED_IN_KEY:    -
+WP_LOGGED_IN_SALT:   -
+WP_NONCE_KEY:        -
+WP_NONCE_SALT:       -
+WP_SECURE_AUTH_KEY:  -
+WP_SECURE_AUTH_SALT: -
+Waiting for Heroku Redis to provision... done
+Maxmemory policy for redis-angular-50264 (REDIS_URL) set to volatile-lru.
+volatile-lru evict keys trying to remove the less recently used keys first, but only those that have an expiry set.
+Timeout for redis-angular-50264 (REDIS_URL) set to 60 seconds.
+Connections to the Redis instance will be stopped after idling for 60 seconds.
+Switched to a new branch 'APP******NAME'
+You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
+Loading composer repositories with package information
+Updating dependencies (including require-dev)              
+  - Installing composer/installers (v1.2.0)
+    Loading from cache
+
+  - Installing wordpress/wordpress (4.6.1)
+    Loading from cache
+
+  - Installing automattic/batcache (dev-master 81d6fbf)
+    Cloning 81d6fbfd2d5e4676fca0425ac378514443d69ec8 from cache
+
+  - Installing humanmade/s3-uploads (v1.1.0)
+    Loading from cache
+
+  - Installing wpackagist-plugin/redis-cache (1.3.4)
+    Loading from cache
+
+  - Installing wpackagist-plugin/secure-db-connection (1.1.2)
+    Loading from cache
+
+  - Installing wpackagist-plugin/authy-two-factor-authentication (2.5.5)
+    Loading from cache
+
+  - Installing wpackagist-plugin/jetpack (4.3.1)
+    Loading from cache
+
+  - Installing wpackagist-plugin/sendgrid-email-delivery-simplified (1.10.1)
+    Loading from cache
+
+  - Installing predis/predis (v1.1.1)
+    Loading from cache
+
+  - Installing wp-cli/php-cli-tools (v0.11.1)
+    Loading from cache
+
+  - Installing symfony/yaml (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/polyfill-mbstring (v1.2.0)
+    Loading from cache
+
+  - Installing symfony/translation (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/process (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/finder (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/filesystem (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/event-dispatcher (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/dependency-injection (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/console (v2.8.11)
+    Loading from cache
+
+  - Installing symfony/config (v2.8.11)
+    Loading from cache
+
+  - Installing rmccue/requests (v1.6.1)
+    Loading from cache
+
+  - Installing ramsey/array_column (1.1.3)
+    Loading from cache
+
+  - Installing nb/oxymel (v0.1.0)
+    Loading from cache
+
+  - Installing mustangostang/spyc (0.5.1)
+    Loading from cache
+
+  - Installing mustache/mustache (v2.11.1)
+    Loading from cache
+
+  - Installing composer/semver (1.4.2)
+    Loading from cache
+
+  - Installing seld/phar-utils (1.0.1)
+    Loading from cache
+
+  - Installing seld/jsonlint (1.4.1)
+    Loading from cache
+
+  - Installing seld/cli-prompt (1.0.2)
+    Loading from cache
+
+  - Installing psr/log (1.0.1)
+    Loading from cache
+
+  - Installing justinrainbow/json-schema (2.0.5)
+    Loading from cache
+
+  - Installing composer/spdx-licenses (1.1.5)
+    Loading from cache
+
+  - Installing composer/ca-bundle (1.0.4)
+    Loading from cache
+
+  - Installing composer/composer (1.2.1)
+    Loading from cache
+
+  - Installing wp-cli/wp-cli (v0.24.1)
+    Loading from cache
+
+predis/predis suggests installing ext-phpiredis (Allows faster serialization and deserialization of the Redis protocol)
+symfony/event-dispatcher suggests installing symfony/http-kernel ()
+symfony/dependency-injection suggests installing symfony/expression-language (For using expressions in service container configuration)
+symfony/dependency-injection suggests installing symfony/proxy-manager-bridge (Generate service proxies to lazy load them)
+wp-cli/wp-cli suggests installing psy/psysh (Enhanced `wp shell` functionality)
+Writing lock file
+Generating autoload files
+[APP******NAME 15bd086] Initial commit for 'APP******NAME'
+ 1 file changed, 1766 insertions(+), 12 deletions(-)
+ rewrite composer.lock (96%)
+fatal: 'heroku' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+
+Deploy failed for 'APP******NAME'.
+
+
+Add-on                                   Plan       Price
+───────────────────────────────────────  ─────────  ─────
+heroku-redis (redis-angular-50264)       hobby-dev  free
+ └─ as REDIS
+
+jawsdb-maria (jawsdb-maria-rigid-72336)  kitefin    free
+ └─ as WP_DB
+
+newrelic (newrelic-aerodynamic-40964)    wayne      free
+ └─ as NEW_RELIC
+
+sendgrid (sendgrid-concentric-89371)     starter    free
+ └─ as SENDGRID
+
+The table above shows add-ons and the attachments to the current app (APP******NAME) or other apps.
+  
+=== redis-angular-50264 (REDIS_URL)
+Plan:               Hobby Dev
+Status:             available
+Created:            2016-10-03 02:32 UTC
+Version:            3.2.1
+Timeout:            60
+Maxmemory:          volatile-lru
+Maintenance:        not required
+Maintenance window: Mondays 21:30 to Tuesdays 01:30 UTC
+Persistence:        None

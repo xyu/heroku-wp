@@ -121,6 +121,7 @@ heroku git:remote \
 # Make initial commit and deploy
 true && \
 	cd .. && \
+	git remote add heroku git@heroku.com:"$1".git
 	git checkout -b "$1" && \
 	bin/composer update --ignore-platform-reqs && \
 	git add composer.lock && \
