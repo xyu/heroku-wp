@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "49ebe982e0d9a6ba59eb9b777077ba64",
-    "content-hash": "dff0d28d0739ad36fdd89f86a576f8e5",
+    "hash": "a1160e996ea1a20c38e74f90d33a7a13",
+    "content-hash": "8f69e3d2692a9b8cddeea662a0cf1ecf",
     "packages": [
         {
             "name": "WordPress/WordPress",
-            "version": "4.7.5",
+            "version": "4.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/4.7.5.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/4.8.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1765,15 +1765,15 @@
         },
         {
             "name": "wpackagist-plugin/akismet",
-            "version": "3.3.2",
+            "version": "3.3.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/akismet/",
-                "reference": "tags/3.3.2"
+                "reference": "tags/3.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/akismet.3.3.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/akismet.3.3.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1825,15 +1825,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "4.9",
+            "version": "5.2.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/4.9"
+                "reference": "tags/5.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.4.9.zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.5.2.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1885,7 +1885,7 @@
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.11.3",
+            "version": "1.11.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
@@ -1893,7 +1893,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip?timestamp=1495021825",
+                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip?timestamp=1501496607",
                 "reference": null,
                 "shasum": null
             },
@@ -1953,7 +1953,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-serverinfo.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-serverinfo.zip?timestamp=1487047062",
                 "reference": null,
                 "shasum": null
             },
