@@ -23,7 +23,7 @@
 
         "humanmade/s3-uploads": "~1",
         "wpackagist-plugin/authy-two-factor-authentication": "~3",
-        "wpackagist-plugin/jetpack": "~4",
+        "wpackagist-plugin/jetpack": "~5",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
         "predis/predis": "~1.0",
@@ -38,10 +38,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.7.5",
+                "version": "4.8.1",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.7.5.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.8.1.zip"
                 }
             }
         },
