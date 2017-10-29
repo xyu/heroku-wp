@@ -45,7 +45,7 @@
                 "forum": "https://wordpress.org/support/plugin/batcache",
                 "source": "https://github.com/Automattic/batcache"
             },
-            "time": "2016-09-09T18:37:55+00:00"
+            "time": "2016-09-09 18:37:55"
         },
         {
             "name": "composer/ca-bundle",
@@ -3282,15 +3282,15 @@
         },
         {
             "name": "wpackagist-plugin/secure-db-connection",
-            "version": "1.1.2",
+            "version": "1.1.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/secure-db-connection/",
-                "reference": "tags/1.1.2"
+                "reference": "tags/1.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/secure-db-connection.1.1.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/secure-db-connection.1.1.4.zip",
                 "reference": null,
                 "shasum": null
             },
