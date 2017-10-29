@@ -38,10 +38,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.8.1",
+                "version": "4.8.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.8.1.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.8.2.zip"
                 }
             }
         },
