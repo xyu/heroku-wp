@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5d5fc2c0a9b7a884f20bc0345d5277a",
+    "content-hash": "e1d1100ae309ee40639feb7b62418ef7",
     "packages": [
         {
             "name": "WordPress/WordPress",
-            "version": "4.8.2",
+            "version": "4.8.3",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/4.8.2.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/4.8.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -45,7 +45,7 @@
                 "forum": "https://wordpress.org/support/plugin/batcache",
                 "source": "https://github.com/Automattic/batcache"
             },
-            "time": "2016-09-09 18:37:55"
+            "time": "2016-09-09T18:37:55+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -2748,16 +2748,16 @@
         },
         {
             "name": "wp-cli/scaffold-command",
-            "version": "v1.0.10",
+            "version": "v1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/scaffold-command.git",
-                "reference": "97ab0a2e388be638445dad072f6e7b4aa5d4bfbd"
+                "reference": "66b61e055b2fcd225c6e2babf543b77a5c56038a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/scaffold-command/zipball/97ab0a2e388be638445dad072f6e7b4aa5d4bfbd",
-                "reference": "97ab0a2e388be638445dad072f6e7b4aa5d4bfbd",
+                "url": "https://api.github.com/repos/wp-cli/scaffold-command/zipball/66b61e055b2fcd225c6e2babf543b77a5c56038a",
+                "reference": "66b61e055b2fcd225c6e2babf543b77a5c56038a",
                 "shasum": ""
             },
             "require-dev": {
@@ -2802,7 +2802,7 @@
             ],
             "description": "Generate code for post types, taxonomies, plugins, child themes, etc.",
             "homepage": "https://github.com/wp-cli/scaffold-command",
-            "time": "2017-10-15T13:45:45+00:00"
+            "time": "2017-11-01T14:20:17+00:00"
         },
         {
             "name": "wp-cli/search-replace-command",
