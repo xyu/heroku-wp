@@ -22,8 +22,7 @@
         "wpackagist-plugin/secure-db-connection": "~1",
 
         "humanmade/s3-uploads": "~1",
-        "wpackagist-plugin/authy-two-factor-authentication": "~3",
-        "wpackagist-plugin/jetpack": "~5",
+        "wpackagist-plugin/jetpack": "*",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
         "predis/predis": "~1.0",
@@ -38,10 +37,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.9.1",
+                "version": "4.9.6",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.9.1.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.9.6.zip"
                 }
             }
         },
