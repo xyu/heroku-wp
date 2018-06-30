@@ -66,7 +66,11 @@ Installing and configuring the items below are not essential to get a working Wo
 
 ### Sending Email
 
-[SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified) plugin is included in the repository and preconfigured to work with the [SendGrid addon](https://elements.heroku.com/addons/sendgrid) simply activate the plugin for better email delivery.
+[SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified) plugin is included in the repository and preconfigured to work with the [SendGrid addon](https://elements.heroku.com/addons/sendgrid). It has recently been updated, and support for *Username & Password* authentication has been dropped. It now requires an API key.
+
+To activate this plugin, just run the included init script and follow the instructions.
+
+    $ bin/init-sendgrid.sh my-app-name
 
 ### Media Uploads
 
