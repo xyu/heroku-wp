@@ -23,7 +23,7 @@
 
         "humanmade/s3-uploads": "~1",
         "wpackagist-plugin/authy-two-factor-authentication": "~3",
-        "wpackagist-plugin/jetpack": "~5",
+        "wpackagist-plugin/jetpack": "*",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
         "predis/predis": "~1.0",
