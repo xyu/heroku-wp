@@ -24,7 +24,6 @@ In additon repository comes bundled with the following tools and must use plugin
 * [Secure DB Connection](http://wordpress.org/plugins/secure-db-connection) - For ensuring connections to the database are secure and encrypted.
 
 Finally these plugins are pre-installed as they are highly recommended but not activated.
-* [Authy Two Factor Auth](https://www.authy.com/products/wordpress)
 * [Jetpack](http://jetpack.me/)
 * [S3 Uploads](https://github.com/humanmade/S3-Uploads)
 * [SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)
