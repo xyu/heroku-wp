@@ -19,7 +19,7 @@
 
         "automattic/batcache": "dev-master",
         "wpackagist-plugin/redis-cache": "~1",
-        "wpackagist-plugin/secure-db-connection": "~1",
+        "wpackagist-plugin/secure-db-connection": "dev-trunk",
 
         "humanmade/s3-uploads": "~1",
         "wpackagist-plugin/akismet": "~3",

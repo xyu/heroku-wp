@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "58d8b04677891038f89b6065f462f6b6",
+    "content-hash": "8a39a1a1032dc5b3249f153cfbd36276",
     "packages": [
         {
             "name": "WordPress/WordPress",
@@ -3599,15 +3599,15 @@
         },
         {
             "name": "wpackagist-plugin/secure-db-connection",
-            "version": "1.1.4",
+            "version": "dev-trunk",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/secure-db-connection/",
-                "reference": "tags/1.1.4"
+                "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/secure-db-connection.1.1.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/secure-db-connection.zip?timestamp=1530491420",
                 "reference": null,
                 "shasum": null
             },
@@ -3615,7 +3615,8 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/secure-db-connection/"
+            "homepage": "https://wordpress.org/plugins/secure-db-connection/",
+            "time": "2018-07-02T00:30:20+00:00"
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
@@ -3703,6 +3704,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "automattic/batcache": 20,
+        "wpackagist-plugin/secure-db-connection": 20,
         "trepmal/wp-revisions-cli": 20
     },
     "prefer-stable": false,
