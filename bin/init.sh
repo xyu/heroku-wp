@@ -48,11 +48,6 @@ heroku apps:create "$1" || {
 	exit 1
 }
 
-# Add SendGrid for email
-heroku addons:create \
-	--app "$1" \
-	sendgrid:starter
-
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
 heroku redis:wait \
