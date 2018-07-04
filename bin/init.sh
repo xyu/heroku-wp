@@ -53,15 +53,6 @@ heroku addons:create \
 	--app "$1" \
 	sendgrid:starter
 
-# Add New Relic for metrics
-heroku addons:create \
-	--app "$1" \
-	newrelic:wayne
-
-heroku config:set \
-	--app "$1" \
-	NEW_RELIC_APP_NAME="Heroku WP"
-
 # Set WP salts
 type dd >/dev/null
 if [ "$?" -ne "0" ]; then

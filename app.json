@@ -10,6 +10,11 @@
       "description": "To connect to MySQL over SSL set this to 'ON'",
       "value": "ON",
       "required": false
+    },
+    "NEW_RELIC_APP_NAME": {
+      "description": "The application name in New Relic for this app",
+      "value": "Heroku WP",
+      "required": true
     }
   },
   "addons": [
@@ -19,6 +24,9 @@
     {
       "plan": "jawsdb-maria:kitefin",
       "as": "WP_DB"
+    },
+    {
+      "plan": "newrelic:wayne"
     }
   ],
   "stack": "heroku-16"
