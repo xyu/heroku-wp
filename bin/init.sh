@@ -48,16 +48,6 @@ heroku apps:create "$1" || {
 	exit 1
 }
 
-# Add MySQL DB
-heroku addons:create \
-	--app "$1" \
-	--as "WP_DB" \
-	jawsdb-maria:kitefin
-
-heroku config:set \
-	--app "$1" \
-	WP_DB_SSL="ON"
-
 # Add SendGrid for email
 heroku addons:create \
 	--app "$1" \

@@ -6,10 +6,19 @@
   "repository": "https://github.com/xyu/heroku-wp",
   "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
   "env": {
+    "WP_DB_SSL": {
+      "description": "To connect to MySQL over SSL set this to 'ON'",
+      "value": "ON",
+      "required": false
+    }
   },
   "addons": [
     {
       "plan": "heroku-redis:hobby-dev"
+    },
+    {
+      "plan": "jawsdb-maria:kitefin",
+      "as": "WP_DB"
     }
   ],
   "stack": "heroku-16"
