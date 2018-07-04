@@ -48,11 +48,6 @@ heroku apps:create "$1" || {
 	exit 1
 }
 
-# Add Redis Cache
-heroku addons:create \
-	--app "$1" \
-	heroku-redis:hobby-dev
-
 # Add MySQL DB
 heroku addons:create \
 	--app "$1" \

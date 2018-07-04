@@ -5,5 +5,12 @@
   "website": "https://github.com/xyu/heroku-wp",
   "repository": "https://github.com/xyu/heroku-wp",
   "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+  "env": {
+  },
+  "addons": [
+    {
+      "plan": "heroku-redis:hobby-dev"
+    }
+  ],
   "stack": "heroku-16"
 }
