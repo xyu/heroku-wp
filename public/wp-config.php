@@ -178,7 +178,7 @@ foreach ( $_saltKeys as $_saltKey ) {
 	if ( !defined( $_saltKey ) ) {
 		define(
 			$_saltKey,
-			empty( $_ENV[ $_saltKey ] ) ? 'herokuwp' : $_ENV[ $_saltKey ]
+			empty( $_ENV[ "WP_$_saltKey" ] ) ? 'herokuwp' : $_ENV[ "WP_$_saltKey" ]
 		);
 	}
 }
