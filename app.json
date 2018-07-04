@@ -1,6 +1,6 @@
 {
   "name": "WordPress on Heroku",
-  "description": "This is a template for installing and running WordPress on Heroku with a focus on speed and security while using the official Heroku stack.",
+  "description": "A template for installing and running WordPress on Heroku",
   "keywords": [ "PHP", "WordPress", "CMS" ],
   "website": "https://github.com/xyu/heroku-wp",
   "repository": "https://github.com/xyu/heroku-wp",
