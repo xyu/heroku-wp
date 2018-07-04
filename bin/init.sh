@@ -63,11 +63,6 @@ heroku config:set \
 	--app "$1" \
 	WP_DB_SSL="ON"
 
-# Add SendGrid for email
-heroku addons:create \
-	--app "$1" \
-	sendgrid:starter
-
 # Add New Relic for metrics
 heroku addons:create \
 	--app "$1" \

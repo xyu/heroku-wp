@@ -11,10 +11,10 @@ The repository is built on top of the standard Heroku PHP buildpack so you don't
 Heroku WP uses the following addons:
 * [MariaDB](https://mariadb.org) / [jawsdb-maria](https://elements.heroku.com/addons/jawsdb-maria) - A binary compatible MySQL replacement with even better performance.
 * [Redis](http://redis.io) / [heroku-redis](https://elements.heroku.com/addons/heroku-redis) - An in-memory datastore for fast persistant object cache.
-* [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
 * [New Relic](https://newrelic.com) / [newrelic](https://elements.heroku.com/addons/newrelic) - SaaS application performance monitoring.
 
 And optionally the following addons:
+* [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
 * [IronWorker](https://www.iron.io) / [iron_worker](https://elements.heroku.com/addons/iron_worker) - SaaS external jobs queue
 
 In additon repository comes bundled with the following tools and must use plugins.
