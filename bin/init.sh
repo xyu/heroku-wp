@@ -53,32 +53,6 @@ heroku addons:create \
 	--app "$1" \
 	sendgrid:starter
 
-# Set WP salts
-type dd >/dev/null
-if [ "$?" -ne "0" ]; then
-	echo "Setting WP salts with WordPress.org"
-
-	heroku config:set \
-		--app "$1" \
-		$( \
-			curl -s 'https://api.wordpress.org/secret-key/1.1/salt/' | \
-			sed -E -e "s/^define\('(.+)', *'(.+)'\);$/WP_\1=\2/" -e 's/ //g' \
-		)
-else
-	echo "Setting WP salts with /dev/random"
-
-	heroku config:set \
-		--app "$1" \
-		WP_AUTH_KEY="$(         dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_SECURE_AUTH_KEY="$(  dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_LOGGED_IN_KEY="$(    dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_NONCE_KEY="$(        dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_AUTH_SALT="$(        dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_SECURE_AUTH_SALT="$( dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_LOGGED_IN_SALT="$(   dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_NONCE_SALT="$(       dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )"
-fi
-
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
 heroku redis:wait \

@@ -15,6 +15,60 @@
       "description": "The application name in New Relic for this app",
       "value": "Heroku WP",
       "required": true
+    },
+    "WP_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_SECURE_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_LOGGED_IN_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_NONCE_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_SECURE_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_LOGGED_IN_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    },
+    "WP_NONCE_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret",
+      "required": true
+    }
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "WP_AUTH_KEY": "herokuwp",
+        "WP_SECURE_AUTH_KEY": "herokuwp",
+        "WP_LOGGED_IN_KEY": "herokuwp",
+        "WP_NONCE_KEY": "herokuwp",
+        "WP_AUTH_SALT": "herokuwp",
+        "WP_SECURE_AUTH_SALT": "herokuwp",
+        "WP_LOGGED_IN_SALT": "herokuwp",
+        "WP_NONCE_SALT": "herokuwp"
+      }
     }
   },
   "addons": [
