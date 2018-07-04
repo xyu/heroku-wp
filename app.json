@@ -60,6 +60,8 @@
   "environments": {
     "test": {
       "env": {
+        "WP_DB_SSL": "ON",
+        "NEW_RELIC_APP_NAME": "Heroku WP",
         "WP_AUTH_KEY": "herokuwp",
         "WP_SECURE_AUTH_KEY": "herokuwp",
         "WP_LOGGED_IN_KEY": "herokuwp",
