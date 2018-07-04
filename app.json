@@ -75,11 +75,7 @@
   },
   "addons": [
     {
-      "plan": "heroku-redis:hobby-dev",
-      "options": {
-        "maxmemory": "volatile-lru",
-        "timeout": "60"
-      }
+      "plan": "heroku-redis:hobby-dev"
     },
     {
       "plan": "jawsdb-maria:kitefin",
