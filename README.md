@@ -10,7 +10,7 @@ Want to give it a try first? Deploy a demo to your account:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/xyu/heroku-wp/tree/add/heroku-btn)
 
-For production setups you will still want to follow the instructions below to properly install and version control your own repo.
+_For production setups it's highly recommended to follow the instructions below to properly install and version control with your own repo._
 
 About
 -----
