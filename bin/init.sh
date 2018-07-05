@@ -52,7 +52,7 @@ curl -n \
 			"name": "'$1'"
 		},
 		"source_blob": {
-			"url": "https://github.com/xyu/heroku-wp/tarball/add/heroku-btn"
+			"url": "https://github.com/xyu/heroku-wp/tarball/button"
 		}
 	}' >/dev/null 2>&1 && sleep 10
 
