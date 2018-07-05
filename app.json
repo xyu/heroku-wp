@@ -5,6 +5,7 @@
   "website": "https://github.com/xyu/heroku-wp",
   "repository": "https://github.com/xyu/heroku-wp",
   "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+  "success_url": "/wp-admin/install.php",
   "env": {
     "NEW_RELIC_APP_NAME": {
       "description": "The application name in New Relic for this app",
