@@ -38,65 +38,23 @@ type heroku >/dev/null 2>&1 || {
 # Check to see if heroku.com is in known_hosts
 ssh-keygen -F heroku.com > /dev/null 2>&1
 if [ "$?" = 1 ] ; then
-  echo "Make an initial SSH connection to heroku.com to add it to known_hosts"
-  exit 1
-fi
-
-# Create new app and check for success
-heroku apps:create "$1" || {
-	echo >&2 "Could not create Heroku WP app."
+	echo "Make an initial SSH connection to heroku.com to add it to known_hosts"
 	exit 1
-}
-
-# Add Redis Cache
-heroku addons:create \
-	--app "$1" \
-	heroku-redis:hobby-dev
-
-# Add MySQL DB
-heroku addons:create \
-	--app "$1" \
-	--as "WP_DB" \
-	jawsdb-maria:kitefin
-
-heroku config:set \
-	--app "$1" \
-	WP_DB_SSL="ON"
-
-# Add New Relic for metrics
-heroku addons:create \
-	--app "$1" \
-	newrelic:wayne
-
-heroku config:set \
-	--app "$1" \
-	NEW_RELIC_APP_NAME="Heroku WP"
-
-# Set WP salts
-type dd >/dev/null
-if [ "$?" -ne "0" ]; then
-	echo "Setting WP salts with WordPress.org"
-
-	heroku config:set \
-		--app "$1" \
-		$( \
-			curl -s 'https://api.wordpress.org/secret-key/1.1/salt/' | \
-			sed -E -e "s/^define\('(.+)', *'(.+)'\);$/WP_\1=\2/" -e 's/ //g' \
-		)
-else
-	echo "Setting WP salts with /dev/random"
-
-	heroku config:set \
-		--app "$1" \
-		WP_AUTH_KEY="$(         dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_SECURE_AUTH_KEY="$(  dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_LOGGED_IN_KEY="$(    dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_NONCE_KEY="$(        dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_AUTH_SALT="$(        dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_SECURE_AUTH_SALT="$( dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_LOGGED_IN_SALT="$(   dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_NONCE_SALT="$(       dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )"
 fi
+
+printf "Provisioning Heroku WP via app.json... "
+curl -n \
+	-X POST https://api.heroku.com/app-setups \
+	-H "Accept: application/vnd.heroku+json; version=3" \
+	-H "Content-Type: application/json" \
+	-d '{
+		"app": {
+			"name": "'$1'"
+		},
+		"source_blob": {
+			"url": "https://github.com/xyu/heroku-wp/tarball/button"
+		}
+	}' >/dev/null 2>&1 && sleep 10
 
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
