@@ -6,15 +6,16 @@
   "repository": "https://github.com/xyu/heroku-wp",
   "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
   "env": {
+    "NEW_RELIC_APP_NAME": {
+      "description": "The application name in New Relic for this app",
+      "value": "Heroku WP",
+      "required": true
+    },
     "WP_DB_SSL": {
       "description": "To connect to MySQL over SSL set this to 'ON'",
       "value": "ON",
       "required": false
     },
-    "NEW_RELIC_APP_NAME": {
-      "description": "The application name in New Relic for this app",
-      "value": "Heroku WP",
-      "required": true
     "WP_DEBUG": {
       "description": "Set this to 'TRUE' to turn on debug logging",
       "value": "FALSE",
@@ -27,50 +28,42 @@
     },
     "WP_AUTH_KEY": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_SECURE_AUTH_KEY": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_LOGGED_IN_KEY": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_NONCE_KEY": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_AUTH_SALT": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_SECURE_AUTH_SALT": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_LOGGED_IN_SALT": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     },
     "WP_NONCE_SALT": {
       "description": "One of the salts used to secure WordPress",
-      "generator": "secret",
-      "required": true
+      "generator": "secret"
     }
   },
   "environments": {
     "test": {
       "env": {
+        "NEW_RELIC_APP_NAME": "Heroku WP Test",
         "WP_DB_SSL": "ON",
-        "NEW_RELIC_APP_NAME": "Heroku WP",
         "WP_DEBUG": "TRUE",
         "WP_AUTH_KEY": "herokuwp",
         "WP_SECURE_AUTH_KEY": "herokuwp",
