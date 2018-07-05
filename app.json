@@ -15,6 +15,15 @@
       "description": "The application name in New Relic for this app",
       "value": "Heroku WP",
       "required": true
+    "WP_DEBUG": {
+      "description": "Set this to 'TRUE' to turn on debug logging",
+      "value": "FALSE",
+      "required": false
+    },
+    "DISABLE_WP_CRON": {
+      "description": "Set this to 'TRUE' to disable the default WP cron runner",
+      "value": "FALSE",
+      "required": false
     },
     "WP_AUTH_KEY": {
       "description": "One of the salts used to secure WordPress",
@@ -62,6 +71,7 @@
       "env": {
         "WP_DB_SSL": "ON",
         "NEW_RELIC_APP_NAME": "Heroku WP",
+        "WP_DEBUG": "TRUE",
         "WP_AUTH_KEY": "herokuwp",
         "WP_SECURE_AUTH_KEY": "herokuwp",
         "WP_LOGGED_IN_KEY": "herokuwp",
