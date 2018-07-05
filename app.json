@@ -1,7 +1,7 @@
 {
   "name": "WordPress on Heroku",
   "description": "A template for installing and running WordPress on Heroku",
-  "keywords": [ "PHP", "WordPress", "CMS" ],
+  "keywords": [ "PHP", "WordPress", "Blog", "CMS" ],
   "website": "https://github.com/xyu/heroku-wp",
   "repository": "https://github.com/xyu/heroku-wp",
   "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
