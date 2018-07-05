@@ -3,6 +3,18 @@ Heroku WP
 
 This is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/) with a focus on speed and security while using the official Heroku stack.
 
+Spin Up a Demo
+--------------
+
+Want to give it a try first? Deploy a demo to your account:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/xyu/heroku-wp/tree/add/heroku-btn)
+
+For production setups you will still want to follow the instructions below to properly install and version control your own repo.
+
+About
+-----
+
 The repository is built on top of the standard Heroku PHP buildpack so you don't need to trust some sketchy 3rd party s3 bucket.
 * [NGINX](http://nginx.org) - Fast scalable webserver.
 * [PHP 7](http://php.net) - Latest and greatest with performance on par with HHVM.
