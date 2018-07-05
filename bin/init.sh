@@ -42,6 +42,7 @@ if [ "$?" = 1 ] ; then
 	exit 1
 fi
 
+printf "Provisioning Heroku WP via app.json... "
 curl -n \
 	-X POST https://api.heroku.com/app-setups \
 	-H "Accept: application/vnd.heroku+json; version=3" \
@@ -53,9 +54,7 @@ curl -n \
 		"source_blob": {
 			"url": "https://github.com/xyu/heroku-wp/tarball/add/heroku-btn"
 		}
-	}'
-
-sleep 10
+	}' >/dev/null 2>&1 && sleep 10
 
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
