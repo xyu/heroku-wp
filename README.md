@@ -3,6 +3,18 @@ Heroku WP
 
 This is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/) with a focus on speed and security while using the official Heroku stack.
 
+Spin Up a Demo
+--------------
+
+Want to give it a try first? Deploy a demo to your account:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/xyu/heroku-wp/tree/button)
+
+_For production setups it's highly recommended to follow the instructions below to properly install and version control with your own repo._
+
+About
+-----
+
 The repository is built on top of the standard Heroku PHP buildpack so you don't need to trust some sketchy 3rd party s3 bucket.
 * [NGINX](http://nginx.org) - Fast scalable webserver.
 * [PHP 7](http://php.net) - Latest and greatest with performance on par with HHVM.
@@ -11,10 +23,10 @@ The repository is built on top of the standard Heroku PHP buildpack so you don't
 Heroku WP uses the following addons:
 * [MariaDB](https://mariadb.org) / [jawsdb-maria](https://elements.heroku.com/addons/jawsdb-maria) - A binary compatible MySQL replacement with even better performance.
 * [Redis](http://redis.io) / [heroku-redis](https://elements.heroku.com/addons/heroku-redis) - An in-memory datastore for fast persistant object cache.
-* [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
 * [New Relic](https://newrelic.com) / [newrelic](https://elements.heroku.com/addons/newrelic) - SaaS application performance monitoring.
 
 And optionally the following addons:
+* [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
 * [IronWorker](https://www.iron.io) / [iron_worker](https://elements.heroku.com/addons/iron_worker) - SaaS external jobs queue
 
 In additon repository comes bundled with the following tools and must use plugins.

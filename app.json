@@ -1,0 +1,93 @@
+{
+  "name": "WordPress on Heroku",
+  "description": "A template for installing and running WordPress on Heroku",
+  "keywords": [ "PHP", "WordPress", "Blog", "CMS" ],
+  "website": "https://github.com/xyu/heroku-wp",
+  "repository": "https://github.com/xyu/heroku-wp",
+  "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+  "success_url": "/wp-admin/install.php",
+  "env": {
+    "NEW_RELIC_APP_NAME": {
+      "description": "The application name in New Relic for this app",
+      "value": "Heroku WP",
+      "required": true
+    },
+    "WP_DB_SSL": {
+      "description": "To connect to MySQL over SSL set this to 'ON'",
+      "value": "ON",
+      "required": false
+    },
+    "WP_DEBUG": {
+      "description": "Set this to 'TRUE' to turn on debug logging",
+      "value": "FALSE",
+      "required": false
+    },
+    "DISABLE_WP_CRON": {
+      "description": "Set this to 'TRUE' to disable the default WP cron runner",
+      "value": "FALSE",
+      "required": false
+    },
+    "WP_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_SECURE_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_LOGGED_IN_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_NONCE_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_SECURE_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_LOGGED_IN_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_NONCE_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "NEW_RELIC_APP_NAME": "Heroku WP Test",
+        "WP_DB_SSL": "ON",
+        "WP_DEBUG": "TRUE",
+        "WP_AUTH_KEY": "herokuwp",
+        "WP_SECURE_AUTH_KEY": "herokuwp",
+        "WP_LOGGED_IN_KEY": "herokuwp",
+        "WP_NONCE_KEY": "herokuwp",
+        "WP_AUTH_SALT": "herokuwp",
+        "WP_SECURE_AUTH_SALT": "herokuwp",
+        "WP_LOGGED_IN_SALT": "herokuwp",
+        "WP_NONCE_SALT": "herokuwp"
+      }
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-redis:hobby-dev"
+    },
+    {
+      "plan": "jawsdb-maria:kitefin",
+      "as": "WP_DB"
+    },
+    {
+      "plan": "newrelic:wayne"
+    }
+  ],
+  "stack": "heroku-16"
+}
