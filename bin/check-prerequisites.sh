@@ -3,9 +3,13 @@
 #
 # Sourced by other scripts to check basic prerequisites are met
 #
-# Usage:
-# $ ./init.sh <APP-NAME>
-#
+
+# Name inputs
+APP="$1"
+
+# Find root of app
+APP_DIR=$( dirname "${BASH_SOURCE[0]}" )
+APP_DIR=$( cd "$APP_DIR/.."; pwd )
 
 # Check we got a valid name
 if [ -z "$APP" ]
@@ -16,7 +20,7 @@ fi
 
 if ! [[ "$APP" =~ ^[a-z][a-z0-9-]{2,29}$ ]]
 then
-	echo >&2 "App name '$1' is invalid."
+	echo >&2 "App name '$APP' is invalid."
 	exit 1
 fi
 
@@ -33,7 +37,7 @@ type curl >/dev/null 2>&1 || {
 }
 
 # Check to see if Composer is installed if not install it
-type ./composer >/dev/null 2>&1 || ./init-composer.sh || {
+type $APP_DIR/bin/composer >/dev/null 2>&1 || $APP_DIR/bin/init-composer.sh || {
 	echo >&2 "Composer does not exist and could not be installed."
 	exit 1
 }

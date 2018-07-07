@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 #
 # Sets up SendGrid API key.
@@ -7,34 +8,28 @@
 # $ ./init-sendgrid.sh <APP-NAME>
 #
 
-# Go to bin dir
-cd "$(dirname "$0")" || exit
-
-# Name inputs
-APP="$1"
-
 # Run preflight checks
-source check-prerequisites.sh
+source "$(dirname ${BASH_SOURCE[0]})/check-prerequisites.sh"
 
 # Check we have access to app
 echo "Checking Heroku app permissions"
-heroku info --app "$1" >/dev/null || {
-  echo >&2 "You don't have access to app '$1'."
-  exit 1
+heroku apps:info --app "$APP" >/dev/null 2>&1 || {
+  echo >&2 "Can not update app name '$APP'."
+	exit 1
 }
 
 # Add addon if we need it
-heroku addons:info --app "$1" sendgrid >/dev/null 2>&1 || {
+heroku addons:info --app "$APP" sendgrid >/dev/null 2>&1 || {
   heroku addons:create \
-    --app "$1" \
+    --app "$APP" \
     sendgrid:starter
 }
 
 # Get credentials for SendGrid
-SENDGRID_USERNAME=$( heroku config:get SENDGRID_USERNAME --app "$1" )
-SENDGRID_PASSWORD=$( heroku config:get SENDGRID_PASSWORD --app "$1" )
+SENDGRID_USERNAME=$( heroku config:get SENDGRID_USERNAME --app "$APP" )
+SENDGRID_PASSWORD=$( heroku config:get SENDGRID_PASSWORD --app "$APP" )
 if [[ -z "$SENDGRID_USERNAME" && -z "$SENDGRID_PASSWORD" ]]; then
-  echo >&2 "Can not get SendGrid credentials from app name '$1'."
+  echo >&2 "Can not get SendGrid credentials from app name '$APP'."
   exit 1
 fi
 
@@ -58,7 +53,7 @@ done
 
 # Set SENDGRID_API_KEY env variable on Heroku
 heroku config:set \
-  --app "$1" \
+  --app "$APP" \
   SENDGRID_API_KEY="$API_KEY"
 
 echo "SendGrid has been successfully setup!"
