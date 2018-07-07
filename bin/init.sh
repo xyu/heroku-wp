@@ -17,11 +17,23 @@ then
 	exit 1
 fi
 
-if [[ "$1" =~ [^a-z0-9-]+ ]]
+if ! [[ "$1" =~ ^[a-z][a-z0-9-]{2,29}$ ]]
 then
 	echo >&2 "App name '$1' is invalid."
 	exit 1
 fi
+
+# Check to see if PHP is installed
+type php >/dev/null 2>&1 || {
+	echo >&2 "PHP is required."
+	exit 1
+}
+
+# Check to see if cURL is installed
+type curl >/dev/null 2>&1 || {
+	echo >&2 "cURL is required."
+	exit 1
+}
 
 # Check to see if Composer is installed if not install it
 type ./composer >/dev/null 2>&1 || ./init-composer.sh || {
