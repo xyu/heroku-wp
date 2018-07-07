@@ -35,12 +35,14 @@ type heroku >/dev/null 2>&1 || {
 	exit 1
 }
 
-# Check to see if heroku.com is in known_hosts
-ssh-keygen -F heroku.com > /dev/null 2>&1
-if [ "$?" = 1 ] ; then
-	echo "Make an initial SSH connection to heroku.com to add it to known_hosts"
-	exit 1
-fi
+heroku auth:whoami >/dev/null 2>&1 || {
+	echo "Running 'heroku auth:login' to authente account..."
+	heroku auth:login
+	heroku auth:whoami >/dev/null 2>&1 || {
+		echo >&2 "Heroku account required."
+		exit 1
+	}
+}
 
 printf "Provisioning Heroku WP via app.json... "
 curl -n \
@@ -75,8 +77,7 @@ heroku redis:timeout \
 
 # Force heroku git remote to our app
 heroku git:remote \
-	--app "$1" \
-	--ssh-git
+	--app "$1"
 
 # Make initial commit and deploy
 true && \
