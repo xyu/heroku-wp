@@ -15,7 +15,7 @@ source "$(dirname ${BASH_SOURCE[0]})/check-prerequisites.sh"
 # Check we have access to app
 echo "Checking Heroku app permissions"
 heroku apps:info --app "$APP" >/dev/null 2>&1 || {
-  echo >&2 "Can not update app name '$APP'."
+	echo >&2 "Can not update app name '$APP'."
 	exit 1
 }
 
