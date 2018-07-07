@@ -10,22 +10,11 @@
 # Go to bin dir
 cd "$(dirname "$0")" || exit
 
-# Check we got a valid new name
-if [[ -z "$1" ]]; then
-  echo >&2 "Please specify the name (subdomain) for your Heroku WP app."
-  exit 1
-fi
+# Name inputs
+APP="$1"
 
-if [[ "$1" =~ [^a-z0-9-]+ ]]; then
-  echo >&2 "App name '$1' is invalid."
-  exit 1
-fi
-
-# Check to see if Heroku Toolbelt is installed
-type heroku >/dev/null 2>&1 || {
-  echo >&2 "Heroku Toolbelt must be installed. (https://toolbelt.heroku.com)"
-  exit 1
-}
+# Run preflight checks
+source check-prerequisites.sh
 
 # Check we have access to app
 echo "Checking Heroku app permissions"
