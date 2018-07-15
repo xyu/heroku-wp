@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 #
 # Merge latest changes from upstream into the current branch.
@@ -7,8 +8,15 @@
 # $ ./upgrade.sh [no-lock]
 #
 
+# Find root of app
+APP_DIR=$( dirname "${BASH_SOURCE[0]}" )
+APP_DIR=$( cd "$APP_DIR/.."; pwd )
+
 # Go to root dir
-cd `dirname $0` && cd ..
+cd "$APP_DIR"
+
+# Check Prerequisites
+bin/composer --version > /dev/null
 
 # Sets the upstream branch if non exists
 git remote show upstream >/dev/null 2>&1 || {
