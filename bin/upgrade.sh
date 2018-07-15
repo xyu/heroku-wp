@@ -32,7 +32,7 @@ git stash save --quiet --include-untracked "$STASH_MSG"
 
 # Merge in latest change from upstream
 git fetch upstream
-git merge --no-commit --squash upstream/master
+git merge --no-commit --no-ff upstream/master
 
 # Maybe rebuild composer lock file
 if [ "$1" = "no-lock" ]; then
@@ -46,5 +46,5 @@ git commit --message="Upgraded Heroku WP from Upstream"
 
 # Maybe pop stash
 if [[ $(git stash list | head -n 1) =~ "$STASH_MSG" ]]; then
-    git stash pop --quiet stash@{0}
+	git stash pop --quiet stash@{0}
 fi
