@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 #
 # Sets up SendGrid API key.
@@ -7,46 +8,29 @@
 # $ ./init-sendgrid.sh <APP-NAME>
 #
 
-# Go to bin dir
-cd "$(dirname "$0")" || exit
-
-# Check we got a valid new name
-if [[ -z "$1" ]]; then
-  echo >&2 "Please specify the name (subdomain) for your Heroku WP app."
-  exit 1
-fi
-
-if [[ "$1" =~ [^a-z0-9-]+ ]]; then
-  echo >&2 "App name '$1' is invalid."
-  exit 1
-fi
-
-# Check to see if Heroku Toolbelt is installed
-type heroku >/dev/null 2>&1 || {
-  echo >&2 "Heroku Toolbelt must be installed. (https://toolbelt.heroku.com)"
-  exit 1
-}
+# Run preflight checks
+source "$(dirname ${BASH_SOURCE[0]})/check-prerequisites.sh"
 
 # Check we have access to app
 echo "Checking Heroku app permissions"
-heroku info --app "$1" >/dev/null || {
-  echo >&2 "You don't have access to app '$1'."
-  exit 1
+heroku apps:info --app "$APP" >/dev/null 2>&1 || {
+	echo >&2 "Can not update app name '$APP'."
+	exit 1
 }
 
 # Add addon if we need it
-heroku addons:info --app "$1" sendgrid >/dev/null 2>&1 || {
-  heroku addons:create \
-    --app "$1" \
-    sendgrid:starter
+heroku addons:info --app "$APP" sendgrid >/dev/null 2>&1 || {
+	heroku addons:create \
+		--app "$APP" \
+		sendgrid:starter
 }
 
 # Get credentials for SendGrid
-SENDGRID_USERNAME=$( heroku config:get SENDGRID_USERNAME --app "$1" )
-SENDGRID_PASSWORD=$( heroku config:get SENDGRID_PASSWORD --app "$1" )
+SENDGRID_USERNAME=$( heroku config:get SENDGRID_USERNAME --app "$APP" )
+SENDGRID_PASSWORD=$( heroku config:get SENDGRID_PASSWORD --app "$APP" )
 if [[ -z "$SENDGRID_USERNAME" && -z "$SENDGRID_PASSWORD" ]]; then
-  echo >&2 "Can not get SendGrid credentials from app name '$1'."
-  exit 1
+	echo >&2 "Can not get SendGrid credentials from app name '$APP'."
+	exit 1
 fi
 
 # Display instructions to get a SendGrid API key
@@ -64,12 +48,12 @@ read -rp '4) Enter newly created API key: ' API_KEY
 
 # Validate API key input
 while [[ ! "$API_KEY" =~ ^SG\.[-_[:alnum:]]+\.[-_[:alnum:]]+$ ]]; do
-  read -rp 'Please enter a valid API key (e.g: SG.xxxxxxxx.yyyyyyyy): ' API_KEY
+	read -rp 'Please enter a valid API key (e.g: SG.xxxxxxxx.yyyyyyyy): ' API_KEY
 done
 
 # Set SENDGRID_API_KEY env variable on Heroku
 heroku config:set \
-  --app "$1" \
-  SENDGRID_API_KEY="$API_KEY"
+	--app "$APP" \
+	SENDGRID_API_KEY="$API_KEY"
 
 echo "SendGrid has been successfully setup!"
