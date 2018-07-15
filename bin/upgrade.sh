@@ -32,7 +32,7 @@ git stash save --quiet --include-untracked "$STASH_MSG"
 
 # Merge in latest change from upstream
 git fetch upstream
-git merge --no-commit --squash --no-ff upstream/master
+git merge --no-commit --squash upstream/master
 
 # Maybe rebuild composer lock file
 if [ "$1" = "no-lock" ]; then
