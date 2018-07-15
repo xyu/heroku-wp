@@ -171,7 +171,7 @@ the branch created from the installation.
 
     $ git pull                                    # Get the latest updates
     $ git checkout {SLUG}                         # Checkout the site branch
-    $ git merge origin/nginx-php7                 # Merge in latest
+    $ git merge origin/master                     # Merge in latest
     $ bin/composer update --ignore-platform-reqs  # Update composer.lock file
     $ git push heroku {SLUG}:master               # Deploy to Heroku
 

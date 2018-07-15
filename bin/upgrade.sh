@@ -21,7 +21,7 @@ git stash
 
 # Merge in latest change from upstream
 git fetch upstream
-git merge --no-ff upstream/nginx-php7
+git merge --no-commit --squash --no-ff upstream/master
 
 # Maybe rebuild composer lock file
 if [ "$2" = "no-lock" ]; then
