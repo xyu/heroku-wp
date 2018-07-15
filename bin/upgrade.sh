@@ -15,6 +15,9 @@ APP_DIR=$( cd "$APP_DIR/.."; pwd )
 # Go to root dir
 cd "$APP_DIR"
 
+# Set stash message
+STASH_MSG="Pre Heroku WP Upstream Merge -- $(date)"
+
 # Check Prerequisites
 bin/composer --version > /dev/null
 
@@ -25,7 +28,7 @@ git remote show upstream >/dev/null 2>&1 || {
 }
 
 # Stash changes
-git stash
+git stash save --quiet --include-untracked "$STASH_MSG"
 
 # Merge in latest change from upstream
 git fetch upstream
@@ -41,6 +44,7 @@ fi
 
 git commit --message="Upgraded Heroku WP from Upstream"
 
-# Apply local changes
-echo "Applying local (uncommitted) changes"
-git stash pop
+# Maybe pop stash
+if [[ $(git stash list | head -n 1) =~ "$STASH_MSG" ]]; then
+    git stash pop --quiet stash@{0}
+fi
