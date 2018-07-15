@@ -46,5 +46,5 @@ git commit --message="Upgraded Heroku WP from Upstream"
 
 # Maybe pop stash
 if [[ $(git stash list | head -n 1) =~ "$STASH_MSG" ]]; then
-    git stash pop --quiet stash@{0}
+	git stash pop --quiet stash@{0}
 fi
