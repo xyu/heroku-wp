@@ -32,15 +32,14 @@ git fetch upstream
 git merge --no-commit --squash --no-ff upstream/master
 
 # Maybe rebuild composer lock file
-if [ "$2" = "no-lock" ]; then
+if [ "$1" = "no-lock" ]; then
 	echo "Skipping building of composer.lock..."
 else
 	bin/composer update --ignore-platform-reqs
+	git add composer.lock
 fi
 
-# Show changes
-echo "Merged changes from upstream:"
-git status
+git commit --message="Upgraded Heroku WP from Upstream"
 
 # Apply local changes
 echo "Applying local (uncommitted) changes"
