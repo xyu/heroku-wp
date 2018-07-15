@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 #
 # Merge latest changes from upstream into the current branch.
@@ -7,8 +8,18 @@
 # $ ./upgrade.sh [no-lock]
 #
 
+# Find root of app
+APP_DIR=$( dirname "${BASH_SOURCE[0]}" )
+APP_DIR=$( cd "$APP_DIR/.."; pwd )
+
 # Go to root dir
-cd `dirname $0` && cd ..
+cd "$APP_DIR"
+
+# Set stash message
+STASH_MSG="Pre Heroku WP Upstream Merge -- $(date)"
+
+# Check Prerequisites
+bin/composer --version > /dev/null
 
 # Sets the upstream branch if non exists
 git remote show upstream >/dev/null 2>&1 || {
@@ -17,23 +28,23 @@ git remote show upstream >/dev/null 2>&1 || {
 }
 
 # Stash changes
-git stash
+git stash save --quiet --include-untracked "$STASH_MSG"
 
 # Merge in latest change from upstream
 git fetch upstream
-git merge --no-ff upstream/nginx-php7
+git merge --no-commit --squash --no-ff upstream/master
 
 # Maybe rebuild composer lock file
-if [ "$2" = "no-lock" ]; then
+if [ "$1" = "no-lock" ]; then
 	echo "Skipping building of composer.lock..."
 else
 	bin/composer update --ignore-platform-reqs
+	git add composer.lock
 fi
 
-# Show changes
-echo "Merged changes from upstream:"
-git status
+git commit --message="Upgraded Heroku WP from Upstream"
 
-# Apply local changes
-echo "Applying local (uncommitted) changes"
-git stash pop
+# Maybe pop stash
+if [[ $(git stash list | head -n 1) =~ "$STASH_MSG" ]]; then
+    git stash pop --quiet stash@{0}
+fi
