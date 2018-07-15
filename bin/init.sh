@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 #
 # Creates a new Heroku app with the given name and adds required add-ons.
@@ -7,66 +8,42 @@
 # $ ./init.sh <APP-NAME>
 #
 
-# Go to bin dir
-cd `dirname $0`
+# Run preflight checks
+source "$(dirname ${BASH_SOURCE[0]})/check-prerequisites.sh"
 
-# Check we got a valid new name
-if [ -z "$1" ]
-then
-	echo >&2 "Please specify a name (subdomain) for your new Heroku WP app."
-	exit 1
-fi
-
-if [[ "$1" =~ [^a-z0-9-]+ ]]
-then
-	echo >&2 "App name '$1' is invalid."
-	exit 1
-fi
-
-# Check to see if Composer is installed if not install it
-type ./composer >/dev/null 2>&1 || ./init-composer.sh || {
-	echo >&2 "Composer does not exist and could not be installed."
-	exit 1
-}
-
-# Check to see if Heroku Toolbelt is installed
-type heroku >/dev/null 2>&1 || {
-	echo >&2 "Heroku Toolbelt must be installed. (https://toolbelt.heroku.com)"
-	exit 1
-}
-
-# Check to see if heroku.com is in known_hosts
-ssh-keygen -F heroku.com > /dev/null 2>&1
-if [ "$?" = 1 ] ; then
-	echo "Make an initial SSH connection to heroku.com to add it to known_hosts"
-	exit 1
-fi
-
-printf "Provisioning Heroku WP via app.json... "
-curl -n \
+echo "Provisioning Heroku WP via app.json..."
+curl -n -s \
 	-X POST https://api.heroku.com/app-setups \
 	-H "Accept: application/vnd.heroku+json; version=3" \
 	-H "Content-Type: application/json" \
 	-d '{
 		"app": {
-			"name": "'$1'"
+			"name": "'$APP'"
 		},
 		"source_blob": {
 			"url": "https://github.com/xyu/heroku-wp/tarball/button"
 		}
-	}' >/dev/null 2>&1 && sleep 10
+	}'
+printf "\n\n" && sleep 10
+
+# Check we have access to app
+echo "Checking Heroku app..."
+heroku apps:info --app "$APP" >/dev/null 2>&1 || {
+	echo >&2 "Can not update app name '$APP'."
+	exit 1
+}
 
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
 heroku redis:wait \
-	--app "$1"
+	--app "$APP"
 echo "done"
 
 heroku redis:maxmemory \
-	--app "$1" \
+	--app "$APP" \
 	--policy volatile-lru
 heroku redis:timeout \
-	--app "$1" \
+	--app "$APP" \
 	--seconds 60
 
 #
@@ -75,26 +52,25 @@ heroku redis:timeout \
 
 # Force heroku git remote to our app
 heroku git:remote \
-	--app "$1" \
-	--ssh-git
+	--app "$APP"
 
 # Make initial commit and deploy
 true && \
-	cd .. && \
-	git checkout -b "$1" && \
+	cd $APP_DIR && \
+	git checkout -b "$APP" && \
 	bin/composer update --ignore-platform-reqs && \
 	git add composer.lock && \
-	git commit -m "Initial commit for '$1'" && \
-	git push heroku "$1:master"
+	git commit -m "Initial commit for '$APP'" && \
+	git push heroku "$APP:master"
 
 EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
-	printf >&2 "\n\nDeploy failed for '$1'.\n\n"
+	printf >&2 "\n\nDeploy failed for '$APP'.\n\n"
 else
-	printf "\n\nNew Heroku WP app '$1' created and deployed via:\n\$ git push heroku $1:master\n\n"
+	printf "\n\nNew Heroku WP app '$APP' created and deployed via:\n\$ git push heroku $APP:master\n\n"
 fi
 
-heroku addons --app "$1"
-heroku redis --app "$1"
+heroku addons --app "$APP"
+heroku redis --app "$APP"
 
 exit "$EXIT_CODE"
