@@ -235,6 +235,11 @@ if ( isset( $_ENV['WP_DEBUG'] ) && 'TRUE' == $_ENV['WP_DEBUG'] ) {
 	define( 'WP_DEBUG_LOG', false );
 	define( 'WP_DEBUG_DISPLAY', false );
 } else {
+	ini_set( 'log_errors', 'On' );
+	ini_set( 'display_errors', 'Off' );
+	ini_set( 'error_reporting', E_ALL );
+	define( 'WP_DEBUG_LOG', true );
+	define( 'WP_DEBUG_DISPLAY', false );
 	define( 'WP_DEBUG', false );
 }
 
