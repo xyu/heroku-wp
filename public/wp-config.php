@@ -82,7 +82,7 @@ if ( isset( $_ENV['WP_DB_URL'] ) ) {
 define( 'DB_NAME',              trim( $_dbsettings['path'], '/' ) );
 define( 'DB_USER',              $_dbsettings['user']              );
 define( 'DB_PASSWORD',          $_dbsettings['pass']              );
-if ( array_key_exists( $_dbsettings, 'port' ) ) {
+if ( array_key_exists( 'port', $_dbsettings ) ) {
 	define( 'DB_HOST', $_dbsettings['host'] . ':' . $_dbsettings['port'] );
 } else {
 	define( 'DB_HOST', $_dbsettings['host'] );
