@@ -82,7 +82,11 @@ if ( isset( $_ENV['WP_DB_URL'] ) ) {
 define( 'DB_NAME',              trim( $_dbsettings['path'], '/' ) );
 define( 'DB_USER',              $_dbsettings['user']              );
 define( 'DB_PASSWORD',          $_dbsettings['pass']              );
-define( 'DB_HOST',              $_dbsettings['host']              );
+if ( array_key_exists( 'port', $_dbsettings ) ) {
+	define( 'DB_HOST', $_dbsettings['host'] . ':' . $_dbsettings['port'] );
+} else {
+	define( 'DB_HOST', $_dbsettings['host'] );
+}
 define( 'DB_CHARSET',           'utf8'                            );
 define( 'DB_COLLATE',           ''                                );
 define( 'WP_USE_EXT_MYSQL',     false /* Always use MySQLi */     );
