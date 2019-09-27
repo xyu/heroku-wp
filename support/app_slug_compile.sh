@@ -5,7 +5,7 @@ rm -rf tmp/public.building tmp/public.old
 mkdir -p tmp/public.building
 
 # Recursively copy files build final web dir
-cp -R vendor/WordPress/WordPress/* tmp/public.building
+cp -R vendor/wordpress/wordpress/* tmp/public.building
 cp -R public/* tmp/public.building
 
 # Move built web dir into place
@@ -16,7 +16,7 @@ rm -rf tmp/public.old
 # Remove files to slim down slug if we're on Heroku
 if [ ! -e .sluglocal ]
 then
-	rm -rf vendor/WordPress
+	rm -rf vendor/wordpress
 	rm -rf public
 fi
 
