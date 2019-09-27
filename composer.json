@@ -21,7 +21,7 @@
         "wpackagist-plugin/redis-cache": "~1",
         "wpackagist-plugin/secure-db-connection": "~1",
 
-        "humanmade/s3-uploads": "~1",
+        "humanmade/s3-uploads": "~2",
         "wpackagist-plugin/akismet": "~3",
         "wpackagist-plugin/jetpack": "*",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
