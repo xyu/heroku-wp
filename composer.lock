@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6eb2b305980318dd08a3c78a401c624e",
+    "content-hash": "cbdc8e825e53eab77f3d1959a24dc0e3",
     "packages": [
         {
             "name": "automattic/batcache",
@@ -2161,7 +2161,7 @@
             "version": "5.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/5.2.3.zip",
+                "url": "https://github.com/wordpress/wordpress/archive/5.2.3.zip",
                 "reference": null,
                 "shasum": null
             },
