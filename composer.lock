@@ -4,19 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4c24c020a7f859f9e91acf523fe2e8e",
+    "content-hash": "6eb2b305980318dd08a3c78a401c624e",
     "packages": [
-        {
-            "name": "WordPress/WordPress",
-            "version": "5.2.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/5.2.3.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "type": "library"
-        },
         {
             "name": "automattic/batcache",
             "version": "dev-master",
@@ -2168,6 +2157,17 @@
             "time": "2019-01-26T03:14:11+00:00"
         },
         {
+            "name": "wordpress/wordpress",
+            "version": "5.2.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/WordPress/WordPress/archive/5.2.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
+        },
+        {
             "name": "wp-cli/autoload-splitter",
             "version": "v0.1.5",
             "source": {
@@ -3607,6 +3607,7 @@
                     "server-command.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3619,10 +3620,6 @@
             ],
             "description": "Launches PHP's built-in web server for a specific WordPress installation.",
             "homepage": "https://github.com/wp-cli/server-command",
-            "support": {
-                "issues": "https://github.com/wp-cli/server-command/issues",
-                "source": "https://github.com/wp-cli/server-command/tree/master"
-            },
             "time": "2017-12-14T20:06:24+00:00"
         },
         {
