@@ -15,7 +15,7 @@
         "ext-gd": "*",
         "php": "7.*",
 
-        "WordPress/WordPress": "*",
+        "wordpress/wordpress": "*",
 
         "automattic/batcache": "dev-master",
         "wpackagist-plugin/redis-cache": "~1",
@@ -43,7 +43,7 @@
         {
             "type": "package",
             "package": {
-                "name": "WordPress/WordPress",
+                "name": "wordpress/wordpress",
                 "version": "5.2.3",
                 "dist": {
                     "type": "zip",
@@ -66,13 +66,13 @@
     ],
     "extra": {
         "installer-paths": {
-            "vendor/WordPress/WordPress/wp-content/mu-plugins/{$name}/": [
+            "vendor/wordpress/wordpress/wp-content/mu-plugins/{$name}/": [
                 "automattic/batcache",
                 "wpackagist-plugin/redis-cache",
                 "wpackagist-plugin/secure-db-connection"
             ],
-            "vendor/WordPress/WordPress/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
-            "vendor/WordPress/WordPress/wp-content/themes/{$name}/": [ "type:wordpress-theme" ]
+            "vendor/wordpress/wordpress/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
+            "vendor/wordpress/wordpress/wp-content/themes/{$name}/": [ "type:wordpress-theme" ]
         }
     },
     "scripts": {
