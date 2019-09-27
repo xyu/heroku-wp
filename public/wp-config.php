@@ -149,6 +149,8 @@ if ( !empty( $_ENV['AWS_S3_URL'] ) ) {
 	$_awsmatch = array();
 	if ( preg_match( '/^s3(-|\.dualstack\.)([0-9a-z-]+)\.amazonaws\.com$/', $_awssettings['host'], $_awsmatch ) ) {
 		define( 'S3_UPLOADS_REGION', $_awsmatch[2] );
+	} else {
+		define( 'S3_UPLOADS_REGION', 'us-east-1' );
 	}
 
 	if ( !empty( $_awssettings['query'] ) ) {
