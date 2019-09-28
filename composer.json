@@ -32,8 +32,8 @@
         "wpackagist-plugin/wordpress-importer": "~0.6",
         "trepmal/wp-revisions-cli": "dev-master",
 
-        "predis/predis": "~1.0",
-        "wp-cli/wp-cli": "^1.0"
+        "predis/predis": "~1",
+        "wp-cli/wp-cli": "^2"
     },
     "suggest": {
         "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
