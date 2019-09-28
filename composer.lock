@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbcd49ba52bd34af1c9a603bbf57bef0",
+    "content-hash": "a66a09b2cecde72d986a000d3e63637a",
     "packages": [
         {
             "name": "automattic/batcache",
