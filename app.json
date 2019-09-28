@@ -89,5 +89,5 @@
       "plan": "newrelic:wayne"
     }
   ],
-  "stack": "heroku-16"
+  "stack": "heroku-18"
 }
