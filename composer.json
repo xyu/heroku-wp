@@ -59,16 +59,15 @@
     ],
     "extra": {
         "installer-paths": {
-            "vendor/wordpress/wordpress/wp-content/mu-plugins/{$name}/": [
+            "vendor/wordpress/wordpress-ext/wp-content/mu-plugins/{$name}/": [
                 "automattic/batcache",
                 "wpackagist-plugin/redis-cache",
                 "wpackagist-plugin/secure-db-connection"
             ],
-            "vendor/wordpress/wordpress/wp-content/plugins/{$name}/": [
-                "humanmade/s3-uploads",
+            "vendor/wordpress/wordpress-ext/wp-content/plugins/{$name}/": [
                 "type:wordpress-plugin"
             ],
-            "vendor/wordpress/wordpress/wp-content/themes/{$name}/": [
+            "vendor/wordpress/wordpress-ext/wp-content/themes/{$name}/": [
                 "type:wordpress-theme"
             ]
         }
