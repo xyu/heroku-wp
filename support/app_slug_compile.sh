@@ -6,6 +6,7 @@ mkdir -p tmp/public.building
 
 # Recursively copy files build final web dir
 cp -R vendor/wordpress/wordpress/* tmp/public.building
+cp -R vendor/wordpress/wordpress-ext/* tmp/public.building
 cp -R public/* tmp/public.building
 
 # Move built web dir into place
