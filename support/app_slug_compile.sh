@@ -2,11 +2,12 @@
 
 # Cleanup dirs
 rm -rf tmp/public.building tmp/public.old
-mkdir -p tmp/public.building
+
+# Create base from composer installer
+mv vendor/wordpress/wordpress tmp/public.building
 
 # Recursively copy files build final web dir
-cp -Rv vendor/wordpress/wordpress/* tmp/public.building
-cp -Rv public/* tmp/public.building
+cp -R public/* tmp/public.building
 
 # Move built web dir into place
 mkdir -p public.built
