@@ -29,9 +29,9 @@ apt-get update -y
 # Install PHP
 #
 
-apt-get install -y php7.0
-apt-get install -y php7.0-gd
-apt-get install -y php7.0-mysql
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt update -y
+sudo apt-get install -y php7.3-fpm php7.3-cli php7.3-mysql php7.3-gd php7.3-imagick php7.3-recode php7.3-tidy php7.3-xmlrpc
 
 #
 # Install MySQL
@@ -99,7 +99,7 @@ sudo -H -u vagrant composer --working-dir=/app install
 # Restart Services
 #
 
-/etc/init.d/php7.0-fpm restart
+/etc/init.d/php7.3-fpm restart
 /etc/init.d/nginx restart
 
 #
