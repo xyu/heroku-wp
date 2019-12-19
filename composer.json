@@ -1,13 +1,13 @@
 {
-    "name": "xyu/heroku-wp",
+    "name": "sakram212/wpku-heroku",
     "description": "A template for installing and running WordPress on Heroku",
-    "homepage": "https://github.com/xyu/heroku-wp",
+    "homepage": "https://github.com/sakram212/wpku-heroku",
     "license": "MIT",
     "authors": [
         {
             "name": "Xiao Yu",
             "email": "me@xyu.io",
-            "homepage": "http://xyu.io",
+            "homepage": "https://soalterbaru.com/",
             "role": "Developer"
         }
     ],
@@ -37,10 +37,10 @@
             "type": "package",
             "package": {
                 "name": "wordpress/wordpress",
-                "version": "5.2.3",
+                "version": "5.3.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/wordpress/wordpress/archive/5.2.3.zip"
+                    "url": "https://github.com/wordpress/wordpress/archive/5.3.2.zip"
                 }
             }
         },
