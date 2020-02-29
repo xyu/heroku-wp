@@ -59,6 +59,9 @@
     ],
     "extra": {
         "installer-paths": {
+            "vendor/wordpress/wordpress/": [
+                "wordpress/wordpress"
+            ],
             "vendor/wordpress/wordpress-ext/wp-content/mu-plugins/{$name}/": [
                 "automattic/batcache",
                 "wpackagist-plugin/redis-cache",
